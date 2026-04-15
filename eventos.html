@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos - Casa do Caminho</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/design-tokens.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Public+Sans:wght@400;500;600&display=swap">
+</head>
+<body>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       NAVEGAÇÃO
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="material-symbols-rounded">church</span>
+        <span>Casa do Caminho</span>
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menu de navegação">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+      
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Início</a></li>
+        <li><a href="espiritual.html" class="nav-link">Espiritual</a></li>
+        <li><a href="projetos.html" class="nav-link">Social</a></li>
+        <li><a href="eventos.html" class="nav-link active">Eventos</a></li>
+        <li><a href="contato.html" class="nav-link">Contato</a></li>
+        <li><a href="institucional.html" class="nav-link">Institucional</a></li>
+        
+      </ul>
+      
+      <a href="doar-agora.html" class="btn btn-primary">
+        <span class="material-symbols-rounded">favorite</span>
+        Doar Agora
+      </a>
+    </div>
+  </nav>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       HERO - Eventos
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <span class="pilar-badge fade-in">Agenda</span>
+        <h1 class="hero-title fade-in delay-1">
+          <span class="text-highlight text-highlight-secondary1">Eventos e Atividades</span>
+        </h1>
+        <p class="hero-description fade-in delay-2">
+          Participe dos nossos eventos espirituais, atividades sociais e ações 
+          de arrecadação de fundos. Toda a comunidade é bem-vinda!
+        </p>
+        <div class="hero-actions fade-in delay-3">
+          <a href="#proximos" class="btn btn-primary btn-lg smooth-scroll">
+            <span class="material-symbols-rounded">event</span>
+            Ver Próximos Eventos
+          </a>
+          <a href="#calendario" class="btn btn-outline-white btn-lg smooth-scroll">
+            <span class="material-symbols-rounded">calendar_month</span>
+            Calendário Mensal
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="material-symbols-rounded">event</span>
+          <div>
+            <div class="hero-stat-number counter" data-target="15">0</div>
+            <div class="hero-stat-label">Eventos/mês</div>
+          </div>
+        </div>
+        <div class="hero-stat">
+          <span class="material-symbols-rounded">groups</span>
+          <div>
+            <div class="hero-stat-number counter" data-target="500">0</div>
+            <div class="hero-stat-label">Participantes</div>
+          </div>
+        </div>
+        <div class="hero-stat">
+          <span class="material-symbols-rounded">favorite</span>
+          <div>
+            <div class="hero-stat-number counter" data-target="12">0</div>
+            <div class="hero-stat-label">Anos de tradição</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       FILTROS DE CATEGORIA
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="events-filter-section">
+    <div class="container">
+      <div class="events-filter-tabs">
+        <button class="filter-tab active" data-filter="todos">
+          <span class="material-symbols-rounded">apps</span>
+          Todos os Eventos
+        </button>
+        <button class="filter-tab" data-filter="espiritual">
+          <span class="material-symbols-rounded">auto_stories</span>
+          Espiritual
+        </button>
+        <button class="filter-tab" data-filter="social">
+          <span class="material-symbols-rounded">volunteer_activism</span>
+          Social
+        </button>
+        <button class="filter-tab" data-filter="arrecadacao">
+          <span class="material-symbols-rounded">shopping_bag</span>
+          Arrecadação
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       PRÓXIMOS EVENTOS EM DESTAQUE
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="section" id="proximos">
+    <div class="container">
+      <div class="section-header-center fade-on-scroll">
+        <h2 class="section-title">Próximos Eventos em Destaque</h2>
+        <p class="section-subtitle">Não perca essas atividades especiais</p>
+      </div>
+
+      <div class="events-featured-grid">
+        <!-- Evento Destaque 1 -->
+        <div class="event-featured-card fade-on-scroll" data-category="arrecadacao">
+          <div class="event-featured-image">
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&h=500&fit=crop" alt="Venda de Pães" loading="lazy">
+            <div class="event-category-badge badge-tertiary">
+              <span class="material-symbols-rounded">bakery_dining</span>
+              Arrecadação
+            </div>
+          </div>
+          <div class="event-featured-content">
+            <div class="event-featured-date">
+              <span class="material-symbols-rounded">calendar_month</span>
+              <span>1ª semana de Abril</span>
+            </div>
+            <h3 class="event-featured-title">Venda de Pães Artesanais</h3>
+            <p class="event-featured-description">
+              Pães caseiros deliciosos feitos por voluntários. Toda renda revertida 
+              para os projetos sociais. Variedades: francês, integral, doce.
+            </p>
+            <div class="event-featured-meta">
+              <span>
+                <span class="material-symbols-rounded">schedule</span>
+                Sábado, 8h às 12h
+              </span>
+              <span>
+                <span class="material-symbols-rounded">location_on</span>
+                Sede da Casa do Caminho
+              </span>
+            </div>
+            <div class="event-featured-price">
+              <strong>A partir de R$ 5,00</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Evento Destaque 2 -->
+        <div class="event-featured-card fade-on-scroll" data-category="espiritual">
+          <div class="event-featured-image">
+            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&h=500&fit=crop" alt="Retiro Espiritual" loading="lazy">
+            <div class="event-category-badge badge-primary">
+              <span class="material-symbols-rounded">self_improvement</span>
+              Espiritual
+            </div>
+          </div>
+          <div class="event-featured-content">
+            <div class="event-featured-date">
+              <span class="material-symbols-rounded">calendar_month</span>
+              <span>20-22 de Abril</span>
+            </div>
+            <h3 class="event-featured-title">Retiro Espiritual de Páscoa</h3>
+            <p class="event-featured-description">
+              Fim de semana dedicado à meditação, silêncio e renovação espiritual 
+              em sítio no interior. Inclui alimentação e hospedagem.
+            </p>
+            <div class="event-featured-meta">
+              <span>
+                <span class="material-symbols-rounded">schedule</span>
+                Sex 18h - Dom 16h
+              </span>
+              <span>
+                <span class="material-symbols-rounded">location_on</span>
+                Sítio Paz Interior
+              </span>
+            </div>
+            <div class="event-featured-price">
+              <strong>Inscrições até 10/04</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       CALENDÁRIO MENSAL
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="section-alt" id="calendario">
+    <div class="container">
+      <div class="section-header-center fade-on-scroll">
+        <h2 class="section-title">Calendário de Março 2024</h2>
+        <p class="section-subtitle">Todos os eventos do mês</p>
+      </div>
+
+      <div class="events-calendar-grid">
+        
+        <!-- Evento 1 -->
+        <div class="event-calendar-card fade-on-scroll" data-category="social">
+          <div class="event-calendar-date">
+            <div class="event-calendar-day">01</div>
+            <div class="event-calendar-month">Mar</div>
+            <div class="event-calendar-weekday">Sexta</div>
+          </div>
+          <div class="event-calendar-content">
+            <div class="event-calendar-badge badge-secondary">Social</div>
+            <h4 class="event-calendar-title">Pão Fraterno</h4>
+            <p class="event-calendar-desc">Distribuição de sopa nas ruas</p>
+            <div class="event-calendar-time">
+              <span class="material-symbols-rounded">schedule</span>
+              19h00
+            </div>
+          </div>
+        </div>
+
+        <!-- Evento 2 -->
+        <div class="event-calendar-card fade-on-scroll" data-category="arrecadacao">
+          <div class="event-calendar-date">
+            <div class="event-calendar-day">02</div>
+            <div class="event-calendar-month">Mar</div>
+            <div class="event-calendar-weekday">Sábado</div>
+          </div>
+          <div class="event-calendar-content">
+            <div class="event-calendar-badge badge-tertiary">Arrecadação</div>
+            <h4 class="event-calendar-title">Venda de Pães</h4>
+            <p class="event-calendar-desc">Pães artesanais caseiros</p>
+            <div class="event-calendar-time">
+              <span class="material-symbols-rounded">schedule</span>
+              8h - 12h
+            </div>
+          </div>
+        </div>
+
+        <!-- Evento 3 -->
+        <div class="event-calendar-card fade-on-scroll" data-category="social">
+          <div class="event-calendar-date">
+            <div class="event-calendar-day">02</div>
+            <div class="event-calendar-month">Mar</div>
+            <div class="event-calendar-weekday">Sábado</div>
+          </div>
+          <div class="event-calendar-content">
+            <div class="event-calendar-badge badge-secondary">Social</div>
+            <h4 class="event-calendar-title">Sopa Solidária</h4>
+            <p class="event-calendar-desc">Distribuição de refeições</p>
+            <div class="event-calendar-time">
+              <span class="material-symbols-rounded">schedule</span>
+              11h - 13h
+            </div>
+          </div>
+        </div>
+
+        <!-- Evento 4 -->
+        <div class="event-calendar-card fade-on-scroll" data-category="espiritual">
+          <div class="event-calendar-date">
+            <div class="event-calendar-day">05</div>
+            <div class="event-calendar-month">Mar</div>
+            <div class="event-calendar-weekday">Terça</div>
+          </div>
+          <div class="event-calendar-content">
+            <div class="event-calendar-badge badge-primary">Espiritual</div>
+            <h4 class="event-calendar-title">Estudo Bíblico</h4>
+            <p class="event-calendar-desc">Reflexão sobre textos sagrados</p>
+            <div class="event-calendar-time">
+              <span class="material-symbols-rounded">schedule</span>
+              19h30
+            </div>
+          </div>
+        </div>
+
+        <!-- Evento 5 -->
+        <div class="event-calendar-card fade-on-scroll" data-category="espiritual">
+          <div class="event-calendar-date">
+            <div class="event-calendar-day">06</div>
+            <div class="event-calendar-month">Mar</div>
+            <div class="event-calendar-weekday">Quarta</div>
+          </div>
+          <div class="event-calendar-content">
+            <div class="event-calendar-badge badge-primary">Espiritual</div>
+            <h4 class="event-calendar-title">Meditação Guiada</h4>
+            <p class="event-calendar-desc">Práticas de mindfulness</p>
+            <div class="event-calendar-time">
+              <span class="material-symbols-rounded">schedule</span>
+              20h00
+            </div>
+          </div>
+        </div>
+
+        <!-- Evento 6 -->
+        <div class="event-calendar-card fade-on-scroll" data-category="social">
+          <div class="event-calendar-date">
+            <div class="event-calendar-day">08</div>
+            <div class="event-calendar-month">Mar</div>
+            <div class="event-calendar-weekday">Sexta</div>
+          </div>
+          <div class="event-calendar-content">
+            <div class="event-calendar-badge badge-secondary">Social</div>
+            <h4 class="event-calendar-title">Pão Fraterno</h4>
+            <p class="event-calendar-desc">Distribuição de sopa nas ruas</p>
+            <div class="event-calendar-time">
+              <span class="material-symbols-rounded">schedule</span>
+              19h00
+            </div>
+          </div>
+        </div>
+
+        <!-- Evento 7 -->
+        <div class="event-calendar-card fade-on-scroll" data-category="social">
+          <div class="event-calendar-date">
+            <div class="event-calendar-day">09</div>
+            <div class="event-calendar-month">Mar</div>
+            <div class="event-calendar-weekday">Sábado</div>
+          </div>
+          <div class="event-calendar-content">
+            <div class="event-calendar-badge badge-secondary">Social</div>
+            <h4 class="event-calendar-title">Sopa Solidária</h4>
+            <p class="event-calendar-desc">Distribuição de refeições</p>
+            <div class="event-calendar-time">
+              <span class="material-symbols-rounded">schedule</span>
+              11h - 13h
+            </div>
+          </div>
+        </div>
+
+        <!-- Evento 8 - PASTEL (Ocasional) -->
+        <div class="event-calendar-card event-special fade-on-scroll" data-category="arrecadacao">
+          <div class="event-calendar-date">
+            <div class="event-calendar-day">16</div>
+            <div class="event-calendar-month">Mar</div>
+            <div class="event-calendar-weekday">Sábado</div>
+          </div>
+          <div class="event-calendar-content">
+            <div class="event-calendar-badge badge-tertiary">Arrecadação</div>
+            <h4 class="event-calendar-title">🥟 Venda de Pastel</h4>
+            <p class="event-calendar-desc">Pastéis deliciosos de vários sabores!</p>
+            <div class="event-calendar-time">
+              <span class="material-symbols-rounded">schedule</span>
+              10h - 14h
+            </div>
+            <span class="event-special-tag">Evento Especial</span>
+          </div>
+        </div>
+
+        <!-- Evento 9 -->
+        <div class="event-calendar-card fade-on-scroll" data-category="espiritual">
+          <div class="event-calendar-date">
+            <div class="event-calendar-day">17</div>
+            <div class="event-calendar-month">Mar</div>
+            <div class="event-calendar-weekday">Domingo</div>
+          </div>
+          <div class="event-calendar-content">
+            <div class="event-calendar-badge badge-primary">Espiritual</div>
+            <h4 class="event-calendar-title">Liturgia Comunitária</h4>
+            <p class="event-calendar-desc">Celebração dominical</p>
+            <div class="event-calendar-time">
+              <span class="material-symbols-rounded">schedule</span>
+              10h00
+            </div>
+          </div>
+        </div>
+
+        <!-- Evento 10 -->
+        <div class="event-calendar-card fade-on-scroll" data-category="arrecadacao">
+          <div class="event-calendar-date">
+            <div class="event-calendar-day">30</div>
+            <div class="event-calendar-month">Mar</div>
+            <div class="event-calendar-weekday">Sábado</div>
+          </div>
+          <div class="event-calendar-content">
+            <div class="event-calendar-badge badge-tertiary">Arrecadação</div>
+            <h4 class="event-calendar-title">Bazar Beneficente</h4>
+            <p class="event-calendar-desc">Roupas, calçados e utilidades</p>
+            <div class="event-calendar-time">
+              <span class="material-symbols-rounded">schedule</span>
+              9h - 14h
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       CTA - RECEBER AVISOS
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="cta-centered-section">
+    <div class="container">
+      <div class="cta-centered-content fade-on-scroll">
+        <span class="pilar-badge">Fique por Dentro</span>
+        <h2 class="section-title">Receba avisos dos próximos eventos</h2>
+        <p class="cta-centered-description">
+          Cadastre seu e-mail e receba notificações sobre novos eventos, 
+          vendas especiais e atividades da Casa do Caminho.
+        </p>
+
+        <form class="newsletter-form">
+          <input 
+            type="email" 
+            class="newsletter-input" 
+            placeholder="Seu melhor e-mail"
+            required
+          >
+          <button type="submit" class="btn btn-primary btn-lg">
+            <span class="material-symbols-rounded">notifications</span>
+            Quero Receber Avisos
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 
+       FOOTER (Rodapé)
+        -->
+  
+  <footer class="footer">
+    
+    <div class="footer-container">
+      
+      
+      <!-- 
+           COLUNA 1: Logo + Slogan (2fr = 2 frações)
+            -->
+      
+      <div class="footer-column">
+        <!-- Logo do footer -->
+        <div class="footer-logo">
+          <span class="material-symbols-rounded">church</span>
+          <span>Casa do Caminho</span>
+        </div>
+        
+        <!-- Slogan/Tagline -->
+        <p class="footer-tagline">
+          Um santuário para todos, independente do caminho.
+        </p>
+      </div>
+      
+      
+      <!-- 
+           COLUNA 2: Links Rápidos (1fr = 1 fração)
+            -->
+      
+      <div class="footer-column">
+        <h3 class="footer-title">Links Rápidos</h3>
+        <!-- h3 = Título da coluna -->
+        
+        <ul class="footer-links">
+          <li><a href="espiritual.html">Pilar Espiritual</a></li>
+          <li><a href="projetos.html">Ação Social</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      
+      
+      <!-- 
+           COLUNA 3: Informações de Contato (1fr)
+            -->
+      
+      <div class="footer-column">
+        <h3 class="footer-title">Contato</h3>
+        
+        <ul class="footer-contact">
+          <!-- Lista de contatos com ícones -->
+          
+          <!-- Endereço -->
+          <li>
+            <span class="material-symbols-rounded">location_on</span>
+            <!-- Ícone de pin/localização -->
+            Rua Costa do Sol, 450 - Vila Costa do Sol, São Carlos - SP
+          </li>
+          
+          <!-- Telefone -->
+          <li>
+            <span class="material-symbols-rounded">phone</span>
+            (16) 3361-9822
+          </li>
+          
+          <!-- Email -->
+          <li>
+            <span class="material-symbols-rounded">mail</span>
+            casadocaminhosc@gmail.com
+          </li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    
+    
+    <!-- 
+         BARRA INFERIOR: Copyright + Links Legais
+          -->
+    
+    <div class="footer-bottom">
+      <!-- Flexbox: copyright à esquerda, links à direita -->
+      
+      <p>&copy; 2026 Casa do Caminho. Todos os direitos reservados.</p>
+      
+      <div class="footer-legal">
+        <!-- Links legais (lado a lado) -->
+        <a href="institucional.html">Política de Privacidade</a>
+        <a href="institucional.html">Termos de Serviço</a>
+      </div>
+    </div>
+    
+  </footer>
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       JAVASCRIPT
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <script>
+    // SMOOTH SCROLL
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // FILTROS DE CATEGORIA
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const eventCards = document.querySelectorAll('[data-category]');
+
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        // Remove active de todos
+        filterTabs.forEach(t => t.classList.remove('active'));
+        // Adiciona active no clicado
+        this.classList.add('active');
+        
+        const filter = this.getAttribute('data-filter');
+        
+        // Filtra eventos
+        eventCards.forEach(card => {
+          if (filter === 'todos' || card.getAttribute('data-category') === filter) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // NEWSLETTER FORM
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('✅ E-mail cadastrado com sucesso!\n\nVocê receberá avisos sobre novos eventos.');
+        this.reset();
+      });
+    }
+
+    // CONTADOR ANIMADO
+    function animateCounter(element) {
+      const target = parseInt(element.getAttribute('data-target'));
+      const duration = 2000;
+      const increment = target / (duration / 16);
+      let current = 0;
+
+      const updateCounter = () => {
+        current += increment;
+        if (current < target) {
+          element.textContent = Math.floor(current).toLocaleString('pt-BR');
+          requestAnimationFrame(updateCounter);
+        } else {
+          element.textContent = target.toLocaleString('pt-BR') + '+';
+        }
+      };
+
+      updateCounter();
+    }
+
+    // INTERSECTION OBSERVER
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          
+          if (entry.target.classList.contains('counter')) {
+            animateCounter(entry.target);
+          }
+          
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    document.querySelectorAll('.counter').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     MENU HAMBURGER MOBILE
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  // Selecionar elementos
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  const body = document.body;
+  
+  // Criar overlay se não existir
+  let overlay = document.querySelector('.nav-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.className = 'nav-overlay';
+    body.appendChild(overlay);
+  }
+  
+  // Abrir/fechar menu
+  if (menuToggle) {
+    menuToggle.addEventListener('click', function() {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      overlay.classList.toggle('active');
+      body.classList.toggle('menu-open');
+    });
+  }
+  
+  // Fechar ao clicar no overlay
+  overlay.addEventListener('click', function() {
+    menuToggle.classList.remove('active');
+    navLinks.classList.remove('active');
+    overlay.classList.remove('active');
+    body.classList.remove('menu-open');
+  });
+  
+  // Fechar ao clicar em um link
+  const links = navLinks.querySelectorAll('a');
+  links.forEach(link => {
+    link.addEventListener('click', function() {
+      menuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+      overlay.classList.remove('active');
+      body.classList.remove('menu-open');
+    });
+  });
+  
+});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+/* 
+   RESET CSS - Remove estilos padrão do navegador
+   
+   POR QUÊ FAZER ISSO?
+   Cada navegador (Chrome, Firefox, Safari) tem seus próprios
+   estilos padrão. Este arquivo ZERA tudo para começarmos do zero!
+    */
+
+/* Seleciona TODOS os elementos da página */
+* {
+  margin: 0;              /* Remove todas as margens */
+  padding: 0;             /* Remove todos os espaçamentos internos */
+  box-sizing: border-box; /* Faz largura/altura incluir borda e padding */
+}
+
+/* Tag HTML */
+html {
+  font-size: 16px;        /* Define tamanho base da fonte (1rem = 16px) */
+  scroll-behavior: smooth; /* Rolagem suave ao clicar em links âncora */
+}
+
+/* Tag BODY (corpo da página) */
+body {
+  min-height: 100vh;      /* Altura mínima = altura da tela (100vh = 100% viewport height) */
+  line-height: 1.6;       /* Espaçamento entre linhas de texto */
+  
+  /* Deixa as fontes mais suaves/bonitas */
+  -webkit-font-smoothing: antialiased;     /* Para navegadores WebKit (Chrome, Safari) */
+  -moz-osx-font-smoothing: grayscale;      /* Para Firefox no Mac */
+}
+
+/* Imagens, vídeos, canvas, SVG */
+img, picture, video, canvas, svg {
+  display: block;         /* Remove espaço extra embaixo das imagens */
+  max-width: 100%;        /* Nunca ultrapassar largura do container */
+}
+
+/* Elementos de formulário (input, botão, textarea, select) */
+input, button, textarea, select {
+  font: inherit;          /* Herda a fonte do elemento pai */
+}
+
+/* Botões */
+button {
+  cursor: pointer;        /* Cursor vira mãozinha ao passar por cima, e eu acho bonitinho*/
+  border: none;           /* Remove borda padrão */
+  background: none;       /* Remove fundo padrão */
+}
+
+/* Links (a = anchor) */
+a {
+  text-decoration: none;  /* Remove sublinhado */
+  color: inherit;         /* Herda cor do elemento pai */
+}
+
+/* Listas (ul = unordered list, ol = ordered list) */
+ul, ol {
+  list-style: none;       /* Remove bolinhas/números das listas */
+}
+
+/* Títulos (h1, h2, h3, h4, h5, h6) */
+h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word; /* Quebra palavras longas para não ultrapassar */
+  line-height: 1.2;          /* Espaçamento menor entre linhas em títulos */
+}

@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto Enxoval - Casa do Caminho</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/design-tokens.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Public+Sans:wght@400;500;600&display=swap">
+</head>
+<body>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       NAVEGAÇÃO
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="material-symbols-rounded">church</span>
+        <span>Casa do Caminho</span>
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menu de navegação">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+      
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Início</a></li>
+        <li><a href="espiritual.html" class="nav-link">Espiritual</a></li>
+        <li><a href="projetos.html" class="nav-link active">Social</a></li>
+        <li><a href="eventos.html" class="nav-link">Eventos</a></li>
+        <li><a href="contato.html" class="nav-link">Contato</a></li>
+
+        <li><a href="institucional.html" class="nav-link">Institucional</a></li>
+
+      </ul>
+      
+      <a href="doar-agora.html" class="btn btn-primary">
+        <span class="material-symbols-rounded">favorite</span>
+        Doar Agora
+      </a>
+    </div>
+  </nav>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       HERO - Projeto Enxoval
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <span class="pilar-badge fade-in">Projeto Social</span>
+        <h1 class="hero-title fade-in delay-1">
+          <span class="text-highlight text-highlight-secondary">Projeto Enxoval</span>
+        </h1>
+        <p class="hero-description fade-in delay-2">
+          Acolhemos mães em situação de vulnerabilidade fornecendo kits completos 
+          com tudo que um bebê precisa nos primeiros meses de vida. Cada enxoval 
+          é preparado com carinho e entregue com dignidade e respeito.
+        </p>
+        <div class="hero-actions fade-in delay-3">
+          <a href="#como-ajudar" class="btn btn-secondary btn-lg smooth-scroll">
+            <span class="material-symbols-rounded">volunteer_activism</span>
+            Como Ajudar
+          </a>
+          <a href="#sobre" class="btn btn-outline-white btn-lg smooth-scroll">
+            <span class="material-symbols-rounded">expand_more</span>
+            Saiba Mais
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="material-symbols-rounded">child_care</span>
+          <div>
+            <div class="hero-stat-number counter" data-target="60">0</div>
+            <div class="hero-stat-label">Enxovais entregues/ano</div>
+          </div>
+        </div>
+        <div class="hero-stat">
+          <span class="material-symbols-rounded">family_restroom</span>
+          <div>
+            <div class="hero-stat-number counter" data-target="60">0</div>
+            <div class="hero-stat-label">Famílias beneficiadas</div>
+          </div>
+        </div>
+        <div class="hero-stat">
+          <span class="material-symbols-rounded">calendar_month</span>
+          <div>
+            <div class="hero-stat-number counter" data-target="4">0</div>
+            <div class="hero-stat-label">Anos de atuação</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SOBRE O PROJETO
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="pilar-section pilar-espiritual" id="sobre">
+    <div class="pilar-container">
+      <div class="pilar-content fade-on-scroll">
+        <span class="pilar-badge">Sobre o Projeto</span>
+        <h2 class="section-title">Acolhendo novas vidas</h2>
+        <p class="pilar-description">
+          O Projeto Enxoval nasceu em 2020 ao percebemos que muitas mães não tinham 
+          condições de comprar itens básicos para seus bebês. Montamos kits completos 
+          com roupas, fraldas, produtos de higiene e carinho, garantindo que cada bebê 
+          tenha um começo de vida digno e acolhedor.
+        </p>
+
+        <ul class="pilar-features">
+          <li class="pilar-feature fade-on-scroll">
+            <span class="material-symbols-rounded">inventory</span>
+            <div>
+              <strong>Kit completo</strong>
+              <p>Roupas, fraldas, produtos de higiene, mantas e mais</p>
+            </div>
+          </li>
+          <li class="pilar-feature fade-on-scroll">
+            <span class="material-symbols-rounded">favorite</span>
+            <div>
+              <strong>Preparado com carinho</strong>
+              <p>Cada item é selecionado, higienizado e embalado com amor</p>
+            </div>
+          </li>
+          <li class="pilar-feature fade-on-scroll">
+            <span class="material-symbols-rounded">psychology</span>
+            <div>
+              <strong>Apoio psicossocial</strong>
+              <p>Oferecemos também orientação e acompanhamento às mães</p>
+            </div>
+          </li>
+          <li class="pilar-feature fade-on-scroll">
+            <span class="material-symbols-rounded">diversity_3</span>
+            <div>
+              <strong>Atendimento humanizado</strong>
+              <p>Respeitamos a história e dignidade de cada família</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="pilar-image fade-on-scroll">
+        <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&h=800&fit=crop" alt="Bebê e mãe" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       O QUE TEM NO ENXOVAL
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="projects-section">
+    <div class="container">
+      <div class="projects-header fade-on-scroll">
+        <h2 class="section-title">Composição do enxoval</h2>
+        <p class="projects-description">
+          Cada kit contém itens essenciais para os primeiros 3 meses do bebê
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Categoria 1 -->
+        <div class="project-card fade-on-scroll">
+          <div class="project-content">
+            <span class="material-symbols-rounded" style="font-size: 48px; color: var(--secondary); margin-bottom: var(--spacing-4);">checkroom</span>
+            <h3 class="project-title">Roupas</h3>
+            <p class="project-description">
+              6 bodies, 4 macacões, 4 mijões, 4 culotes, 2 casaquinhos, 
+              6 pares de meias, 2 toucas
+            </p>
+            <div class="project-meta">
+              <span>
+                <span class="material-symbols-rounded">info</span>
+                Tamanhos RN, P e M
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categoria 2 -->
+        <div class="project-card fade-on-scroll">
+          <div class="project-content">
+            <span class="material-symbols-rounded" style="font-size: 48px; color: var(--secondary); margin-bottom: var(--spacing-4);">baby_changing_station</span>
+            <h3 class="project-title">Fraldas e Higiene</h3>
+            <p class="project-description">
+              2 pacotes de fraldas RN, 1 pacote P, lenços umedecidos, 
+              pomada para assaduras, sabonete neutro
+            </p>
+            <div class="project-meta">
+              <span>
+                <span class="material-symbols-rounded">spa</span>
+                Produtos hipoalergênicos
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categoria 3 -->
+        <div class="project-card fade-on-scroll">
+          <div class="project-content">
+            <span class="material-symbols-rounded" style="font-size: 48px; color: var(--secondary); margin-bottom: var(--spacing-4);">bed</span>
+            <h3 class="project-title">Enxoval de Cama</h3>
+            <p class="project-description">
+              2 mantas, 3 cueiros, 2 lençóis de berço, 1 cobertor, 
+              2 toalhas fralda, 1 toalha de banho
+            </p>
+            <div class="project-meta">
+              <span>
+                <span class="material-symbols-rounded">clean_hands</span>
+                Lavados e higienizados
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categoria 4 -->
+        <div class="project-card fade-on-scroll">
+          <div class="project-content">
+            <span class="material-symbols-rounded" style="font-size: 48px; color: var(--secondary); margin-bottom: var(--spacing-4);">child_care</span>
+            <h3 class="project-title">Acessórios</h3>
+            <p class="project-description">
+              Mamadeiras, chupetas, escova de cabelo, cortador de unha, 
+              termômetro, pente
+            </p>
+            <div class="project-meta">
+              <span>
+                <span class="material-symbols-rounded">new_releases</span>
+                Itens novos e lacrados
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categoria 5 -->
+        <div class="project-card fade-on-scroll">
+          <div class="project-content">
+            <span class="material-symbols-rounded" style="font-size: 48px; color: var(--secondary); margin-bottom: var(--spacing-4);">shopping_bag</span>
+            <h3 class="project-title">Bolsa Maternidade</h3>
+            <p class="project-description">
+              Bolsa ou mochila para carregar os itens do bebê, facilitando 
+              o dia a dia da mãe
+            </p>
+            <div class="project-meta">
+              <span>
+                <span class="material-symbols-rounded">backpack</span>
+                Prática e funcional
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categoria 6 -->
+        <div class="project-card fade-on-scroll">
+          <div class="project-content">
+            <span class="material-symbols-rounded" style="font-size: 48px; color: var(--secondary); margin-bottom: var(--spacing-4);">book</span>
+            <h3 class="project-title">Material Informativo</h3>
+            <p class="project-description">
+              Cartilha com orientações sobre cuidados com o bebê, 
+              amamentação e desenvolvimento infantil
+            </p>
+            <div class="project-meta">
+              <span>
+                <span class="material-symbols-rounded">school</span>
+                Educação e orientação
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       QUEM PODE RECEBER
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="pilar-section pilar-social pilar-reverse">
+    <div class="pilar-container">
+      <div class="pilar-image fade-on-scroll">
+        <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600&h=800&fit=crop" alt="Mãe e bebê" loading="lazy">
+      </div>
+
+      <div class="pilar-content fade-on-scroll">
+        <span class="pilar-badge">Critérios</span>
+        <h2 class="section-title">Quem pode receber o enxoval</h2>
+        <p class="pilar-description">
+          Priorizamos mães em situação de vulnerabilidade social que não têm 
+          condições de adquirir os itens necessários para o bebê.
+        </p>
+
+        <ul class="pilar-features">
+          <li class="pilar-feature fade-on-scroll">
+            <span class="material-symbols-rounded">pregnant_woman</span>
+            <div>
+              <strong>Gestantes ou mães de recém-nascidos</strong>
+              <p>Até 3 meses após o nascimento do bebê</p>
+            </div>
+          </li>
+          <li class="pilar-feature fade-on-scroll">
+            <span class="material-symbols-rounded">attach_money</span>
+            <div>
+              <strong>Renda familiar baixa</strong>
+              <p>Até 1 salário mínimo por pessoa da família</p>
+            </div>
+          </li>
+          <li class="pilar-feature fade-on-scroll">
+            <span class="material-symbols-rounded">assignment</span>
+            <div>
+              <strong>Cadastro e documentação</strong>
+              <p>Avaliação socioeconômica pela assistente social</p>
+            </div>
+          </li>
+          <li class="pilar-feature fade-on-scroll">
+            <span class="material-symbols-rounded">home</span>
+            <div>
+              <strong>Residir na região</strong>
+              <p>Prioridade para moradores da área de atuação</p>
+            </div>
+          </li>
+        </ul>
+
+        <a href="contato.html" class="btn btn-secondary btn-lg">
+          <span class="material-symbols-rounded">assignment</span>
+          Solicitar Enxoval
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       COMO FUNCIONA
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="projects-section">
+    <div class="container">
+      <div class="projects-header fade-on-scroll">
+        <h2 class="section-title">Como funciona o atendimento</h2>
+        <p class="projects-description">
+          Processo simples e humanizado para receber o enxoval
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Etapa 1 -->
+        <div class="project-card fade-on-scroll">
+          <div class="project-content">
+            <div class="step-number">1</div>
+            <h3 class="project-title">Solicitação</h3>
+            <p class="project-description">
+              Entre em contato ou venha até nossa sede para solicitar o enxoval. 
+              Atendemos gestantes a partir do 7º mês.
+            </p>
+            <div class="project-meta">
+              <span>
+                <span class="material-symbols-rounded">call</span>
+                Por telefone ou presencial
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Etapa 2 -->
+        <div class="project-card fade-on-scroll">
+          <div class="project-content">
+            <div class="step-number">2</div>
+            <h3 class="project-title">Avaliação</h3>
+            <p class="project-description">
+              Nossa assistente social fará uma entrevista e análise da 
+              documentação para verificar a situação.
+            </p>
+            <div class="project-meta">
+              <span>
+                <span class="material-symbols-rounded">verified</span>
+                Análise em 5 dias úteis
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Etapa 3 -->
+        <div class="project-card fade-on-scroll">
+          <div class="project-content">
+            <div class="step-number">3</div>
+            <h3 class="project-title">Preparação do Kit</h3>
+            <p class="project-description">
+              Após aprovação, preparamos o enxoval personalizado conforme 
+              as necessidades específicas da família.
+            </p>
+            <div class="project-meta">
+              <span>
+                <span class="material-symbols-rounded">inventory_2</span>
+                Kit personalizado
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Etapa 4 -->
+        <div class="project-card fade-on-scroll">
+          <div class="project-content">
+            <div class="step-number">4</div>
+            <h3 class="project-title">Entrega</h3>
+            <p class="project-description">
+              Agendamos a retirada ou entregamos em casa. Também oferecemos 
+              orientações sobre cuidados com o bebê.
+            </p>
+            <div class="project-meta">
+              <span>
+                <span class="material-symbols-rounded">local_shipping</span>
+                Entrega ou retirada
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       DEPOIMENTOS
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="pilar-section pilar-espiritual">
+    <div class="pilar-container">
+      <div class="pilar-content fade-on-scroll">
+        <span class="pilar-badge">Depoimentos</span>
+        <h2 class="section-title">Histórias de gratidão</h2>
+        
+        <div class="testimonials-vertical">
+          <div class="testimonial-card fade-on-scroll">
+            <p class="testimonial-text">
+              "Estava desesperada sem saber como ia comprar as coisas pro meu bebê. 
+              O enxoval foi uma bênção! Veio tudo certinho, limpinho, com muito carinho. 
+              Chorei de emoção quando recebi."
+            </p>
+            <div class="testimonial-author">
+              <strong>Amanda Silva</strong>
+              <span>Mãe do Miguel</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card fade-on-scroll">
+            <p class="testimonial-text">
+              "Além do enxoval, recebi orientação e apoio. A assistente social me 
+              ajudou muito, me ensinou coisas que eu não sabia sobre cuidar do bebê."
+            </p>
+            <div class="testimonial-author">
+              <strong>Juliana Santos</strong>
+              <span>Mãe de primeira viagem</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card fade-on-scroll">
+            <p class="testimonial-text">
+              "Como voluntária, me emociono toda vez que entregamos um enxoval. 
+              Ver a alegria e alívio nos olhos das mães não tem preço."
+            </p>
+            <div class="testimonial-author">
+              <strong>Carla Mendes</strong>
+              <span>Voluntária</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pilar-image fade-on-scroll">
+        <img src="https://t3.ftcdn.net/jpg/04/41/15/12/240_F_441151297_Lj3n62j9QWtbD9AgvuaLjwjMPsgofXI6.jpg" alt="Bebê feliz" loading="lazy">
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       COMO AJUDAR
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="projects-section" id="como-ajudar">
+    <div class="container">
+      <div class="projects-header fade-on-scroll">
+        <h2 class="section-title">Como você pode ajudar</h2>
+        <p class="projects-description">
+          O Projeto Enxoval depende 100% de doações para funcionar
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Ajuda 1 -->
+        <div class="project-card card-hover fade-on-scroll">
+          <div class="project-content">
+            <span class="material-symbols-rounded" style="font-size: 48px; color: var(--tertiary); margin-bottom: var(--spacing-4);">payments</span>
+            <h3 class="project-title">Apadrinhe um Enxoval</h3>
+            <p class="project-description">
+              Com R$ 150 você garante um kit completo para um bebê. Ou faça 
+              doações mensais de qualquer valor.
+            </p>
+            <div class="project-meta">
+              <span>
+                <span class="material-symbols-rounded">info</span>
+                R$ 150 = 1 enxoval completo
+              </span>
+            </div>
+            <a href="doar-agora.html" class="btn btn-tertiary btn-full">
+              <span class="material-symbols-rounded">favorite</span>
+              Apadrinhar
+            </a>
+          </div>
+        </div>
+
+        <!-- Ajuda 2 -->
+        <div class="project-card card-hover fade-on-scroll">
+          <div class="project-content">
+            <span class="material-symbols-rounded" style="font-size: 48px; color: var(--secondary); margin-bottom: var(--spacing-4);">checkroom</span>
+            <h3 class="project-title">Doe Roupas e Itens</h3>
+            <p class="project-description">
+              Roupinhas de bebê novas ou seminovas, mantas, toalhas, produtos 
+              de higiene. Tudo é bem-vindo!
+            </p>
+            <div class="project-meta">
+              <span>
+                <span class="material-symbols-rounded">clean_hands</span>
+                Preferencialmente lavadas
+              </span>
+            </div>
+            <a href="contato.html" class="btn btn-secondary btn-full">
+              <span class="material-symbols-rounded">inventory_2</span>
+              Combinar Doação
+            </a>
+          </div>
+        </div>
+
+        <!-- Ajuda 3 -->
+        <div class="project-card card-hover fade-on-scroll">
+          <div class="project-content">
+            <span class="material-symbols-rounded" style="font-size: 48px; color: var(--secondary); margin-bottom: var(--spacing-4);">volunteer_activism</span>
+            <h3 class="project-title">Seja Voluntário</h3>
+            <p class="project-description">
+              Ajude a organizar, lavar, separar e embalar os kits. Ou ofereça 
+              orientação às mães (enfermeiras, psicólogas).
+            </p>
+            <div class="project-meta">
+              <span>
+                <span class="material-symbols-rounded">schedule</span>
+                Horários flexíveis
+              </span>
+            </div>
+            <a href="ser-voluntario.html" class="btn btn-secondary btn-full">
+              <span class="material-symbols-rounded">volunteer_activism</span>
+              Quero Ajudar
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       CTA FINAL
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="cta-centered-section">
+    <div class="container">
+      <div class="cta-centered-content fade-on-scroll">
+        <span class="pilar-badge">Faça Parte</span>
+        <h2 class="section-title">Ajude a dar boas-vindas a novas vidas</h2>
+        <p class="cta-centered-description">
+          Todo bebê merece ser recebido com dignidade e carinho. Sua contribuição 
+          garante que mães em situação de vulnerabilidade tenham tudo que precisam.
+        </p>
+
+        <div class="cta-centered-actions">
+          <a href="doar-agora.html" class="btn btn-tertiary btn-lg">
+            <span class="material-symbols-rounded">favorite</span>
+            Apadrinhar Enxoval (R$ 150)
+          </a>
+          <a href="contato.html" class="btn btn-secondary btn-lg">
+            <span class="material-symbols-rounded">inventory_2</span>
+            Doar Itens
+          </a>
+          <a href="projetos.html" class="btn btn-outline btn-lg">
+            <span class="material-symbols-rounded">arrow_back</span>
+            Ver Outros Projetos
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <!-- 
+       FOOTER (Rodapé)
+        -->
+  
+  <footer class="footer">
+    
+    <div class="footer-container">
+      
+      
+      <!-- 
+           COLUNA 1: Logo + Slogan (2fr = 2 frações)
+            -->
+      
+      <div class="footer-column">
+        <!-- Logo do footer -->
+        <div class="footer-logo">
+          <span class="material-symbols-rounded">church</span>
+          <span>Casa do Caminho</span>
+        </div>
+        
+        <!-- Slogan/Tagline -->
+        <p class="footer-tagline">
+          Um santuário para todos, independente do caminho.
+        </p>
+      </div>
+      
+      
+      <!-- 
+           COLUNA 2: Links Rápidos (1fr = 1 fração)
+            -->
+      
+      <div class="footer-column">
+        <h3 class="footer-title">Links Rápidos</h3>
+        <!-- h3 = Título da coluna -->
+        
+        <ul class="footer-links">
+          <li><a href="espiritual.html">Pilar Espiritual</a></li>
+          <li><a href="projetos.html">Ação Social</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      
+      
+      <!-- 
+           COLUNA 3: Informações de Contato (1fr)
+            -->
+      
+      <div class="footer-column">
+        <h3 class="footer-title">Contato</h3>
+        
+        <ul class="footer-contact">
+          <!-- Lista de contatos com ícones -->
+          
+          <!-- Endereço -->
+          <li>
+            <span class="material-symbols-rounded">location_on</span>
+            <!-- Ícone de pin/localização -->
+            Rua Costa do Sol, 450 - Vila Costa do Sol, São Carlos - SP
+          </li>
+          
+          <!-- Telefone -->
+          <li>
+            <span class="material-symbols-rounded">phone</span>
+            (16) 3361-9822
+          </li>
+          
+          <!-- Email -->
+          <li>
+            <span class="material-symbols-rounded">mail</span>
+            casadocaminhosc@gmail.com
+          </li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    
+    
+    <!-- 
+         BARRA INFERIOR: Copyright + Links Legais
+          -->
+    
+    <div class="footer-bottom">
+      <!-- Flexbox: copyright à esquerda, links à direita -->
+      
+      <p>&copy; 2026 Casa do Caminho. Todos os direitos reservados.</p>
+      
+      <div class="footer-legal">
+        <!-- Links legais (lado a lado) -->
+        <a href="institucional.html">Política de Privacidade</a>
+        <a href="institucional.html">Termos de Serviço</a>
+      </div>
+    </div>
+    
+  </footer>
+
+ <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       JAVASCRIPT VANILLA
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <script>
+    // ═══════════════════════════════════════════
+    // SMOOTH SCROLL
+    // ═══════════════════════════════════════════
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // ═══════════════════════════════════════════
+    // CONTADOR ANIMADO
+    // ═══════════════════════════════════════════
+    function animateCounter(element) {
+      const target = parseInt(element.getAttribute('data-target'));
+      const duration = 2000;
+      const increment = target / (duration / 16);
+      let current = 0;
+
+      const updateCounter = () => {
+        current += increment;
+        if (current < target) {
+          element.textContent = Math.floor(current).toLocaleString('pt-BR');
+          requestAnimationFrame(updateCounter);
+        } else {
+          element.textContent = target.toLocaleString('pt-BR') + '+';
+        }
+      };
+
+      updateCounter();
+    }
+
+    // ═══════════════════════════════════════════
+    // INTERSECTION OBSERVER
+    // ═══════════════════════════════════════════
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          
+          if (entry.target.classList.contains('counter')) {
+            animateCounter(entry.target);
+          }
+          
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    document.querySelectorAll('.counter').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     MENU HAMBURGER MOBILE
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  // Selecionar elementos
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  const body = document.body;
+  
+  // Criar overlay se não existir
+  let overlay = document.querySelector('.nav-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.className = 'nav-overlay';
+    body.appendChild(overlay);
+  }
+  
+  // Abrir/fechar menu
+  if (menuToggle) {
+    menuToggle.addEventListener('click', function() {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      overlay.classList.toggle('active');
+      body.classList.toggle('menu-open');
+    });
+  }
+  
+  // Fechar ao clicar no overlay
+  overlay.addEventListener('click', function() {
+    menuToggle.classList.remove('active');
+    navLinks.classList.remove('active');
+    overlay.classList.remove('active');
+    body.classList.remove('menu-open');
+  });
+  
+  // Fechar ao clicar em um link
+  const links = navLinks.querySelectorAll('a');
+  links.forEach(link => {
+    link.addEventListener('click', function() {
+      menuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+      overlay.classList.remove('active');
+      body.classList.remove('menu-open');
+    });
+  });
+  
+});
+</script>
+
+
+</body>
+</html>
+

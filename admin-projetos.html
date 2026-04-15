@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciar Projetos - Casa do Caminho</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/design-tokens.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Public+Sans:wght@400;500;600&display=swap">
+</head>
+<body class="admin-body">
+  
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SIDEBAR NAVEGAÇÃO
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <aside class="admin-sidebar">
+    <div class="admin-sidebar-header">
+      <span class="material-symbols-rounded">church</span>
+      <div>
+        <strong>Casa do Caminho</strong>
+        <span>Painel Admin</span>
+      </div>
+    </div>
+    
+    <nav class="admin-nav">
+      <a href="admin-dashboard.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">dashboard</span>
+        <span>Dashboard</span>
+      </a>
+      <a href="admin-eventos.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">event</span>
+        <span>Eventos</span>
+      </a>
+      <a href="admin-projetos.html" class="admin-nav-item active">
+        <span class="material-symbols-rounded">volunteer_activism</span>
+        <span>Projetos</span>
+      </a>
+      <a href="admin-voluntarios.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">groups</span>
+        <span>Voluntários</span>
+      </a>
+      <a href="admin-doacoes.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">favorite</span>
+        <span>Doações</span>
+      </a>
+      <a href="admin-depoimentos.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">chat</span>
+        <span>Depoimentos</span>
+      </a>
+      <a href="admin-galeria.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">photo_library</span>
+        <span>Galeria</span>
+      </a>
+    </nav>
+    
+    <div class="admin-sidebar-footer">
+      <a href="index.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">public</span>
+        <span>Ver Site</span>
+      </a>
+      <a href="admin-login.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">logout</span>
+        <span>Sair</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       CONTEÚDO PRINCIPAL
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <main class="admin-main">
+    
+    <!-- Header -->
+    <header class="admin-header">
+      <div>
+        <h1 class="admin-page-title">Gerenciar Projetos</h1>
+        <p class="admin-page-subtitle">Gerencie todos os projetos sociais da Casa do Caminho</p>
+      </div>
+      <div class="admin-header-actions">
+        <button class="admin-btn admin-btn-primary" onclick="abrirModalProjeto()">
+          <span class="material-symbols-rounded">add</span>
+          Novo Projeto
+        </button>
+      </div>
+    </header>
+
+    <!-- Stats Rápidas -->
+    <div class="admin-stats-grid">
+      <div class="admin-stat-card stat-primary">
+        <div class="admin-stat-header">
+          <span class="material-symbols-rounded">volunteer_activism</span>
+          <span class="admin-stat-trend positive">+2</span>
+        </div>
+        <div class="admin-stat-body">
+          <h3>6</h3>
+          <p>Projetos Ativos</p>
+        </div>
+      </div>
+
+      <div class="admin-stat-card stat-success">
+        <div class="admin-stat-header">
+          <span class="material-symbols-rounded">groups</span>
+        </div>
+        <div class="admin-stat-body">
+          <h3>1.245</h3>
+          <p>Beneficiados/mês</p>
+        </div>
+      </div>
+
+      <div class="admin-stat-card stat-warning">
+        <div class="admin-stat-header">
+          <span class="material-symbols-rounded">person</span>
+        </div>
+        <div class="admin-stat-body">
+          <h3>48</h3>
+          <p>Voluntários Ativos</p>
+        </div>
+      </div>
+
+      <div class="admin-stat-card stat-info">
+        <div class="admin-stat-header">
+          <span class="material-symbols-rounded">payments</span>
+        </div>
+        <div class="admin-stat-body">
+          <h3>R$ 25.8k</h3>
+          <p>Arrecadado/mês</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filtros -->
+    <div class="admin-filters">
+      <div class="admin-search">
+        <span class="material-symbols-rounded">search</span>
+        <input type="text" placeholder="Buscar projetos..." id="search-projetos">
+      </div>
+      <select class="admin-select">
+        <option value="">Todos os status</option>
+        <option value="ativo">Ativo</option>
+        <option value="pausado">Pausado</option>
+        <option value="inativo">Inativo</option>
+      </select>
+      <select class="admin-select">
+        <option value="">Todas as categorias</option>
+        <option value="alimentacao">Alimentação</option>
+        <option value="educacao">Educação</option>
+        <option value="vestuario">Vestuário</option>
+      </select>
+    </div>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         TABELA DE PROJETOS (READ COMPLETO)
+         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <div class="admin-card">
+      <div class="admin-table-container">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Projeto</th>
+              <th>Categoria</th>
+              <th>Beneficiários/mês</th>
+              <th>Voluntários</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <!-- PROJETO 1 -->
+            <tr data-id="1">
+              <td>
+                <div class="admin-table-cell-main">
+                  <span class="material-symbols-rounded admin-table-icon">soup_kitchen</span>
+                  <div>
+                    <strong>Sopa Solidária</strong>
+                    <small>Distribuição semanal de refeições</small>
+                  </div>
+                </div>
+              </td>
+              <td>Alimentação</td>
+              <td><strong>450</strong></td>
+              <td>15</td>
+              <td><span class="admin-badge admin-badge-success">Ativo</span></td>
+              <td>
+                <div class="admin-table-actions">
+                  <button class="admin-btn-icon" onclick="verProjeto(1)" title="Ver detalhes">
+                    <span class="material-symbols-rounded">visibility</span>
+                  </button>
+                  <button class="admin-btn-icon" onclick="editarProjeto(1)" title="Editar">
+                    <span class="material-symbols-rounded">edit</span>
+                  </button>
+                  <button class="admin-btn-icon" onclick="excluirProjeto(1)" title="Excluir">
+                    <span class="material-symbols-rounded">delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- PROJETO 2 -->
+            <tr data-id="2">
+              <td>
+                <div class="admin-table-cell-main">
+                  <span class="material-symbols-rounded admin-table-icon">shopping_bag</span>
+                  <div>
+                    <strong>Bazar Beneficente</strong>
+                    <small>Venda de roupas e objetos doados</small>
+                  </div>
+                </div>
+              </td>
+              <td>Vestuário</td>
+              <td><strong>120</strong></td>
+              <td>8</td>
+              <td><span class="admin-badge admin-badge-success">Ativo</span></td>
+              <td>
+                <div class="admin-table-actions">
+                  <button class="admin-btn-icon" onclick="verProjeto(2)" title="Ver detalhes">
+                    <span class="material-symbols-rounded">visibility</span>
+                  </button>
+                  <button class="admin-btn-icon" onclick="editarProjeto(2)" title="Editar">
+                    <span class="material-symbols-rounded">edit</span>
+                  </button>
+                  <button class="admin-btn-icon" onclick="excluirProjeto(2)" title="Excluir">
+                    <span class="material-symbols-rounded">delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- PROJETO 3 -->
+            <tr data-id="3">
+              <td>
+                <div class="admin-table-cell-main">
+                  <span class="material-symbols-rounded admin-table-icon">shopping_basket</span>
+                  <div>
+                    <strong>Cesta Básica</strong>
+                    <small>Distribuição mensal de cestas</small>
+                  </div>
+                </div>
+              </td>
+              <td>Alimentação</td>
+              <td><strong>320</strong></td>
+              <td>10</td>
+              <td><span class="admin-badge admin-badge-success">Ativo</span></td>
+              <td>
+                <div class="admin-table-actions">
+                  <button class="admin-btn-icon" onclick="verProjeto(3)" title="Ver detalhes">
+                    <span class="material-symbols-rounded">visibility</span>
+                  </button>
+                  <button class="admin-btn-icon" onclick="editarProjeto(3)" title="Editar">
+                    <span class="material-symbols-rounded">edit</span>
+                  </button>
+                  <button class="admin-btn-icon" onclick="excluirProjeto(3)" title="Excluir">
+                    <span class="material-symbols-rounded">delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- PROJETO 4 -->
+            <tr data-id="4">
+              <td>
+                <div class="admin-table-cell-main">
+                  <span class="material-symbols-rounded admin-table-icon">child_care</span>
+                  <div>
+                    <strong>Creche Comunitária</strong>
+                    <small>Cuidado de crianças de 0 a 5 anos</small>
+                  </div>
+                </div>
+              </td>
+              <td>Educação</td>
+              <td><strong>45</strong></td>
+              <td>8</td>
+              <td><span class="admin-badge admin-badge-success">Ativo</span></td>
+              <td>
+                <div class="admin-table-actions">
+                  <button class="admin-btn-icon" onclick="verProjeto(4)" title="Ver detalhes">
+                    <span class="material-symbols-rounded">visibility</span>
+                  </button>
+                  <button class="admin-btn-icon" onclick="editarProjeto(4)" title="Editar">
+                    <span class="material-symbols-rounded">edit</span>
+                  </button>
+                  <button class="admin-btn-icon" onclick="excluirProjeto(4)" title="Excluir">
+                    <span class="material-symbols-rounded">delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- PROJETO 5 -->
+            <tr data-id="5">
+              <td>
+                <div class="admin-table-cell-main">
+                  <span class="material-symbols-rounded admin-table-icon">bakery_dining</span>
+                  <div>
+                    <strong>Pão Fraterno</strong>
+                    <small>Produção e distribuição diária de pães</small>
+                  </div>
+                </div>
+              </td>
+              <td>Alimentação</td>
+              <td><strong>200</strong></td>
+              <td>12</td>
+              <td><span class="admin-badge admin-badge-success">Ativo</span></td>
+              <td>
+                <div class="admin-table-actions">
+                  <button class="admin-btn-icon" onclick="verProjeto(5)" title="Ver detalhes">
+                    <span class="material-symbols-rounded">visibility</span>
+                  </button>
+                  <button class="admin-btn-icon" onclick="editarProjeto(5)" title="Editar">
+                    <span class="material-symbols-rounded">edit</span>
+                  </button>
+                  <button class="admin-btn-icon" onclick="excluirProjeto(5)" title="Excluir">
+                    <span class="material-symbols-rounded">delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- PROJETO 6 -->
+            <tr data-id="6">
+              <td>
+                <div class="admin-table-cell-main">
+                  <span class="material-symbols-rounded admin-table-icon">baby_changing_station</span>
+                  <div>
+                    <strong>Enxoval</strong>
+                    <small>Kits de enxoval para bebês</small>
+                  </div>
+                </div>
+              </td>
+              <td>Vestuário</td>
+              <td><strong>28</strong></td>
+              <td>5</td>
+              <td><span class="admin-badge admin-badge-success">Ativo</span></td>
+              <td>
+                <div class="admin-table-actions">
+                  <button class="admin-btn-icon" onclick="verProjeto(6)" title="Ver detalhes">
+                    <span class="material-symbols-rounded">visibility</span>
+                  </button>
+                  <button class="admin-btn-icon" onclick="editarProjeto(6)" title="Editar">
+                    <span class="material-symbols-rounded">edit</span>
+                  </button>
+                  <button class="admin-btn-icon" onclick="excluirProjeto(6)" title="Excluir">
+                    <span class="material-symbols-rounded">delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       MODAL: CRIAR/EDITAR PROJETO
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="admin-modal" id="modalProjeto">
+    <div class="admin-modal-overlay" onclick="fecharModalProjeto()"></div>
+    <div class="admin-modal-container">
+      
+      <div class="admin-modal-header">
+        <h2 id="modal-titulo">Novo Projeto</h2>
+        <button class="admin-modal-close" onclick="fecharModalProjeto()">
+          <span class="material-symbols-rounded">close</span>
+        </button>
+      </div>
+
+      <div class="admin-modal-body">
+        <form id="formProjeto" onsubmit="salvarProjeto(event)">
+          
+          <div class="admin-form-group">
+            <label class="admin-form-label">
+              <span class="material-symbols-rounded">title</span>
+              Nome do Projeto *
+            </label>
+            <input type="text" class="admin-form-input" id="projetoNome" required placeholder="Ex: Sopa Solidária">
+          </div>
+
+          <div class="admin-form-group">
+            <label class="admin-form-label">
+              <span class="material-symbols-rounded">description</span>
+              Descrição Curta *
+            </label>
+            <textarea class="admin-form-input" id="projetoDescricao" rows="3" required placeholder="Descreva o projeto..."></textarea>
+          </div>
+
+          <div class="admin-form-row">
+            <div class="admin-form-group">
+              <label class="admin-form-label">
+                <span class="material-symbols-rounded">category</span>
+                Categoria *
+              </label>
+              <select class="admin-form-input" id="projetoCategoria" required>
+                <option value="">Selecione...</option>
+                <option value="alimentacao">Alimentação</option>
+                <option value="educacao">Educação</option>
+                <option value="vestuario">Vestuário</option>
+                <option value="saude">Saúde</option>
+              </select>
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-form-label">
+                <span class="material-symbols-rounded">schedule</span>
+                Frequência
+              </label>
+              <select class="admin-form-input" id="projetoFrequencia">
+                <option value="diario">Diário</option>
+                <option value="semanal">Semanal</option>
+                <option value="mensal">Mensal</option>
+                <option value="permanente">Permanente</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="admin-form-row">
+            <div class="admin-form-group">
+              <label class="admin-form-label">
+                <span class="material-symbols-rounded">groups</span>
+                Beneficiários/mês
+              </label>
+              <input type="number" class="admin-form-input" id="projetoBeneficiarios" min="0">
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-form-label">
+                <span class="material-symbols-rounded">person</span>
+                Voluntários
+              </label>
+              <input type="number" class="admin-form-input" id="projetoVoluntarios" min="0">
+            </div>
+          </div>
+
+          <div class="admin-form-group">
+            <label class="admin-form-label">
+              <span class="material-symbols-rounded">toggle_on</span>
+              Status
+            </label>
+            <select class="admin-form-input" id="projetoStatus">
+              <option value="ativo">Ativo</option>
+              <option value="pausado">Pausado</option>
+              <option value="inativo">Inativo</option>
+            </select>
+          </div>
+
+          <div class="admin-modal-footer">
+            <button type="button" class="admin-btn admin-btn-outline" onclick="fecharModalProjeto()">
+              Cancelar
+            </button>
+            <button type="submit" class="admin-btn admin-btn-primary">
+              <span class="material-symbols-rounded">save</span>
+              Salvar Projeto
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       JAVASCRIPT
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <script>
+    // ====================================
+    // VARIÁVEL GLOBAL PARA EDIÇÃO
+    // ====================================
+    let projetoEditandoId = null;
+
+    // ====================================
+    // MODAL
+    // ====================================
+    function abrirModalProjeto() {
+      projetoEditandoId = null;
+      document.getElementById('modalProjeto').classList.add('active');
+      document.getElementById('modal-titulo').textContent = 'Novo Projeto';
+      document.getElementById('formProjeto').reset();
+    }
+
+    function fecharModalProjeto() {
+      document.getElementById('modalProjeto').classList.remove('active');
+      projetoEditandoId = null;
+    }
+
+    // ====================================
+    // CRUD - CREATE/UPDATE
+    // ====================================
+    function salvarProjeto(e) {
+      e.preventDefault();
+      
+      const dados = {
+        nome: document.getElementById('projetoNome').value,
+        descricao: document.getElementById('projetoDescricao').value,
+        categoria: document.getElementById('projetoCategoria').value,
+        frequencia: document.getElementById('projetoFrequencia').value,
+        beneficiarios: document.getElementById('projetoBeneficiarios').value,
+        voluntarios: document.getElementById('projetoVoluntarios').value,
+        status: document.getElementById('projetoStatus').value
+      };
+
+      if (projetoEditandoId) {
+        // UPDATE
+        console.log('Atualizando projeto ID:', projetoEditandoId, dados);
+        // AQUI: PUT /api/projetos/:id
+        alert('✅ Projeto atualizado com sucesso!\n\n(No backend: PUT /api/projetos/' + projetoEditandoId + ')');
+      } else {
+        // CREATE
+        console.log('Criando novo projeto:', dados);
+        // AQUI: POST /api/projetos
+        alert('✅ Projeto criado com sucesso!\n\n(No backend: POST /api/projetos)');
+      }
+      
+      fecharModalProjeto();
+    }
+
+    // ====================================
+    // CRUD - READ (Ver detalhes)
+    // ====================================
+    function verProjeto(id) {
+      console.log('Visualizando projeto ID:', id);
+      // AQUI: GET /api/projetos/:id
+      alert('📋 Detalhes do projeto #' + id + '\n\n(Abrir página de detalhes ou modal com estatísticas completas)');
+    }
+
+    // ====================================
+    // CRUD - UPDATE (Editar)
+    // ====================================
+    function editarProjeto(id) {
+      console.log('Editando projeto ID:', id);
+      projetoEditandoId = id;
+      
+      // AQUI: GET /api/projetos/:id para carregar dados
+      // Simulação de dados carregados
+      abrirModalProjeto();
+      document.getElementById('modal-titulo').textContent = 'Editar Projeto';
+      
+      // Exemplo de preenchimento (no backend real, vem da API)
+      document.getElementById('projetoNome').value = 'Projeto Exemplo ' + id;
+      document.getElementById('projetoDescricao').value = 'Descrição do projeto ' + id;
+      document.getElementById('projetoCategoria').value = 'alimentacao';
+      document.getElementById('projetoFrequencia').value = 'semanal';
+      document.getElementById('projetoBeneficiarios').value = '100';
+      document.getElementById('projetoVoluntarios').value = '10';
+      document.getElementById('projetoStatus').value = 'ativo';
+    }
+
+    // ====================================
+    // CRUD - DELETE
+    // ====================================
+    function excluirProjeto(id) {
+      // Confirmação antes de deletar
+      const confirmacao = confirm(
+        '⚠️ ATENÇÃO!\n\n' +
+        'Tem certeza que deseja EXCLUIR este projeto?\n\n' +
+        'Esta ação NÃO pode ser desfeita e todos os dados do projeto serão perdidos permanentemente.'
+      );
+      
+      if (confirmacao) {
+        console.log('Excluindo projeto ID:', id);
+        
+        // AQUI: DELETE /api/projetos/:id
+        
+        // Simular remoção da linha da tabela
+        const linha = document.querySelector(`tr[data-id="${id}"]`);
+        if (linha) {
+          linha.style.opacity = '0.5';
+          linha.style.transition = 'opacity 0.3s';
+          
+          setTimeout(() => {
+            linha.remove();
+            alert('✅ Projeto excluído com sucesso!\n\n(No backend: DELETE /api/projetos/' + id + ')');
+          }, 300);
+        }
+      }
+    }
+
+    // ====================================
+    // BUSCA
+    // ====================================
+    document.getElementById('search-projetos')?.addEventListener('input', function(e) {
+      const termo = e.target.value.toLowerCase();
+      const linhas = document.querySelectorAll('.admin-table tbody tr');
+      
+      linhas.forEach(linha => {
+        const texto = linha.textContent.toLowerCase();
+        linha.style.display = texto.includes(termo) ? '' : 'none';
+      });
+    });
+
+    // ====================================
+    // NOTAS PARA BACKEND
+    // ====================================
+    /*
+    
+    ESTRUTURA DA API REST:
+    
+    POST   /api/projetos          → Criar projeto
+    GET    /api/projetos          → Listar todos
+    GET    /api/projetos/:id      → Buscar um projeto
+    PUT    /api/projetos/:id      → Atualizar projeto
+    DELETE /api/projetos/:id      → Excluir projeto
+    
+    BANCO DE DADOS - Tabela projetos:
+    - id (INTEGER, PRIMARY KEY, AUTO_INCREMENT)
+    - nome (VARCHAR(255), NOT NULL)
+    - descricao (TEXT)
+    - categoria (VARCHAR(50))
+    - frequencia (VARCHAR(50))
+    - beneficiarios (INTEGER)
+    - voluntarios (INTEGER)
+    - status (ENUM: 'ativo', 'pausado', 'inativo')
+    - created_at (TIMESTAMP)
+    - updated_at (TIMESTAMP)
+    
+    */
+  </script>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       MENU HAMBURGER ADMIN MOBILE
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    if (window.innerWidth <= 768) {
+      
+      const adminSidebar = document.querySelector('.admin-sidebar');
+      const body = document.body;
+      
+      const adminToggle = document.createElement('button');
+      adminToggle.className = 'admin-menu-toggle';
+      adminToggle.setAttribute('aria-label', 'Abrir menu');
+      adminToggle.innerHTML = '<span class="material-symbols-rounded">menu</span>';
+      
+      const adminOverlay = document.createElement('div');
+      adminOverlay.className = 'admin-overlay';
+      
+      body.appendChild(adminToggle);
+      body.appendChild(adminOverlay);
+      
+      adminToggle.addEventListener('click', function() {
+        const isActive = adminSidebar.classList.contains('active');
+        
+        if (isActive) {
+          adminSidebar.classList.remove('active');
+          adminOverlay.classList.remove('active');
+          adminToggle.innerHTML = '<span class="material-symbols-rounded">menu</span>';
+          body.style.overflow = '';
+        } else {
+          adminSidebar.classList.add('active');
+          adminOverlay.classList.add('active');
+          adminToggle.innerHTML = '<span class="material-symbols-rounded">close</span>';
+          body.style.overflow = 'hidden';
+        }
+      });
+      
+      adminOverlay.addEventListener('click', function() {
+        adminSidebar.classList.remove('active');
+        adminOverlay.classList.remove('active');
+        adminToggle.innerHTML = '<span class="material-symbols-rounded">menu</span>';
+        body.style.overflow = '';
+      });
+      
+      const sidebarLinks = adminSidebar.querySelectorAll('a');
+      sidebarLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          adminSidebar.classList.remove('active');
+          adminOverlay.classList.remove('active');
+          adminToggle.innerHTML = '<span class="material-symbols-rounded">menu</span>';
+          body.style.overflow = '';
+        });
+      });
+    }
+    
+  });
+  </script>
+
+</body>
+</html>

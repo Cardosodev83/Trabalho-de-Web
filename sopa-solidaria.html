@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sopa Solidária - Casa do Caminho</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/design-tokens.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Public+Sans:wght@400;500;600&display=swap">
+</head>
+<body>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       NAVEGAÇÃO
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="material-symbols-rounded">church</span>
+        <span>Casa do Caminho</span>
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menu de navegação">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+      
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Início</a></li>
+        <li><a href="espiritual.html" class="nav-link">Espiritual</a></li>
+        <li><a href="projetos.html" class="nav-link active">Social</a></li>
+        <li><a href="eventos.html" class="nav-link">Eventos</a></li>
+        <li><a href="contato.html" class="nav-link">Contato</a></li>
+        <li><a href="institucional.html" class="nav-link">Institucional</a></li>
+
+      </ul>
+      
+      <a href="doar-agora.html" class="btn btn-primary">
+        <span class="material-symbols-rounded">favorite</span>
+        Doar Agora
+      </a>
+    </div>
+  </nav>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       HERO - Sopa Solidária
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <span class="pilar-badge fade-in">Projeto Social</span>
+        <h1 class="hero-title fade-in delay-1">
+          <span class="text-highlight text-highlight-secondary">Sopa Solidária</span>
+        </h1>
+        <p class="hero-description fade-in delay-2">
+          Todas as quintas, servimos refeições quentes e nutritivas para pessoas 
+          em situação de vulnerabilidade e distribuimos alimentos para as Familias. Mais do que alimentar o corpo, oferecemos 
+          dignidade, acolhimento e esperança.
+        </p>
+        <div class="hero-actions fade-in delay-3">
+          <a href="#como-ajudar" class="btn btn-secondary btn-lg smooth-scroll">
+            <span class="material-symbols-rounded">volunteer_activism</span>
+            Como Ajudar
+          </a>
+          <a href="#sobre" class="btn btn-outline-white btn-lg smooth-scroll">
+            <span class="material-symbols-rounded">expand_more</span>
+            Saiba Mais
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="material-symbols-rounded">restaurant</span>
+          <div>
+            <div class="hero-stat-number counter" data-target="500">0</div>
+            <div class="hero-stat-label">Refeições/mês</div>
+          </div>
+        </div>
+        <div class="hero-stat">
+          <span class="material-symbols-rounded">groups</span>
+          <div>
+            <div class="hero-stat-number counter" data-target="150">0</div>
+            <div class="hero-stat-label">Pessoas atendidas</div>
+          </div>
+        </div>
+        <div class="hero-stat">
+          <span class="material-symbols-rounded">calendar_month</span>
+          <div>
+            <div class="hero-stat-number counter" data-target="8">0</div>
+            <div class="hero-stat-label">Anos de atuação</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SOBRE O PROJETO
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="pilar-section pilar-espiritual" id="sobre">
+    <div class="pilar-container">
+      <div class="pilar-content fade-on-scroll">
+        <span class="pilar-badge">Sobre o Projeto</span>
+        <h2 class="section-title">Alimentando corpo e alma</h2>
+        <p class="pilar-description">
+          O projeto Sopa Solidária nasceu em 2016 da vontade de transformar 
+          compaixão em ação. Desde então, nos reunimos todas as quintas para 
+          preparar e servir refeições completas, nutritivas e feitas com muito amor.
+        </p>
+
+        <ul class="pilar-features">
+          <li class="pilar-feature fade-on-scroll">
+            <span class="material-symbols-rounded">local_dining</span>
+            <div>
+              <strong>Refeições completas</strong>
+              <p>Sopa, pão, fruta e suco - tudo preparado com ingredientes frescos</p>
+            </div>
+          </li>
+          <li class="pilar-feature fade-on-scroll">
+            <span class="material-symbols-rounded">favorite</span>
+            <div>
+              <strong>Atendimento humanizado</strong>
+              <p>Servimos cada pessoa com respeito, dignidade e um sorriso</p>
+            </div>
+          </li>
+          <li class="pilar-feature fade-on-scroll">
+            <span class="material-symbols-rounded">diversity_3</span>
+            <div>
+              <strong>Comunidade acolhedora</strong>
+              <p>Criamos um espaço de convivência e pertencimento</p>
+            </div>
+          </li>
+          <li class="pilar-feature fade-on-scroll">
+            <span class="material-symbols-rounded">recycling</span>
+            <div>
+              <strong>Combate ao desperdício</strong>
+              <p>Aproveitamos doações e reduzimos o desperdício de alimentos</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="pilar-image fade-on-scroll">
+        <img src="https://t3.ftcdn.net/jpg/06/09/87/76/240_F_609877612_6cxdjk2NrMGVUFojaBxhmeAsKzH4csZn.jpg" alt="Distribuição de sopa solidária" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       COMO FUNCIONA
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="projects-section">
+    <div class="container">
+      <div class="projects-header fade-on-scroll">
+        <h2 class="section-title">Como funciona</h2>
+        <p class="projects-description">
+          Nossa operação acontece todas as quintas com a ajuda de voluntários dedicados
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Etapa 1 -->
+        <div class="project-card fade-on-scroll">
+          <div class="project-content">
+            <div class="step-number">1</div>
+            <h3 class="project-title">Preparação</h3>
+            <p class="project-description">
+              A partir das 8h, voluntários se reúnem na cozinha comunitária para 
+              preparar a sopa, cortar pães e organizar as frutas.
+            </p>
+            <div class="project-meta">
+              <span>
+                <span class="material-symbols-rounded">schedule</span>
+                8h00 - 10h30
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Etapa 2 -->
+        <div class="project-card fade-on-scroll">
+          <div class="project-content">
+            <div class="step-number">2</div>
+            <h3 class="project-title">Organização</h3>
+            <p class="project-description">
+              Montamos a estrutura de atendimento na praça, organizamos filas e 
+              preparamos mesas para que todos sejam servidos com dignidade.
+            </p>
+            <div class="project-meta">
+              <span>
+                <span class="material-symbols-rounded">schedule</span>
+                10h30 - 11h00
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Etapa 3 -->
+        <div class="project-card fade-on-scroll">
+          <div class="project-content">
+            <div class="step-number">3</div>
+            <h3 class="project-title">Distribuição</h3>
+            <p class="project-description">
+              Servimos as refeições com atenção individual, conversamos e acolhemos 
+              cada pessoa que nos procura.
+            </p>
+            <div class="project-meta">
+              <span>
+                <span class="material-symbols-rounded">schedule</span>
+                11h00 - 13h00
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Etapa 4 -->
+        <div class="project-card fade-on-scroll">
+          <div class="project-content">
+            <div class="step-number">4</div>
+            <h3 class="project-title">Limpeza</h3>
+            <p class="project-description">
+              Limpamos e organizamos todo o espaço, garantindo que tudo fique 
+              pronto para a próxima ação.
+            </p>
+            <div class="project-meta">
+              <span>
+                <span class="material-symbols-rounded">schedule</span>
+                13h00 - 14h00
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       DEPOIMENTOS
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="pilar-section pilar-social pilar-reverse">
+    <div class="pilar-container">
+      <div class="pilar-image fade-on-scroll">
+        <img src="https://t3.ftcdn.net/jpg/05/36/49/46/240_F_536494651_5LGyrJTwv2WdENVu7bQCN1WiB6hYHtSK.jpg" alt="Comunidade reunida" loading="lazy">
+      </div>
+
+      <div class="pilar-content fade-on-scroll">
+        <span class="pilar-badge">Depoimentos</span>
+        <h2 class="section-title">Histórias de impacto</h2>
+        
+        <div class="testimonials-vertical">
+          <div class="testimonial-card fade-on-scroll">
+            <p class="testimonial-text">
+              "A sopa de sábado não é só comida, é amor. Passei por um momento muito difícil 
+              e aqui encontrei não só alimento, mas também amigos que me ajudaram a levantar."
+            </p>
+            <div class="testimonial-author">
+              <strong>João Silva</strong>
+              <span>Beneficiário</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card fade-on-scroll">
+            <p class="testimonial-text">
+              "Sou voluntária há 3 anos e cada sábado me enche de gratidão. Ver o sorriso 
+              no rosto das pessoas é a melhor recompensa que posso ter."
+            </p>
+            <div class="testimonial-author">
+              <strong>Maria Santos</strong>
+              <span>Voluntária</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card fade-on-scroll">
+            <p class="testimonial-text">
+              "Minha família toda participa. É lindo ver meus filhos aprendendo sobre 
+              solidariedade e compaixão na prática."
+            </p>
+            <div class="testimonial-author">
+              <strong>Carlos Eduardo</strong>
+              <span>Voluntário</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       COMO AJUDAR
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="projects-section" id="como-ajudar">
+    <div class="container">
+      <div class="projects-header fade-on-scroll">
+        <h2 class="section-title">Como você pode ajudar</h2>
+        <p class="projects-description">
+          Existem várias formas de contribuir com o projeto Sopa Solidária
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Ajuda 1 -->
+        <div class="project-card card-hover fade-on-scroll">
+          <div class="project-content">
+            <span class="material-symbols-rounded" style="font-size: 48px; color: var(--secondary); margin-bottom: var(--spacing-4);">volunteer_activism</span>
+            <h3 class="project-title">Seja Voluntário</h3>
+            <p class="project-description">
+              Doe seu tempo e energia. Precisamos de voluntários para cozinhar, 
+              servir, organizar e limpar.
+            </p>
+            <div class="project-meta">
+              <span>
+                <span class="material-symbols-rounded">schedule</span>
+                Sábados, 8h-14h
+              </span>
+            </div>
+            <a href="ser-voluntario.html" class="btn btn-secondary btn-full">
+              <span class="material-symbols-rounded">volunteer_activism</span>
+              Quero ser Voluntário
+            </a>
+          </div>
+        </div>
+
+        <!-- Ajuda 2 -->
+        <div class="project-card card-hover fade-on-scroll">
+          <div class="project-content">
+            <span class="material-symbols-rounded" style="font-size: 48px; color: var(--tertiary); margin-bottom: var(--spacing-4);">payments</span>
+            <h3 class="project-title">Doe em Dinheiro</h3>
+            <p class="project-description">
+              Contribuições financeiras nos permitem comprar ingredientes frescos 
+              e manter a estrutura do projeto.
+            </p>
+            <div class="project-meta">
+              <span>
+                <span class="material-symbols-rounded">info</span>
+                R$ 30 = 10 refeições
+              </span>
+            </div>
+            <a href="doar-agora.html" class="btn btn-tertiary btn-full">
+              <span class="material-symbols-rounded">favorite</span>
+              Fazer Doação
+            </a>
+          </div>
+        </div>
+
+        <!-- Ajuda 3 -->
+        <div class="project-card card-hover fade-on-scroll">
+          <div class="project-content">
+            <span class="material-symbols-rounded" style="font-size: 48px; color: var(--primary); margin-bottom: var(--spacing-4);">shopping_bag</span>
+            <h3 class="project-title">Doe Alimentos</h3>
+            <p class="project-description">
+              Aceitamos doações de legumes, verduras, pães, frutas e ingredientes 
+              não perecíveis.
+            </p>
+            <div class="project-meta">
+              <span>
+                <span class="material-symbols-rounded">location_on</span>
+                Entrega: Quartas, 14h-18h
+              </span>
+            </div>
+            <a href="contato.html" class="btn btn-outline btn-full">
+              <span class="material-symbols-rounded">mail</span>
+              Combinar Entrega
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       NECESSIDADES ATUAIS
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="pilar-section pilar-espiritual">
+    <div class="pilar-container">
+      <div class="pilar-content fade-on-scroll">
+        <span class="pilar-badge">Necessidades</span>
+        <h2 class="section-title">Do que precisamos agora</h2>
+        <p class="pilar-description">
+          Estas são nossas necessidades mais urgentes para manter o projeto funcionando
+        </p>
+
+        <ul class="pilar-features">
+          <li class="pilar-feature fade-on-scroll">
+            <span class="material-symbols-rounded">inventory</span>
+            <div>
+              <strong>Panelas grandes (20-30 litros)</strong>
+              <p>Para preparar maior quantidade de sopa</p>
+            </div>
+          </li>
+          <li class="pilar-feature fade-on-scroll">
+            <span class="material-symbols-rounded">nutrition</span>
+            <div>
+              <strong>Legumes e verduras frescas</strong>
+              <p>Batata, cenoura, abóbora, chuchu, tomate, cebola</p>
+            </div>
+          </li>
+          <li class="pilar-feature fade-on-scroll">
+            <span class="material-symbols-rounded">bakery_dining</span>
+            <div>
+              <strong>Pães</strong>
+              <p>Pães franceses ou de forma para acompanhar as refeições</p>
+            </div>
+          </li>
+          <li class="pilar-feature fade-on-scroll">
+            <span class="material-symbols-rounded">local_cafe</span>
+            <div>
+              <strong>Copos e pratos descartáveis</strong>
+              <p>Para servir com higiene e praticidade</p>
+            </div>
+          </li>
+        </ul>
+
+        <a href="contato.html" class="btn btn-secondary btn-lg">
+          <span class="material-symbols-rounded">mail</span>
+          Quero Doar Esses Itens
+        </a>
+      </div>
+
+      <div class="pilar-image fade-on-scroll">
+        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&h=800&fit=crop" alt="Ingredientes frescos" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       FAQ
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="projects-section">
+    <div class="container">
+      <div class="projects-header fade-on-scroll">
+        <h2 class="section-title">Perguntas Frequentes</h2>
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-item fade-on-scroll">
+          <div class="faq-question">
+            <span class="material-symbols-rounded">help</span>
+            <strong>Preciso me inscrever para receber a sopa?</strong>
+          </div>
+          <p class="faq-answer">
+            Não! Nosso atendimento é aberto a todos, sem necessidade de cadastro ou 
+            inscrição prévia. Basta aparecer aos sábados entre 11h e 13h.
+          </p>
+        </div>
+
+        <div class="faq-item fade-on-scroll">
+          <div class="faq-question">
+            <span class="material-symbols-rounded">help</span>
+            <strong>Posso levar comida para casa?</strong>
+          </div>
+          <p class="faq-answer">
+            Sim! Se você precisar levar para familiares que não podem vir, basta avisar 
+            e podemos fornecer marmitas.
+          </p>
+        </div>
+
+        <div class="faq-item fade-on-scroll">
+          <div class="faq-question">
+            <span class="material-symbols-rounded">help</span>
+            <strong>Como posso me tornar voluntário?</strong>
+          </div>
+          <p class="faq-answer">
+            É simples! Acesse nossa página de voluntariado, preencha o formulário e 
+            entraremos em contato para combinar sua primeira participação.
+          </p>
+        </div>
+
+        <div class="faq-item fade-on-scroll">
+          <div class="faq-question">
+            <span class="material-symbols-rounded">help</span>
+            <strong>O projeto funciona em feriados?</strong>
+          </div>
+          <p class="faq-answer">
+            Sim! A necessidade não tira folga, então mantemos o projeto ativo mesmo 
+            em feriados e datas comemorativas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       CTA FINAL - CENTRALIZADO
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="cta-centered-section">
+    <div class="container">
+      <div class="cta-centered-content fade-on-scroll">
+        <span class="pilar-badge">Faça Parte</span>
+        <h2 class="section-title">Junte-se a nós nesta missão</h2>
+        <p class="cta-centered-description">
+          Cada sábado é uma oportunidade de fazer a diferença. Seja com seu tempo, 
+          suas doações ou seu carinho, você pode ajudar a alimentar corpos e nutrir esperanças.
+        </p>
+
+        <div class="cta-centered-actions">
+          <a href="ser-voluntario.html" class="btn btn-secondary btn-lg">
+            <span class="material-symbols-rounded">volunteer_activism</span>
+            Ser Voluntário
+          </a>
+          <a href="doar-agora.html" class="btn btn-tertiary btn-lg">
+            <span class="material-symbols-rounded">favorite</span>
+            Fazer Doação
+          </a>
+          <a href="projetos.html" class="btn btn-outline btn-lg">
+            <span class="material-symbols-rounded">arrow_back</span>
+            Ver Outros Projetos
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+ <!-- 
+       FOOTER (Rodapé)
+        -->
+  
+  <footer class="footer">
+    
+    <div class="footer-container">
+      
+      
+      <!-- 
+           COLUNA 1: Logo + Slogan (2fr = 2 frações)
+            -->
+      
+      <div class="footer-column">
+        <!-- Logo do footer -->
+        <div class="footer-logo">
+          <span class="material-symbols-rounded">church</span>
+          <span>Casa do Caminho</span>
+        </div>
+        
+        <!-- Slogan/Tagline -->
+        <p class="footer-tagline">
+          Um santuário para todos, independente do caminho.
+        </p>
+      </div>
+      
+      
+      <!-- 
+           COLUNA 2: Links Rápidos (1fr = 1 fração)
+            -->
+      
+      <div class="footer-column">
+        <h3 class="footer-title">Links Rápidos</h3>
+        <!-- h3 = Título da coluna -->
+        
+        <ul class="footer-links">
+          <li><a href="espiritual.html">Pilar Espiritual</a></li>
+          <li><a href="projetos.html">Ação Social</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      
+      
+      <!-- 
+           COLUNA 3: Informações de Contato (1fr)
+            -->
+      
+      <div class="footer-column">
+        <h3 class="footer-title">Contato</h3>
+        
+        <ul class="footer-contact">
+          <!-- Lista de contatos com ícones -->
+          
+          <!-- Endereço -->
+          <li>
+            <span class="material-symbols-rounded">location_on</span>
+            <!-- Ícone de pin/localização -->
+            Rua Costa do Sol, 450 - Vila Costa do Sol, São Carlos - SP
+          </li>
+          
+          <!-- Telefone -->
+          <li>
+            <span class="material-symbols-rounded">phone</span>
+            (16) 3361-9822
+          </li>
+          
+          <!-- Email -->
+          <li>
+            <span class="material-symbols-rounded">mail</span>
+            casadocaminhosc@gmail.com
+          </li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    
+    
+    <!-- 
+         BARRA INFERIOR: Copyright + Links Legais
+          -->
+    
+    <div class="footer-bottom">
+      <!-- Flexbox: copyright à esquerda, links à direita -->
+      
+      <p>&copy; 2026 Casa do Caminho. Todos os direitos reservados.</p>
+      
+      <div class="footer-legal">
+        <!-- Links legais (lado a lado) -->
+        <a href="institucional.html">Política de Privacidade</a>
+        <a href="institucional.html">Termos de Serviço</a>
+      </div>
+    </div>
+    
+  </footer>
+
+ <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       JAVASCRIPT VANILLA
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <script>
+    // ═══════════════════════════════════════════
+    // SMOOTH SCROLL
+    // ═══════════════════════════════════════════
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // ═══════════════════════════════════════════
+    // CONTADOR ANIMADO
+    // ═══════════════════════════════════════════
+    function animateCounter(element) {
+      const target = parseInt(element.getAttribute('data-target'));
+      const duration = 2000;
+      const increment = target / (duration / 16);
+      let current = 0;
+
+      const updateCounter = () => {
+        current += increment;
+        if (current < target) {
+          element.textContent = Math.floor(current).toLocaleString('pt-BR');
+          requestAnimationFrame(updateCounter);
+        } else {
+          element.textContent = target.toLocaleString('pt-BR') + '+';
+        }
+      };
+
+      updateCounter();
+    }
+
+    // ═══════════════════════════════════════════
+    // INTERSECTION OBSERVER
+    // ═══════════════════════════════════════════
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          
+          if (entry.target.classList.contains('counter')) {
+            animateCounter(entry.target);
+          }
+          
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    document.querySelectorAll('.counter').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     MENU HAMBURGER MOBILE
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  // Selecionar elementos
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  const body = document.body;
+  
+  // Criar overlay se não existir
+  let overlay = document.querySelector('.nav-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.className = 'nav-overlay';
+    body.appendChild(overlay);
+  }
+  
+  // Abrir/fechar menu
+  if (menuToggle) {
+    menuToggle.addEventListener('click', function() {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      overlay.classList.toggle('active');
+      body.classList.toggle('menu-open');
+    });
+  }
+  
+  // Fechar ao clicar no overlay
+  overlay.addEventListener('click', function() {
+    menuToggle.classList.remove('active');
+    navLinks.classList.remove('active');
+    overlay.classList.remove('active');
+    body.classList.remove('menu-open');
+  });
+  
+  // Fechar ao clicar em um link
+  const links = navLinks.querySelectorAll('a');
+  links.forEach(link => {
+    link.addEventListener('click', function() {
+      menuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+      overlay.classList.remove('active');
+      body.classList.remove('menu-open');
+    });
+  });
+  
+});
+</script>
+
+
+</body>
+</html>

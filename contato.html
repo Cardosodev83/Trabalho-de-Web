@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+
+<html  lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entre em contato cm a Casa do Caminho">
+
+    <title>Casa do Caminho - Contato</title>
+
+
+    <!-- Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Material Symbols-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <!-- CSS-->
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/design-tokens.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<!-- Navegaçao-->
+ <nav class="nav">
+    <div class="nav-container">
+      
+      <!-- Logo -->
+      <div class="nav-logo">
+        <span class="material-symbols-rounded">church</span>
+        <span>Casa do Caminho</span>
+      </div>
+      <button class="menu-toggle" aria-label="Abrir menu de navegação">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+      
+      <!-- Links -->
+      <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Início</a></li>
+      <li><a href="espiritual.html" class="nav-link">Espiritual</a></li>
+      <li><a href="projetos.html" class="nav-link">Social</a></li>
+      <li><a href="eventos.html" class="nav-link">Eventos</a></li>
+      <li><a href="contato.html" class="nav-link active">Contato</a></li>
+      <li><a href="institucional.html" class="nav-link">Institucional</a></li>
+
+    </ul>
+      
+      <a href="doar-agora.html" class="btn btn-primary">
+        <span class="material-symbols-rounded">favorite</span>
+        Doar Agora
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero-->
+   <section class="hero-page hero-page-tertiary">
+
+    <div class="container">
+        <h1 class="page-title">Entre em Contato</h1>
+
+        <p class="page-description">
+            Estamos aqui para ouvir voce. Envie sua mensagem, dúvida ou sugestão.
+        </p>
+
+    </div>
+
+   </section>
+
+   <!--Seçao de contato-->
+
+   <section class="contact-section">
+
+    <div class="container">
+
+        <div class="contact-grid">
+
+            <!-- Coluna 1 : formulario -->
+             <div class="contact-form-wrapper">
+
+                <h2 class="contact-subtitle">Envie sua Mensagem</h2>
+
+                <form class="contact-form" id="contact-form">
+
+                    <!--Campo nome-->
+                    <div class="form-group">
+
+                        <label for="name" class="form-laber">
+
+                            Nome Completo *
+                            <!-- * campo obrigatorio-->
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            class="form-input"
+                            placeholder="Digite seu nome completo"
+                            required
+                        >
+
+                    </div>
+
+                    <!-- Campo: Email -->
+                    <div class="form-group">
+                        <label for="email" class="form-label">
+                            E-mail *
+                        </label>
+              
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            class="form-input" 
+                            placeholder="seuemail@exemplo.com"
+                            required
+                        >
+                    </div>
+
+                    <!-- Campo: Telefone -->
+                    <div class="form-group">
+                        <label for="phone" class="form-label">
+                            Telefone
+                        </label>
+              
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            name="phone" 
+                            class="form-input" 
+                            placeholder="(11) 98765-4321"
+                        >
+                    </div>
+
+                    <!-- Campo: Assunto (dropdown) -->
+                    <div class="form-group">
+                        <label for="subject" class="form-label">
+                            Assunto *
+                        </label>
+              
+                        <select id="subject" name="subject" class="form-input" required>
+                
+                            <option value="" disabled selected>Selecione um assunto</option>
+                
+                            <option value="informacao">Informações Gerais</option>
+                            <option value="voluntario">Quero ser Voluntário</option>
+                            <option value="doacao">Sobre Doações</option>
+                            <option value="projeto">Informações sobre Projetos</option>
+                            <option value="evento">Eventos e Celebrações</option>
+                            <option value="outro">Outro Assunto</option>
+                        </select>
+                    </div>
+
+                    <!-- Campo: Mensagem (textarea) -->
+                    <div class="form-group">
+                        <label for="message" class="form-label">
+                             Mensagem *
+                        </label>
+              
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            class="form-textarea" 
+                            rows="6"
+                            placeholder="Escreva sua mensagem aqui..."
+                            required
+                        ></textarea>
+              <!-- textarea = Campo de texto multilinha
+                   rows="6" = 6 linhas de altura inicial -->
+                    </div>
+
+                    <!--Botao de enviar-->
+                    <button type="submit" class="btn btn-primary btn-lg">
+
+                        <span class="material-symbols-rounded">send</span>
+
+                        Enviar Mensagem
+                    </button>
+
+                </form>
+
+             </div>
+
+             <!-- Coluna 2: informacoesd de contato-->
+
+             <div class="contact-info-wrapper">
+
+                <h2 class="contact-subtitle">Informações de Contato</h2>
+
+                <!--Lista de informações-->
+                <div class="contact-info-list">
+
+
+                    <!--Endereço-->
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <span class="material-symbols-rounded">location_on</span>
+
+                        </div>
+
+                        <div class="contact-info-content">
+                            <h3 class="contact-info-title">Endereço</h3>
+                            <!-- subtitulo do item-->
+
+                            <p class="contact-info-text">
+                                Rua Costa do Sol, 450 - Vila Costa do Sol<br>
+                                São Carlos - SP <br>
+                                CEP: 13566-070
+                                <a href="https://maps.google.com/?q=Rua+Costa+do+Sol,+450,+São+Carlos,+SP" target="_blank">
+                                    Ver no mapa
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Telefone -->
+                     
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <span class="material-symbols-rounded">phone</span>
+                        </div>
+
+                        <div class="contact-info-content">
+                            <h3 class="contact-info-title">Telefone</h3>
+
+                            <p class="contact-info-text">
+                                (16) 3361-9822 <br>
+                                (16) 997845115 (WhatsApp Benicio)
+                            </p>
+                        </div>
+                    </div>
+
+                    <!--Email-->
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <span class="material-symbols-rounded">mail</span>
+
+                        </div>
+
+                        <div class="contact-info-content">
+                            <h3 class="contact-info-title">E-mail</h3>
+
+                            <p class="contact-info-text">
+                                <a href="mailto:contato@casadocaminho.org">
+                                    contato@casadocaminho.org
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Horario de atendimento-->
+                     <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <span class="material-symbols-rounded">schedule</span>
+
+                        </div>
+
+                        <div class="contact-info-content">
+                            <h3 class="contact-info-title">Horário de Atendimento</h3>
+
+                            <p class="contact-info-text">
+                                Segunda a Sexta: 9h às 17h<br>
+                                Sábado: 9h às 12h<br>
+                                Domingo: Fechado
+                            </p>
+                        </div>
+
+                     </div>
+                </div>
+
+                <!-- MAPA (google maps embed)-->
+
+                <div class="contact-map">
+                    <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3699.8929191658243!2d-47.89234492484814!3d-22.015079680230477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b877a6a1fa84f1%3A0x1234567890abcdef!2sRua%20Costa%20do%20Sol%2C%20450%20-%20S%C3%A3o%20Carlos%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v123456789012"
+                    width="100%"
+                    height="300"
+                    style="border:0; border-radius: 12px;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+
+                <p class="map-caption">
+                    <a href="https://maps.google.com/?q=Rua+Costa+do+Sol,+450,+São+Carlos,+SP"
+                        target="_blank" style="color: var(--primary);">
+                        Abrir no Google Maps
+                    </a>
+                </p>
+                </div>
+             </div>
+
+
+        </div>
+
+    </div>
+
+   </section>
+<!--FOOTER (igual às outras páginas) -->
+  
+  <footer class="footer">
+    <div class="footer-container">
+      
+      <!-- Coluna 1: Logo -->
+      <div class="footer-column">
+        <div class="footer-logo">
+          <span class="material-symbols-rounded">church</span>
+          <span>Casa do Caminho</span>
+        </div>
+        <p class="footer-tagline">
+          Um santuário para todos, independente do caminho.
+        </p>
+      </div>
+      
+      <!-- Coluna 2: Links -->
+      <div class="footer-column">
+        <h3 class="footer-title">Links Rápidos</h3>
+        <ul class="footer-links">
+          <li><a href="index.html#espiritual">Pilar Espiritual</a></li>
+          <li><a href="index.html#social">Ação Social</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      
+      <!-- Coluna 3: Contato -->
+    <div class="footer-column">
+        <h3 class="footer-title">Contato</h3>
+        <ul class="footer-contact">
+            <li>
+                <span class="material-symbols-rounded">location_on</span>
+                Rua Costa do Sol, 450 - São Carlos, SP
+             </li>
+            <li>
+                <span class="material-symbols-rounded">phone</span>
+                (16) 3361-9822
+            </li>
+            <li>
+                <span class="material-symbols-rounded">mail</span>
+                contato@casadocaminho.org
+            </li>
+        </ul>
+    </div>
+
+      
+    </div>
+    
+    <!-- Copyright -->
+    <div class="footer-bottom">
+      <p>&copy; 2026 Casa do Caminho. Todos os direitos reservados.</p>
+      <div class="footer-legal">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Serviço</a>
+      </div>
+    </div>
+  </footer>
+
+ <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       JAVASCRIPT VANILLA
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <script>
+    // ═══════════════════════════════════════════
+    // SMOOTH SCROLL
+    // ═══════════════════════════════════════════
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // ═══════════════════════════════════════════
+    // CONTADOR ANIMADO
+    // ═══════════════════════════════════════════
+    function animateCounter(element) {
+      const target = parseInt(element.getAttribute('data-target'));
+      const duration = 2000;
+      const increment = target / (duration / 16);
+      let current = 0;
+
+      const updateCounter = () => {
+        current += increment;
+        if (current < target) {
+          element.textContent = Math.floor(current).toLocaleString('pt-BR');
+          requestAnimationFrame(updateCounter);
+        } else {
+          element.textContent = target.toLocaleString('pt-BR') + '+';
+        }
+      };
+
+      updateCounter();
+    }
+
+    // ═══════════════════════════════════════════
+    // INTERSECTION OBSERVER
+    // ═══════════════════════════════════════════
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          
+          if (entry.target.classList.contains('counter')) {
+            animateCounter(entry.target);
+          }
+          
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    document.querySelectorAll('.counter').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     MENU HAMBURGER MOBILE
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  // Selecionar elementos
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  const body = document.body;
+  
+  // Criar overlay se não existir
+  let overlay = document.querySelector('.nav-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.className = 'nav-overlay';
+    body.appendChild(overlay);
+  }
+  
+  // Abrir/fechar menu
+  if (menuToggle) {
+    menuToggle.addEventListener('click', function() {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      overlay.classList.toggle('active');
+      body.classList.toggle('menu-open');
+    });
+  }
+  
+  // Fechar ao clicar no overlay
+  overlay.addEventListener('click', function() {
+    menuToggle.classList.remove('active');
+    navLinks.classList.remove('active');
+    overlay.classList.remove('active');
+    body.classList.remove('menu-open');
+  });
+  
+  // Fechar ao clicar em um link
+  const links = navLinks.querySelectorAll('a');
+  links.forEach(link => {
+    link.addEventListener('click', function() {
+      menuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+      overlay.classList.remove('active');
+      body.classList.remove('menu-open');
+    });
+  });
+  
+});
+</script>
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     VALIDAÇÕES DO FORMULÁRIO DE CONTATO
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  const form = document.querySelector('form');
+  
+  if (!form) return;
+  
+  // ====================================
+  // MÁSCARAS DE INPUT
+  // ====================================
+  
+  // Máscara de telefone: (11) 99999-9999
+  const telefoneInput = document.querySelector('input[type="tel"]');
+  if (telefoneInput) {
+    telefoneInput.addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      
+      if (value.length <= 11) {
+        value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
+        value = value.replace(/(\d)(\d{4})$/, '$1-$2');
+      }
+      
+      e.target.value = value;
+    });
+  }
+  
+  // ====================================
+  // VALIDAÇÃO EM TEMPO REAL
+  // ====================================
+  
+  // Validar email enquanto digita
+  const emailInput = document.querySelector('input[type="email"]');
+  if (emailInput) {
+    emailInput.addEventListener('blur', function() {
+      validarEmail(this);
+    });
+  }
+  
+  // Validar nome
+  const nomeInput = document.querySelector('input[name="nome"], input[placeholder*="nome" i]');
+  if (nomeInput) {
+    nomeInput.addEventListener('blur', function() {
+      validarNome(this);
+    });
+  }
+  
+  // ====================================
+  // VALIDAÇÃO NO SUBMIT
+  // ====================================
+  
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Limpar mensagens anteriores
+    limparErros();
+    
+    let valido = true;
+    
+    // Validar nome
+    const nome = document.querySelector('input[name="nome"], input[placeholder*="nome" i]');
+    if (nome && !validarNome(nome)) {
+      valido = false;
+    }
+    
+    // Validar email
+    const email = document.querySelector('input[type="email"]');
+    if (email && !validarEmail(email)) {
+      valido = false;
+    }
+    
+    // Validar telefone (opcional, mas se preenchido deve estar correto)
+    const telefone = document.querySelector('input[type="tel"]');
+    if (telefone && telefone.value && !validarTelefone(telefone)) {
+      valido = false;
+    }
+    
+    // Validar mensagem
+    const mensagem = document.querySelector('textarea');
+    if (mensagem && !validarMensagem(mensagem)) {
+      valido = false;
+    }
+    
+    // Se tudo válido, enviar
+    if (valido) {
+      enviarFormulario(this);
+    } else {
+      // Scroll para o primeiro erro
+      const primeiroErro = document.querySelector('.erro-validacao');
+      if (primeiroErro) {
+        primeiroErro.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  });
+  
+  // ====================================
+  // FUNÇÕES DE VALIDAÇÃO
+  // ====================================
+  
+  function validarNome(input) {
+    const valor = input.value.trim();
+    
+    if (valor === '') {
+      mostrarErro(input, 'Por favor, informe seu nome');
+      return false;
+    }
+    
+    if (valor.length < 3) {
+      mostrarErro(input, 'Nome deve ter pelo menos 3 caracteres');
+      return false;
+    }
+    
+    if (!/^[a-záàâãéèêíïóôõöúçñ ]+$/i.test(valor)) {
+      mostrarErro(input, 'Nome deve conter apenas letras');
+      return false;
+    }
+    
+    removerErro(input);
+    return true;
+  }
+  
+  function validarEmail(input) {
+    const valor = input.value.trim();
+    
+    if (valor === '') {
+      mostrarErro(input, 'Por favor, informe seu email');
+      return false;
+    }
+    
+    // Regex de validação de email
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (!regex.test(valor)) {
+      mostrarErro(input, 'Por favor, informe um email válido');
+      return false;
+    }
+    
+    removerErro(input);
+    return true;
+  }
+  
+  function validarTelefone(input) {
+    const valor = input.value.replace(/\D/g, '');
+    
+    if (valor.length < 10) {
+      mostrarErro(input, 'Telefone deve ter pelo menos 10 dígitos');
+      return false;
+    }
+    
+    if (valor.length > 11) {
+      mostrarErro(input, 'Telefone inválido');
+      return false;
+    }
+    
+    removerErro(input);
+    return true;
+  }
+  
+  function validarMensagem(input) {
+    const valor = input.value.trim();
+    
+    if (valor === '') {
+      mostrarErro(input, 'Por favor, escreva sua mensagem');
+      return false;
+    }
+    
+    if (valor.length < 10) {
+      mostrarErro(input, 'Mensagem deve ter pelo menos 10 caracteres');
+      return false;
+    }
+    
+    removerErro(input);
+    return true;
+  }
+  
+  // ====================================
+  // FUNÇÕES DE FEEDBACK VISUAL
+  // ====================================
+  
+  function mostrarErro(input, mensagem) {
+    // Adicionar classe de erro no input
+    input.style.borderColor = '#f44336';
+    input.style.background = '#ffebee';
+    
+    // Remover erro anterior se existir
+    const erroAnterior = input.parentElement.querySelector('.erro-validacao');
+    if (erroAnterior) {
+      erroAnterior.remove();
+    }
+    
+    // Criar mensagem de erro
+    const erro = document.createElement('div');
+    erro.className = 'erro-validacao';
+    erro.style.color = '#f44336';
+    erro.style.fontSize = '0.875rem';
+    erro.style.marginTop = '0.5rem';
+    erro.style.display = 'flex';
+    erro.style.alignItems = 'center';
+    erro.style.gap = '0.25rem';
+    erro.innerHTML = `
+      <span style="font-size: 1rem;">⚠️</span>
+      ${mensagem}
+    `;
+    
+    // Inserir mensagem após o input
+    input.parentElement.appendChild(erro);
+  }
+  
+  function removerErro(input) {
+    input.style.borderColor = '';
+    input.style.background = '';
+    
+    const erro = input.parentElement.querySelector('.erro-validacao');
+    if (erro) {
+      erro.remove();
+    }
+  }
+  
+  function limparErros() {
+    const erros = document.querySelectorAll('.erro-validacao');
+    erros.forEach(erro => erro.remove());
+    
+    const inputs = form.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+      input.style.borderColor = '';
+      input.style.background = '';
+    });
+  }
+  
+  // ====================================
+  // ENVIO DO FORMULÁRIO
+  // ====================================
+  
+  function enviarFormulario(form) {
+    // Mostrar loading
+    const botao = form.querySelector('button[type="submit"]');
+    const textoOriginal = botao.innerHTML;
+    
+    botao.disabled = true;
+    botao.innerHTML = `
+      <span style="display: inline-flex; align-items: center; gap: 0.5rem;">
+        <span style="animation: spin 1s linear infinite; display: inline-block;">⏳</span>
+        Enviando...
+      </span>
+    `;
+    
+    // Adicionar animação de spin
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+    `;
+    document.head.appendChild(style);
+    
+    // Coletar dados
+    const dados = {
+      nome: form.querySelector('input[name="nome"], input[placeholder*="nome" i]').value,
+      email: form.querySelector('input[type="email"]').value,
+      telefone: form.querySelector('input[type="tel"]')?.value || '',
+      mensagem: form.querySelector('textarea').value
+    };
+    
+    console.log('Dados do formulário:', dados);
+    
+    
+    // Simular envio ( TEM Q emover depois quando tiver backend)
+    setTimeout(() => {
+      botao.disabled = false;
+      botao.innerHTML = textoOriginal;
+      
+      // Mostrar mensagem de sucesso
+      mostrarSucesso();
+      
+      // Limpar formulário
+      form.reset();
+    }, 2000);
+  }
+  
+  function mostrarSucesso() {
+    // Criar mensagem de sucesso
+    const sucesso = document.createElement('div');
+    sucesso.style.position = 'fixed';
+    sucesso.style.top = '50%';
+    sucesso.style.left = '50%';
+    sucesso.style.transform = 'translate(-50%, -50%)';
+    sucesso.style.background = 'white';
+    sucesso.style.padding = '2rem';
+    sucesso.style.borderRadius = '12px';
+    sucesso.style.boxShadow = '0 10px 40px rgba(0,0,0,0.2)';
+    sucesso.style.zIndex = '10000';
+    sucesso.style.textAlign = 'center';
+    sucesso.style.minWidth = '300px';
+    sucesso.innerHTML = `
+      <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
+      <h3 style="margin-bottom: 0.5rem; color: #4caf50;">Mensagem Enviada!</h3>
+      <p style="color: #666; margin-bottom: 1.5rem;">
+        Obrigado pelo contato. Responderemos em breve!
+      </p>
+      <button onclick="this.parentElement.remove(); document.querySelector('.overlay-sucesso').remove();" 
+              style="background: #4caf50; color: white; border: none; padding: 0.75rem 2rem; border-radius: 8px; cursor: pointer; font-weight: 600;">
+        OK
+      </button>
+    `;
+    
+    // Criar overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'overlay-sucesso';
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.background = 'rgba(0,0,0,0.5)';
+    overlay.style.zIndex = '9999';
+    overlay.onclick = function() {
+      this.remove();
+      sucesso.remove();
+    };
+    
+    document.body.appendChild(overlay);
+    document.body.appendChild(sucesso);
+  }
+  
+});
+</script>
+
+
+
+</body>
+</html>
