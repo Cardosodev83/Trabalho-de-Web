@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciar Depoimentos - Casa do Caminho</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/design-tokens.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Public+Sans:wght@400;500;600&display=swap">
+</head>
+<body class="admin-body">
+  
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SIDEBAR NAVEGAÇÃO
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <aside class="admin-sidebar">
+    <div class="admin-sidebar-header">
+      <span class="material-symbols-rounded">church</span>
+      <div>
+        <strong>Casa do Caminho</strong>
+        <span>Painel Admin</span>
+      </div>
+      <button class="menu-toggle" aria-label="Abrir menu de navegação">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    </div>
+    
+    <nav class="admin-nav">
+      <a href="admin-dashboard.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">dashboard</span>
+        <span>Dashboard</span>
+      </a>
+      <a href="admin-eventos.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">event</span>
+        <span>Eventos</span>
+      </a>
+      <a href="admin-projetos.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">volunteer_activism</span>
+        <span>Projetos</span>
+      </a>
+      <a href="admin-voluntarios.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">groups</span>
+        <span>Voluntários</span>
+      </a>
+      <a href="admin-doacoes.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">favorite</span>
+        <span>Doações</span>
+      </a>
+      <a href="admin-depoimentos.html" class="admin-nav-item active">
+        <span class="material-symbols-rounded">chat</span>
+        <span>Depoimentos</span>
+      </a>
+      <a href="admin-galeria.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">photo_library</span>
+        <span>Galeria</span>
+      </a>
+    </nav>
+    
+    <div class="admin-sidebar-footer">
+      <a href="index.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">public</span>
+        <span>Ver Site</span>
+      </a>
+      <a href="admin-login.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">logout</span>
+        <span>Sair</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       CONTEÚDO PRINCIPAL
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <main class="admin-main">
+    
+    <!-- Header -->
+    <header class="admin-header">
+      <div>
+        <h1 class="admin-page-title">Gerenciar Depoimentos</h1>
+        <p class="admin-page-subtitle">Modere e publique depoimentos no site</p>
+      </div>
+      <div class="admin-header-actions">
+        <button class="admin-btn admin-btn-primary" onclick="abrirModalDepoimento()">
+          <span class="material-symbols-rounded">add</span>
+          Novo Depoimento
+        </button>
+      </div>
+    </header>
+
+    <!-- Stats Rápidas -->
+    <div class="admin-stats-grid">
+      <div class="admin-stat-card stat-primary">
+        <div class="admin-stat-header">
+          <span class="material-symbols-rounded">chat</span>
+        </div>
+        <div class="admin-stat-body">
+          <h3>24</h3>
+          <p>Total de Depoimentos</p>
+        </div>
+      </div>
+
+      <div class="admin-stat-card stat-success">
+        <div class="admin-stat-header">
+          <span class="material-symbols-rounded">check_circle</span>
+        </div>
+        <div class="admin-stat-body">
+          <h3>18</h3>
+          <p>Publicados</p>
+        </div>
+      </div>
+
+      <div class="admin-stat-card stat-warning">
+        <div class="admin-stat-header">
+          <span class="material-symbols-rounded">pending</span>
+        </div>
+        <div class="admin-stat-body">
+          <h3>6</h3>
+          <p>Aguardando Aprovação</p>
+        </div>
+      </div>
+
+      <div class="admin-stat-card stat-info">
+        <div class="admin-stat-header">
+          <span class="material-symbols-rounded">star</span>
+        </div>
+        <div class="admin-stat-body">
+          <h3>4.8/5</h3>
+          <p>Média de Avaliação</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filtros -->
+    <div class="admin-filters">
+      <div class="admin-search">
+        <span class="material-symbols-rounded">search</span>
+        <input type="text" placeholder="Buscar depoimentos..." id="search-depoimentos">
+      </div>
+      <select class="admin-select">
+        <option value="">Todos os status</option>
+        <option value="publicado">Publicado</option>
+        <option value="pendente">Pendente</option>
+        <option value="rascunho">Rascunho</option>
+      </select>
+    </div>
+
+    <!-- Grid de Depoimentos -->
+    <div class="admin-grid">
+      
+      <!-- Depoimento 1 -->
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <div class="admin-card-title">
+            <span class="material-symbols-rounded">person</span>
+            <h3>Maria Silva</h3>
+          </div>
+          <span class="admin-badge admin-badge-success">Publicado</span>
+        </div>
+        <div class="admin-card-body">
+          <p class="admin-card-description">
+            "A Casa do Caminho mudou minha vida! Recebi ajuda quando mais precisei e hoje sou voluntária para retribuir todo o carinho que recebi. Gratidão eterna!"
+          </p>
+          <div class="admin-card-meta">
+            <span class="admin-meta-item">
+              <span class="material-symbols-rounded">calendar_today</span>
+              15/03/2026
+            </span>
+            <span class="admin-meta-item">
+              <span class="material-symbols-rounded">volunteer_activism</span>
+              Sopa Solidária
+            </span>
+            <span class="admin-meta-item">
+              <span class="material-symbols-rounded">star</span>
+              5.0
+            </span>
+          </div>
+        </div>
+        <div class="admin-card-footer">
+          <button class="admin-btn admin-btn-outline" onclick="editarDepoimento(1)">
+            <span class="material-symbols-rounded">edit</span>
+            Editar
+          </button>
+          <button class="admin-btn admin-btn-outline" onclick="despublicarDepoimento(1)">
+            <span class="material-symbols-rounded">visibility_off</span>
+            Despublicar
+          </button>
+        </div>
+      </div>
+
+      <!-- Depoimento 2 -->
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <div class="admin-card-title">
+            <span class="material-symbols-rounded">person</span>
+            <h3>João Santos</h3>
+          </div>
+          <span class="admin-badge admin-badge-success">Publicado</span>
+        </div>
+        <div class="admin-card-body">
+          <p class="admin-card-description">
+            "Trabalho incrível! Ver o sorriso das crianças na creche não tem preço. Parabéns a toda equipe pelo amor e dedicação!"
+          </p>
+          <div class="admin-card-meta">
+            <span class="admin-meta-item">
+              <span class="material-symbols-rounded">calendar_today</span>
+              20/03/2026
+            </span>
+            <span class="admin-meta-item">
+              <span class="material-symbols-rounded">volunteer_activism</span>
+              Creche Comunitária
+            </span>
+            <span class="admin-meta-item">
+              <span class="material-symbols-rounded">star</span>
+              5.0
+            </span>
+          </div>
+        </div>
+        <div class="admin-card-footer">
+          <button class="admin-btn admin-btn-outline" onclick="editarDepoimento(2)">
+            <span class="material-symbols-rounded">edit</span>
+            Editar
+          </button>
+          <button class="admin-btn admin-btn-outline" onclick="despublicarDepoimento(2)">
+            <span class="material-symbols-rounded">visibility_off</span>
+            Despublicar
+          </button>
+        </div>
+      </div>
+
+      <!-- Depoimento 3 - Pendente -->
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <div class="admin-card-title">
+            <span class="material-symbols-rounded">person</span>
+            <h3>Ana Costa</h3>
+          </div>
+          <span class="admin-badge admin-badge-warning">Pendente</span>
+        </div>
+        <div class="admin-card-body">
+          <p class="admin-card-description">
+            "Nunca imaginei que encontraria um lugar tão acolhedor. Muito obrigada por tudo que fazem pelas famílias carentes!"
+          </p>
+          <div class="admin-card-meta">
+            <span class="admin-meta-item">
+              <span class="material-symbols-rounded">calendar_today</span>
+              05/04/2026
+            </span>
+            <span class="admin-meta-item">
+              <span class="material-symbols-rounded">volunteer_activism</span>
+              Cesta Básica
+            </span>
+            <span class="admin-meta-item">
+              <span class="material-symbols-rounded">star</span>
+              5.0
+            </span>
+          </div>
+        </div>
+        <div class="admin-card-footer">
+          <button class="admin-btn admin-btn-outline" onclick="editarDepoimento(3)">
+            <span class="material-symbols-rounded">edit</span>
+            Editar
+          </button>
+          <button class="admin-btn admin-btn-primary" onclick="aprovarDepoimento(3)">
+            <span class="material-symbols-rounded">check_circle</span>
+            Aprovar
+          </button>
+        </div>
+      </div>
+
+      <!-- Depoimento 4 - Pendente -->
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <div class="admin-card-title">
+            <span class="material-symbols-rounded">person</span>
+            <h3>Carlos Oliveira</h3>
+          </div>
+          <span class="admin-badge admin-badge-warning">Pendente</span>
+        </div>
+        <div class="admin-card-body">
+          <p class="admin-card-description">
+            "Projeto maravilhoso! Ser voluntário aqui me fez ver a vida de outra forma. Recomendo para todos que querem fazer a diferença!"
+          </p>
+          <div class="admin-card-meta">
+            <span class="admin-meta-item">
+              <span class="material-symbols-rounded">calendar_today</span>
+              06/04/2026
+            </span>
+            <span class="admin-meta-item">
+              <span class="material-symbols-rounded">volunteer_activism</span>
+              Voluntário
+            </span>
+            <span class="admin-meta-item">
+              <span class="material-symbols-rounded">star</span>
+              5.0
+            </span>
+          </div>
+        </div>
+        <div class="admin-card-footer">
+          <button class="admin-btn admin-btn-outline" onclick="editarDepoimento(4)">
+            <span class="material-symbols-rounded">edit</span>
+            Editar
+          </button>
+          <button class="admin-btn admin-btn-primary" onclick="aprovarDepoimento(4)">
+            <span class="material-symbols-rounded">check_circle</span>
+            Aprovar
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       MODAL: CRIAR/EDITAR DEPOIMENTO
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="admin-modal" id="modalDepoimento">
+    <div class="admin-modal-overlay" onclick="fecharModalDepoimento()"></div>
+    <div class="admin-modal-container">
+      
+      <div class="admin-modal-header">
+        <h2 id="modal-titulo">Novo Depoimento</h2>
+        <button class="admin-modal-close" onclick="fecharModalDepoimento()">
+          <span class="material-symbols-rounded">close</span>
+        </button>
+      </div>
+
+      <div class="admin-modal-body">
+        <form id="formDepoimento" onsubmit="salvarDepoimento(event)">
+          
+          <div class="admin-form-group">
+            <label class="admin-form-label">
+              <span class="material-symbols-rounded">person</span>
+              Nome *
+            </label>
+            <input type="text" class="admin-form-input" id="depoNome" required placeholder="Nome completo">
+          </div>
+
+          <div class="admin-form-group">
+            <label class="admin-form-label">
+              <span class="material-symbols-rounded">chat</span>
+              Depoimento *
+            </label>
+            <textarea class="admin-form-input" id="depoTexto" rows="5" required placeholder="Escreva o depoimento..."></textarea>
+          </div>
+
+          <div class="admin-form-row">
+            <div class="admin-form-group">
+              <label class="admin-form-label">
+                <span class="material-symbols-rounded">volunteer_activism</span>
+                Projeto
+              </label>
+              <select class="admin-form-input" id="depoProjeto">
+                <option value="">Selecione...</option>
+                <option value="sopa">Sopa Solidária</option>
+                <option value="bazar">Bazar Beneficente</option>
+                <option value="cesta">Cesta Básica</option>
+                <option value="creche">Creche Comunitária</option>
+              </select>
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-form-label">
+                <span class="material-symbols-rounded">star</span>
+                Avaliação
+              </label>
+              <select class="admin-form-input" id="depoAvaliacao">
+                <option value="5">5 estrelas</option>
+                <option value="4">4 estrelas</option>
+                <option value="3">3 estrelas</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="admin-modal-footer">
+            <button type="button" class="admin-btn admin-btn-outline" onclick="fecharModalDepoimento()">
+              Cancelar
+            </button>
+            <button type="submit" class="admin-btn admin-btn-primary">
+              <span class="material-symbols-rounded">save</span>
+              Salvar Depoimento
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       JAVASCRIPT
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <script>
+    // MODAL
+    function abrirModalDepoimento() {
+      document.getElementById('modalDepoimento').classList.add('active');
+      document.getElementById('modal-titulo').textContent = 'Novo Depoimento';
+      document.getElementById('formDepoimento').reset();
+    }
+
+    function fecharModalDepoimento() {
+      document.getElementById('modalDepoimento').classList.remove('active');
+    }
+
+    // CRUD
+    function salvarDepoimento(e) {
+      e.preventDefault();
+      console.log('Salvando depoimento...');
+      alert('✅ Depoimento salvo com sucesso!');
+      fecharModalDepoimento();
+    }
+
+    function editarDepoimento(id) {
+      console.log('Editando depoimento:', id);
+      abrirModalDepoimento();
+      document.getElementById('modal-titulo').textContent = 'Editar Depoimento';
+    }
+
+    function aprovarDepoimento(id) {
+      if (confirm('Aprovar e publicar este depoimento?')) {
+        console.log('Aprovando depoimento:', id);
+        alert('✅ Depoimento aprovado e publicado!');
+      }
+    }
+
+    function despublicarDepoimento(id) {
+      if (confirm('Remover este depoimento do site?')) {
+        console.log('Despublicando depoimento:', id);
+        alert('✅ Depoimento removido do site!');
+      }
+    }
+
+    // Busca
+    document.getElementById('search-depoimentos')?.addEventListener('input', function(e) {
+      const termo = e.target.value.toLowerCase();
+      const cards = document.querySelectorAll('.admin-grid .admin-card');
+      
+      cards.forEach(card => {
+        const texto = card.textContent.toLowerCase();
+        card.style.display = texto.includes(termo) ? '' : 'none';
+      });
+    });
+  </script>
+
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     MENU HAMBURGER ADMIN MOBILE
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  // Apenas criar menu mobile se for mobile
+  if (window.innerWidth <= 768) {
+    
+    const adminSidebar = document.querySelector('.admin-sidebar');
+    const body = document.body;
+    
+    // Criar botão toggle
+    const adminToggle = document.createElement('button');
+    adminToggle.className = 'admin-menu-toggle';
+    adminToggle.setAttribute('aria-label', 'Abrir menu');
+    adminToggle.innerHTML = '<span class="material-symbols-rounded">menu</span>';
+    
+    // Criar overlay
+    const adminOverlay = document.createElement('div');
+    adminOverlay.className = 'admin-overlay';
+    
+    // Adicionar ao DOM
+    body.appendChild(adminToggle);
+    body.appendChild(adminOverlay);
+    
+    // Toggle sidebar
+    adminToggle.addEventListener('click', function() {
+      const isActive = adminSidebar.classList.contains('active');
+      
+      if (isActive) {
+        // Fechar
+        adminSidebar.classList.remove('active');
+        adminOverlay.classList.remove('active');
+        adminToggle.innerHTML = '<span class="material-symbols-rounded">menu</span>';
+        body.style.overflow = '';
+      } else {
+        // Abrir
+        adminSidebar.classList.add('active');
+        adminOverlay.classList.add('active');
+        adminToggle.innerHTML = '<span class="material-symbols-rounded">close</span>';
+        body.style.overflow = 'hidden';
+      }
+    });
+    
+    // Fechar ao clicar no overlay
+    adminOverlay.addEventListener('click', function() {
+      adminSidebar.classList.remove('active');
+      adminOverlay.classList.remove('active');
+      adminToggle.innerHTML = '<span class="material-symbols-rounded">menu</span>';
+      body.style.overflow = '';
+    });
+    
+    // Fechar ao clicar em um link
+    const sidebarLinks = adminSidebar.querySelectorAll('a');
+    sidebarLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        adminSidebar.classList.remove('active');
+        adminOverlay.classList.remove('active');
+        adminToggle.innerHTML = '<span class="material-symbols-rounded">menu</span>';
+        body.style.overflow = '';
+      });
+    });
+  }
+  
+});
+</script>
+
+</body>
+</html>

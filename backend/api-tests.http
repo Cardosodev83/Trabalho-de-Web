@@ -1,0 +1,111 @@
+### Verificar se API está online
+GET http://localhost:3000
+
+###
+
+### Listar todos os projetos
+GET http://localhost:3000/api/projetos
+
+###
+
+### Criar novo projeto - Sopa Solidária
+POST http://localhost:3000/api/projetos
+Content-Type: application/json
+
+{
+  "nome": "Sopa Solidária",
+  "descricao": "Distribuição de 200 refeições semanais para pessoas em situação de vulnerabilidade",
+  "meta_financeira": 5000.00,
+  "beneficiarios_atendidos": 200,
+  "imagem_url": "sopa_solidaria.jpg",
+  "status": "ativo"
+}
+
+###
+
+### Criar projeto - Bazar Beneficente
+POST http://localhost:3000/api/projetos
+Content-Type: application/json
+
+{
+  "nome": "Bazar Beneficente",
+  "descricao": "Venda de roupas e utensílios a preços sociais",
+  "meta_financeira": 3000.00,
+  "beneficiarios_atendidos": 150,
+  "imagem_url": "bazar.jpg",
+  "status": "ativo"
+}
+
+###
+
+### Criar projeto - Cesta Básica
+POST http://localhost:3000/api/projetos
+Content-Type: application/json
+
+{
+  "nome": "Cesta Básica",
+  "descricao": "Distribuição mensal de cestas básicas para famílias carentes",
+  "meta_financeira": 8000.00,
+  "beneficiarios_atendidos": 100,
+  "imagem_url": "cesta_basica.jpg",
+  "status": "ativo"
+}
+
+###
+
+### Buscar projeto por ID
+GET http://localhost:3000/api/projetos/1
+
+###
+
+### Atualizar projeto
+PUT http://localhost:3000/api/projetos/1
+Content-Type: application/json
+
+{
+  "beneficiarios_atendidos": 250,
+  "arrecadado_atual": 1500.00
+}
+
+###
+
+### Deletar projeto
+DELETE http://localhost:3000/api/projetos/1
+
+###
+
+### Criar doação
+POST http://localhost:3000/api/doacoes
+Content-Type: application/json
+
+{
+  "projeto_id": 1,
+  "valor": 100.00,
+  "doador_nome": "Maria Silva",
+  "doador_email": "maria@email.com",
+  "doador_cpf": "12345678900",
+  "tipo": "unica"
+}
+
+###
+
+### Criar doação geral (sem projeto específico)
+POST http://localhost:3000/api/doacoes
+Content-Type: application/json
+
+{
+  "valor": 50.00,
+  "doador_nome": "João Santos",
+  "doador_email": "joao@email.com",
+  "tipo": "recorrente"
+}
+
+###
+
+### Listar todas as doações
+GET http://localhost:3000/api/doacoes
+
+###
+
+### Relatório de doações
+GET http://localhost:3000/api/doacoes/relatorio

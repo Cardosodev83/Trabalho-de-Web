@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finalizar Doação - Casa do Caminho</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/design-tokens.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Public+Sans:wght@400;500;600&display=swap">
+</head>
+<body>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       NAVEGAÇÃO
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="material-symbols-rounded">church</span>
+        <span>Casa do Caminho</span>
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menu de navegação">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+      
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Início</a></li>
+        <li><a href="espiritual.html" class="nav-link">Espiritual</a></li>
+        <li><a href="projetos.html" class="nav-link">Social</a></li>
+        <li><a href="eventos.html" class="nav-link">Eventos</a></li>
+        <li><a href="contato.html" class="nav-link">Contato</a></li>
+        <li><a href="institucional.html" class="nav-link">Institucional</a></li>
+
+      </ul>
+      
+      <a href="doar-agora.html" class="btn btn-primary">
+        <span class="material-symbols-rounded">favorite</span>
+        Doar Agora
+      </a>
+    </div>
+  </nav>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       HEADER PAGAMENTO
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="payment-header">
+    <div class="container">
+      <div class="payment-header-content fade-in">
+        <a href="doar-agora.html" class="back-link">
+          <span class="material-symbols-rounded">arrow_back</span>
+          Voltar
+        </a>
+        <h1 class="payment-title">Finalizar Doação</h1>
+        <p class="payment-subtitle">Você está fazendo a diferença! ❤️</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       CHECKOUT - Grid 60/40
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="payment-section">
+    <div class="payment-grid">
+      
+      <!-- FORMULÁRIO PRINCIPAL (60%) -->
+      <div class="payment-form-container">
+        
+        <!-- ETAPA 1: Escolher Valor -->
+        <div class="payment-step fade-on-scroll">
+          <div class="step-header">
+            <div class="step-number-payment">1</div>
+            <h2 class="step-title">Valor da doação</h2>
+          </div>
+          
+          <div class="donation-values">
+            <button class="value-btn" data-value="30">
+              <span class="value-amount">R$ 30</span>
+              <span class="value-description">10 refeições</span>
+            </button>
+            <button class="value-btn" data-value="50">
+              <span class="value-amount">R$ 50</span>
+              <span class="value-description">1 cesta básica</span>
+            </button>
+            <button class="value-btn" data-value="100">
+              <span class="value-amount">R$ 100</span>
+              <span class="value-description">5 crianças</span>
+            </button>
+            <button class="value-btn value-custom" data-value="custom">
+              <span class="value-amount">Outro valor</span>
+              <span class="value-description">Você escolhe</span>
+            </button>
+          </div>
+
+          <!-- Input de valor customizado -->
+          <div class="custom-value-input" id="customValueInput" style="display: none;">
+            <label for="customAmount" class="form-label">Digite o valor (R$)</label>
+            <input 
+              type="number" 
+              id="customAmount" 
+              class="form-input" 
+              placeholder="0,00"
+              min="10"
+              step="0.01"
+            >
+          </div>
+
+          <!-- Doação recorrente -->
+          <div class="recurring-donation">
+            <label class="checkbox-label">
+              <input type="checkbox" id="recurringCheckbox">
+              <span>Tornar esta uma doação mensal (recorrente)</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- ETAPA 2: Forma de Pagamento -->
+        <div class="payment-step fade-on-scroll">
+          <div class="step-header">
+            <div class="step-number-payment">2</div>
+            <h2 class="step-title">Forma de pagamento</h2>
+          </div>
+
+          <div class="payment-methods">
+            <button class="payment-method-btn active" data-method="pix">
+              <span class="material-symbols-rounded">pix</span>
+              <span>PIX</span>
+            </button>
+            <button class="payment-method-btn" data-method="credit">
+              <span class="material-symbols-rounded">credit_card</span>
+              <span>Cartão de Crédito</span>
+            </button>
+            <button class="payment-method-btn" data-method="boleto">
+              <span class="material-symbols-rounded">receipt_long</span>
+              <span>Boleto</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- FORMULÁRIO PIX -->
+        <div class="payment-form-method" id="pixForm">
+          <div class="pix-container fade-on-scroll">
+            <h3 class="method-title">
+              <span class="material-symbols-rounded">pix</span>
+              Pagamento via PIX
+            </h3>
+            <p class="method-description">
+              Escaneie o QR Code abaixo com o app do seu banco ou copie o código PIX
+            </p>
+
+            <div class="qr-code-container">
+              <div class="qr-code-placeholder">
+                <span class="material-symbols-rounded">qr_code_2</span>
+                <p>QR Code será gerado após confirmar</p>
+              </div>
+            </div>
+
+            <div class="pix-code">
+              <label class="form-label">Código PIX Copia e Cola</label>
+              <div class="code-input-group">
+                <input 
+                  type="text" 
+                  class="form-input code-input" 
+                  value="00020126580014BR.GOV.BCB.PIX..." 
+                  readonly
+                  id="pixCode"
+                >
+                <button class="btn btn-outline copy-btn" onclick="copyPixCode()">
+                  <span class="material-symbols-rounded">content_copy</span>
+                  Copiar
+                </button>
+              </div>
+              <p class="form-helper">Este código expira em 30 minutos</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FORMULÁRIO CARTÃO -->
+        <div class="payment-form-method" id="creditForm" style="display: none;">
+          <div class="credit-container fade-on-scroll">
+            <h3 class="method-title">
+              <span class="material-symbols-rounded">credit_card</span>
+              Dados do Cartão
+            </h3>
+
+            <form class="payment-form">
+              <div class="form-group">
+                <label for="cardNumber" class="form-label">Número do cartão</label>
+                <input 
+                  type="text" 
+                  id="cardNumber" 
+                  class="form-input" 
+                  placeholder="0000 0000 0000 0000"
+                  maxlength="19"
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="cardName" class="form-label">Nome no cartão</label>
+                <input 
+                  type="text" 
+                  id="cardName" 
+                  class="form-input" 
+                  placeholder="Como está escrito no cartão"
+                >
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="cardExpiry" class="form-label">Validade</label>
+                  <input 
+                    type="text" 
+                    id="cardExpiry" 
+                    class="form-input" 
+                    placeholder="MM/AA"
+                    maxlength="5"
+                  >
+                </div>
+
+                <div class="form-group">
+                  <label for="cardCVV" class="form-label">CVV</label>
+                  <input 
+                    type="text" 
+                    id="cardCVV" 
+                    class="form-input" 
+                    placeholder="123"
+                    maxlength="3"
+                  >
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="cardInstallments" class="form-label">Parcelamento</label>
+                <select id="cardInstallments" class="form-input">
+                  <option value="1">À vista</option>
+                  <option value="2">2x sem juros</option>
+                  <option value="3">3x sem juros</option>
+                  <option value="4">4x sem juros</option>
+                  <option value="5">5x sem juros</option>
+                  <option value="6">6x sem juros</option>
+                </select>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- FORMULÁRIO BOLETO -->
+        <div class="payment-form-method" id="boletoForm" style="display: none;">
+          <div class="boleto-container fade-on-scroll">
+            <h3 class="method-title">
+              <span class="material-symbols-rounded">receipt_long</span>
+              Boleto Bancário
+            </h3>
+            <p class="method-description">
+              O boleto será gerado após a confirmação e enviado para seu e-mail
+            </p>
+
+            <div class="boleto-info">
+              <div class="info-item">
+                <span class="material-symbols-rounded">schedule</span>
+                <div>
+                  <strong>Compensação</strong>
+                  <p>Até 3 dias úteis após o pagamento</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <span class="material-symbols-rounded">calendar_today</span>
+                <div>
+                  <strong>Vencimento</strong>
+                  <p>3 dias após a geração</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ETAPA 3: Dados Pessoais -->
+        <div class="payment-step fade-on-scroll">
+          <div class="step-header">
+            <div class="step-number-payment">3</div>
+            <h2 class="step-title">Seus dados</h2>
+          </div>
+
+          <form class="payment-form">
+            <div class="form-group">
+              <label for="donorName" class="form-label">Nome completo *</label>
+              <input 
+                type="text" 
+                id="donorName" 
+                class="form-input" 
+                placeholder="Seu nome completo"
+                required
+              >
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="donorEmail" class="form-label">E-mail *</label>
+                <input 
+                  type="email" 
+                  id="donorEmail" 
+                  class="form-input" 
+                  placeholder="seu@email.com"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="donorPhone" class="form-label">Telefone *</label>
+                <input 
+                  type="tel" 
+                  id="donorPhone" 
+                  class="form-input" 
+                  placeholder="(11) 99999-9999"
+                  required
+                >
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="donorCPF" class="form-label">CPF (para recibo de IR)</label>
+              <input 
+                type="text" 
+                id="donorCPF" 
+                class="form-input" 
+                placeholder="000.000.000-00"
+                maxlength="14"
+              >
+              <p class="form-helper">Necessário para dedução no Imposto de Renda</p>
+            </div>
+
+            <div class="form-group">
+              <label class="checkbox-label">
+                <input type="checkbox" required>
+                <span>Li e aceito os <a href="#" style="color: var(--primary);">termos de doação</a></span>
+              </label>
+            </div>
+          </form>
+        </div>
+
+        <!-- BOTÃO FINALIZAR -->
+        <button class="btn btn-tertiary btn-lg btn-full btn-pulse" id="finalizeBtn">
+          <span class="material-symbols-rounded">favorite</span>
+          Finalizar Doação
+        </button>
+      </div>
+
+      <!-- RESUMO (40%) -->
+      <div class="payment-summary-container">
+        <div class="payment-summary fade-on-scroll">
+          <h3 class="summary-title">Resumo da doação</h3>
+          
+          <div class="summary-item">
+            <span>Valor da doação</span>
+            <strong id="summaryAmount">R$ 30,00</strong>
+          </div>
+
+          <div class="summary-item recurring-badge" id="recurringBadge" style="display: none;">
+            <span class="material-symbols-rounded">autorenew</span>
+            <span>Doação mensal</span>
+          </div>
+
+          <div class="summary-divider"></div>
+
+          <div class="summary-total">
+            <span>Total</span>
+            <strong id="summaryTotal">R$ 30,00</strong>
+          </div>
+
+          <div class="summary-impact">
+            <span class="material-symbols-rounded">info</span>
+            <p id="impactText">Sua doação fornecerá 10 refeições completas</p>
+          </div>
+
+          <div class="summary-security">
+            <span class="material-symbols-rounded">lock</span>
+            <div>
+              <strong>Pagamento 100% seguro</strong>
+              <p>Seus dados são protegidos com criptografia SSL</p>
+            </div>
+          </div>
+
+          <div class="summary-tax">
+            <span class="material-symbols-rounded">receipt_long</span>
+            <div>
+              <strong>Dedução no IR</strong>
+              <p>Você receberá um recibo para deduzir no Imposto de Renda</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Selo de confiança -->
+        <div class="trust-badges fade-on-scroll">
+          <div class="trust-badge">
+            <span class="material-symbols-rounded">verified</span>
+            <span>ONG Certificada</span>
+          </div>
+          <div class="trust-badge">
+            <span class="material-symbols-rounded">shield</span>
+            <span>Site Seguro</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+   <!-- 
+       FOOTER (Rodapé)
+        -->
+  
+  <footer class="footer">
+    
+    <div class="footer-container">
+      
+      
+      <!-- 
+           COLUNA 1: Logo + Slogan (2fr = 2 frações)
+            -->
+      
+      <div class="footer-column">
+        <!-- Logo do footer -->
+        <div class="footer-logo">
+          <span class="material-symbols-rounded">church</span>
+          <span>Casa do Caminho</span>
+        </div>
+        
+        <!-- Slogan/Tagline -->
+        <p class="footer-tagline">
+          Um santuário para todos, independente do caminho.
+        </p>
+      </div>
+      
+      
+      <!-- 
+           COLUNA 2: Links Rápidos (1fr = 1 fração)
+            -->
+      
+      <div class="footer-column">
+        <h3 class="footer-title">Links Rápidos</h3>
+        <!-- h3 = Título da coluna -->
+        
+        <ul class="footer-links">
+          <li><a href="espiritual.html">Pilar Espiritual</a></li>
+          <li><a href="projetos.html">Ação Social</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      
+      
+      <!-- 
+           COLUNA 3: Informações de Contato (1fr)
+            -->
+      
+      <div class="footer-column">
+        <h3 class="footer-title">Contato</h3>
+        
+        <ul class="footer-contact">
+          <!-- Lista de contatos com ícones -->
+          
+          <!-- Endereço -->
+          <li>
+            <span class="material-symbols-rounded">location_on</span>
+            <!-- Ícone de pin/localização -->
+            Rua Costa do Sol, 450 - Vila Costa do Sol, São Carlos - SP
+          </li>
+          
+          <!-- Telefone -->
+          <li>
+            <span class="material-symbols-rounded">phone</span>
+            (16) 3361-9822
+          </li>
+          
+          <!-- Email -->
+          <li>
+            <span class="material-symbols-rounded">mail</span>
+            casadocaminhosc@gmail.com
+          </li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    
+    
+    <!-- 
+         BARRA INFERIOR: Copyright + Links Legais
+          -->
+    
+    <div class="footer-bottom">
+      <!-- Flexbox: copyright à esquerda, links à direita -->
+      
+      <p>&copy; 2026 Casa do Caminho. Todos os direitos reservados.</p>
+      
+      <div class="footer-legal">
+        <!-- Links legais (lado a lado) -->
+        <a href="institucional.html">Política de Privacidade</a>
+        <a href="institucional.html">Termos de Serviço</a>
+      </div>
+    </div> 
+    
+  </footer>
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       JAVASCRIPT
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <script>
+    // ═══════════════════════════════════════════
+    // VALORES DE DOAÇÃO
+    // ═══════════════════════════════════════════
+    let selectedValue = 30;
+    const valueBtns = document.querySelectorAll('.value-btn');
+    const customInput = document.getElementById('customValueInput');
+    const customAmount = document.getElementById('customAmount');
+
+    valueBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        valueBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        
+        const value = this.getAttribute('data-value');
+        
+        if (value === 'custom') {
+          customInput.style.display = 'block';
+          customAmount.focus();
+        } else {
+          customInput.style.display = 'none';
+          selectedValue = parseInt(value);
+          updateSummary();
+        }
+      });
+    });
+
+    customAmount.addEventListener('input', function() {
+      selectedValue = parseFloat(this.value) || 0;
+      updateSummary();
+    });
+
+    // Selecionar primeiro botão por padrão
+    valueBtns[0].classList.add('active');
+
+    // ═══════════════════════════════════════════
+    // DOAÇÃO RECORRENTE
+    // ═══════════════════════════════════════════
+    const recurringCheckbox = document.getElementById('recurringCheckbox');
+    const recurringBadge = document.getElementById('recurringBadge');
+
+    recurringCheckbox.addEventListener('change', function() {
+      if (this.checked) {
+        recurringBadge.style.display = 'flex';
+      } else {
+        recurringBadge.style.display = 'none';
+      }
+    });
+
+    // ═══════════════════════════════════════════
+    // FORMAS DE PAGAMENTO
+    // ═══════════════════════════════════════════
+    const methodBtns = document.querySelectorAll('.payment-method-btn');
+    const pixForm = document.getElementById('pixForm');
+    const creditForm = document.getElementById('creditForm');
+    const boletoForm = document.getElementById('boletoForm');
+
+    methodBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        methodBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        
+        const method = this.getAttribute('data-method');
+        
+        pixForm.style.display = 'none';
+        creditForm.style.display = 'none';
+        boletoForm.style.display = 'none';
+        
+        if (method === 'pix') {
+          pixForm.style.display = 'block';
+        } else if (method === 'credit') {
+          creditForm.style.display = 'block';
+        } else if (method === 'boleto') {
+          boletoForm.style.display = 'block';
+        }
+      });
+    });
+
+    // ═══════════════════════════════════════════
+    // ATUALIZAR RESUMO
+    // ═══════════════════════════════════════════
+    function updateSummary() {
+      const summaryAmount = document.getElementById('summaryAmount');
+      const summaryTotal = document.getElementById('summaryTotal');
+      const impactText = document.getElementById('impactText');
+      
+      const formatted = selectedValue.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+      });
+      
+      summaryAmount.textContent = formatted;
+      summaryTotal.textContent = formatted;
+      
+      // Atualizar texto de impacto
+      if (selectedValue >= 100) {
+        impactText.textContent = 'Sua doação apoiará atividades educacionais para 5 crianças';
+      } else if (selectedValue >= 50) {
+        impactText.textContent = 'Sua doação garantirá 1 cesta básica completa';
+      } else if (selectedValue >= 30) {
+        impactText.textContent = 'Sua doação fornecerá 10 refeições completas';
+      } else {
+        impactText.textContent = 'Toda doação faz a diferença!';
+      }
+    }
+
+    // ═══════════════════════════════════════════
+    // COPIAR CÓDIGO PIX
+    // ═══════════════════════════════════════════
+    function copyPixCode() {
+      const pixCode = document.getElementById('pixCode');
+      pixCode.select();
+      document.execCommand('copy');
+      
+      const copyBtn = event.target.closest('.copy-btn');
+      const originalText = copyBtn.innerHTML;
+      copyBtn.innerHTML = '<span class="material-symbols-rounded">check</span> Copiado!';
+      
+      setTimeout(() => {
+        copyBtn.innerHTML = originalText;
+      }, 2000);
+    }
+
+    // ═══════════════════════════════════════════
+    // FORMATAÇÃO DE INPUTS
+    // ═══════════════════════════════════════════
+    const cardNumber = document.getElementById('cardNumber');
+    if (cardNumber) {
+      cardNumber.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\s/g, '');
+        let formatted = value.match(/.{1,4}/g)?.join(' ') || value;
+        e.target.value = formatted;
+      });
+    }
+
+    const cardExpiry = document.getElementById('cardExpiry');
+    if (cardExpiry) {
+      cardExpiry.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length >= 2) {
+          value = value.slice(0, 2) + '/' + value.slice(2, 4);
+        }
+        e.target.value = value;
+      });
+    }
+
+    const donorCPF = document.getElementById('donorCPF');
+    if (donorCPF) {
+      donorCPF.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length <= 11) {
+          value = value.replace(/(\d{3})(\d)/, '$1.$2');
+          value = value.replace(/(\d{3})(\d)/, '$1.$2');
+          value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+        }
+        e.target.value = value;
+      });
+    }
+
+    // ═══════════════════════════════════════════
+    // BOTÃO FINALIZAR
+    // ═══════════════════════════════════════════
+    const finalizeBtn = document.getElementById('finalizeBtn');
+    finalizeBtn.addEventListener('click', function() {
+      alert('🎉 Obrigado pela sua doação!\n\nEsta é uma demonstração. Em produção, aqui seria processado o pagamento real.');
+    });
+
+    // ═══════════════════════════════════════════
+    // INTERSECTION OBSERVER
+    // ═══════════════════════════════════════════
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       JAVASCRIPT VANILLA
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <script>
+    // ═══════════════════════════════════════════
+    // SMOOTH SCROLL
+    // ═══════════════════════════════════════════
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // ═══════════════════════════════════════════
+    // CONTADOR ANIMADO
+    // ═══════════════════════════════════════════
+    function animateCounter(element) {
+      const target = parseInt(element.getAttribute('data-target'));
+      const duration = 2000;
+      const increment = target / (duration / 16);
+      let current = 0;
+
+      const updateCounter = () => {
+        current += increment;
+        if (current < target) {
+          element.textContent = Math.floor(current).toLocaleString('pt-BR');
+          requestAnimationFrame(updateCounter);
+        } else {
+          element.textContent = target.toLocaleString('pt-BR') + '+';
+        }
+      };
+
+      updateCounter();
+    }
+
+    
+  </script>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     MENU HAMBURGER MOBILE
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  // Selecionar elementos
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  const body = document.body;
+  
+  // Criar overlay se não existir
+  let overlay = document.querySelector('.nav-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.className = 'nav-overlay';
+    body.appendChild(overlay);
+  }
+  
+  // Abrir/fechar menu
+  if (menuToggle) {
+    menuToggle.addEventListener('click', function() {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      overlay.classList.toggle('active');
+      body.classList.toggle('menu-open');
+    });
+  }
+  
+  // Fechar ao clicar no overlay
+  overlay.addEventListener('click', function() {
+    menuToggle.classList.remove('active');
+    navLinks.classList.remove('active');
+    overlay.classList.remove('active');
+    body.classList.remove('menu-open');
+  });
+  
+  // Fechar ao clicar em um link
+  const links = navLinks.querySelectorAll('a');
+  links.forEach(link => {
+    link.addEventListener('click', function() {
+      menuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+      overlay.classList.remove('active');
+      body.classList.remove('menu-open');
+    });
+  });
+  
+});
+</script>
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     VALIDAÇÕES DO FORMULÁRIO DE DOAÇÃO
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  const form = document.querySelector('form');
+  
+  if (!form) return;
+  
+  // ====================================
+  // MÁSCARAS DE INPUT
+  // ====================================
+  
+  // Máscara de telefone
+  const telefoneInput = document.querySelector('input[type="tel"]');
+  if (telefoneInput) {
+    telefoneInput.addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      
+      if (value.length <= 11) {
+        value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
+        value = value.replace(/(\d)(\d{4})$/, '$1-$2');
+      }
+      
+      e.target.value = value;
+    });
+  }
+  
+  // Máscara de CPF: 999.999.999-99
+  const cpfInput = document.querySelector('input[name="cpf"], input[placeholder*="CPF" i]');
+  if (cpfInput) {
+    cpfInput.addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      
+      if (value.length <= 11) {
+        value = value.replace(/(\d{3})(\d)/, '$1.$2');
+        value = value.replace(/(\d{3})(\d)/, '$1.$2');
+        value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+      }
+      
+      e.target.value = value;
+    });
+  }
+  
+  // Máscara de valor monetário
+  const valorInput = document.querySelector('input[name="valor"], input[placeholder*="valor" i]');
+  if (valorInput) {
+    valorInput.addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      value = (parseInt(value) / 100).toFixed(2);
+      e.target.value = 'R$ ' + value.replace('.', ',');
+    });
+  }
+  
+  // ====================================
+  // VALIDAÇÃO NO SUBMIT
+  // ====================================
+  
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    limparErros();
+    
+    let valido = true;
+    
+    // Validar nome
+    const nome = document.querySelector('input[name="nome"], input[placeholder*="nome" i]');
+    if (nome && !validarNome(nome)) {
+      valido = false;
+    }
+    
+    // Validar email
+    const email = document.querySelector('input[type="email"]');
+    if (email && !validarEmail(email)) {
+      valido = false;
+    }
+    
+    // Validar CPF
+    const cpf = document.querySelector('input[name="cpf"], input[placeholder*="CPF" i]');
+    if (cpf && !validarCPF(cpf)) {
+      valido = false;
+    }
+    
+    // Validar telefone
+    const telefone = document.querySelector('input[type="tel"]');
+    if (telefone && telefone.value && !validarTelefone(telefone)) {
+      valido = false;
+    }
+    
+    // Validar valor
+    const valor = document.querySelector('input[name="valor"], input[placeholder*="valor" i]');
+    if (valor && !validarValor(valor)) {
+      valido = false;
+    }
+    
+    if (valido) {
+      processarDoacao(this);
+    } else {
+      const primeiroErro = document.querySelector('.erro-validacao');
+      if (primeiroErro) {
+        primeiroErro.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  });
+  
+  // ====================================
+  // FUNÇÕES DE VALIDAÇÃO
+  // ====================================
+  
+  function validarNome(input) {
+    const valor = input.value.trim();
+    
+    if (valor === '') {
+      mostrarErro(input, 'Por favor, informe seu nome completo');
+      return false;
+    }
+    
+    if (valor.length < 3) {
+      mostrarErro(input, 'Nome deve ter pelo menos 3 caracteres');
+      return false;
+    }
+    
+    removerErro(input);
+    return true;
+  }
+  
+  function validarEmail(input) {
+    const valor = input.value.trim();
+    
+    if (valor === '') {
+      mostrarErro(input, 'Por favor, informe seu email');
+      return false;
+    }
+    
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (!regex.test(valor)) {
+      mostrarErro(input, 'Por favor, informe um email válido');
+      return false;
+    }
+    
+    removerErro(input);
+    return true;
+  }
+  
+  function validarCPF(input) {
+    const valor = input.value.replace(/\D/g, '');
+    
+    if (valor === '') {
+      mostrarErro(input, 'Por favor, informe seu CPF');
+      return false;
+    }
+    
+    if (valor.length !== 11) {
+      mostrarErro(input, 'CPF deve ter 11 dígitos');
+      return false;
+    }
+    
+    // Validação básica de CPF (não valida dígitos verificadores)
+    // Para produção, usar validação completa
+    if (/^(\d)\1{10}$/.test(valor)) {
+      mostrarErro(input, 'CPF inválido');
+      return false;
+    }
+    
+    removerErro(input);
+    return true;
+  }
+  
+  function validarTelefone(input) {
+    const valor = input.value.replace(/\D/g, '');
+    
+    if (valor.length < 10) {
+      mostrarErro(input, 'Telefone deve ter pelo menos 10 dígitos');
+      return false;
+    }
+    
+    removerErro(input);
+    return true;
+  }
+  
+  function validarValor(input) {
+    const valor = input.value.replace(/[^\d,]/g, '').replace(',', '.');
+    const numero = parseFloat(valor);
+    
+    if (isNaN(numero) || numero <= 0) {
+      mostrarErro(input, 'Por favor, informe um valor válido');
+      return false;
+    }
+    
+    if (numero < 5) {
+      mostrarErro(input, 'Valor mínimo: R$ 5,00');
+      return false;
+    }
+    
+    removerErro(input);
+    return true;
+  }
+  
+  function mostrarErro(input, mensagem) {
+    input.style.borderColor = '#f44336';
+    input.style.background = '#ffebee';
+    
+    const erroAnterior = input.parentElement.querySelector('.erro-validacao');
+    if (erroAnterior) {
+      erroAnterior.remove();
+    }
+    
+    const erro = document.createElement('div');
+    erro.className = 'erro-validacao';
+    erro.style.color = '#f44336';
+    erro.style.fontSize = '0.875rem';
+    erro.style.marginTop = '0.5rem';
+    erro.innerHTML = `⚠️ ${mensagem}`;
+    
+    input.parentElement.appendChild(erro);
+  }
+  
+  function removerErro(input) {
+    input.style.borderColor = '';
+    input.style.background = '';
+    
+    const erro = input.parentElement.querySelector('.erro-validacao');
+    if (erro) {
+      erro.remove();
+    }
+  }
+  
+  function limparErros() {
+    const erros = document.querySelectorAll('.erro-validacao');
+    erros.forEach(erro => erro.remove());
+    
+    const inputs = form.querySelectorAll('input');
+    inputs.forEach(input => {
+      input.style.borderColor = '';
+      input.style.background = '';
+    });
+  }
+  
+  function processarDoacao(form) {
+    const botao = form.querySelector('button[type="submit"]');
+    const textoOriginal = botao.innerHTML;
+    
+    botao.disabled = true;
+    botao.innerHTML = '⏳ Processando...';
+    
+    const dados = {
+      nome: form.querySelector('input[name="nome"], input[placeholder*="nome" i]').value,
+      email: form.querySelector('input[type="email"]').value,
+      cpf: form.querySelector('input[name="cpf"], input[placeholder*="CPF" i]').value.replace(/\D/g, ''),
+      telefone: form.querySelector('input[type="tel"]')?.value.replace(/\D/g, '') || '',
+      valor: form.querySelector('input[name="valor"], input[placeholder*="valor" i]').value
+    };
+    
+    console.log('Processando doação:', dados);
+    
+    // AQUI: Integração com gateway de pagamento
+    // Redirecionar para página de pagamento
+    
+    setTimeout(() => {
+      botao.disabled = false;
+      botao.innerHTML = textoOriginal;
+      
+      alert('✅ Doação registrada!\n\nRedirecionando para página de pagamento...\n\n(No backend real: integrar com PagSeguro, PagBank, Mercado Pago, etc)');
+      
+      // Simular redirecionamento
+      // window.location.href = 'pagamento.html';
+    }, 2000);
+  }
+  
+});
+</script>
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     VALIDAÇÕES E FUNCIONALIDADES DO PAGAMENTO
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  // ====================================
+  // VARIÁVEIS GLOBAIS
+  // ====================================
+  
+  let valorSelecionado = 0;
+  let metodoPagamento = 'pix';
+  let isRecorrente = false;
+  
+  // ====================================
+  // SELEÇÃO DE VALOR
+  // ====================================
+  
+  const valueBtns = document.querySelectorAll('.value-btn');
+  const customAmountInput = document.getElementById('customAmount');
+  
+  valueBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      // Remove active de todos
+      valueBtns.forEach(b => b.classList.remove('active'));
+      
+      // Adiciona active no clicado
+      this.classList.add('active');
+      
+      const value = this.getAttribute('data-value');
+      
+      if (value === 'custom') {
+        customAmountInput.focus();
+        customAmountInput.parentElement.style.display = 'block';
+      } else {
+        customAmountInput.parentElement.style.display = 'none';
+        valorSelecionado = parseFloat(value);
+        atualizarResumo();
+      }
+    });
+  });
+  
+  // Valor personalizado
+  if (customAmountInput) {
+    customAmountInput.addEventListener('input', function() {
+      valorSelecionado = parseFloat(this.value) || 0;
+      atualizarResumo();
+    });
+  }
+  
+  // ====================================
+  // DOAÇÃO RECORRENTE
+  // ====================================
+  
+  const recurringCheckbox = document.getElementById('recurringCheckbox');
+  if (recurringCheckbox) {
+    recurringCheckbox.addEventListener('change', function() {
+      isRecorrente = this.checked;
+      atualizarResumo();
+    });
+  }
+  
+  // ====================================
+  // SELEÇÃO DE MÉTODO DE PAGAMENTO
+  // ====================================
+  
+  const paymentMethodBtns = document.querySelectorAll('.payment-method-btn');
+  
+  paymentMethodBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      // Remove active de todos
+      paymentMethodBtns.forEach(b => b.classList.remove('active'));
+      
+      // Adiciona active no clicado
+      this.classList.add('active');
+      
+      metodoPagamento = this.getAttribute('data-method');
+      
+      // Mostrar/esconder seções
+      document.querySelectorAll('.payment-details').forEach(section => {
+        section.style.display = 'none';
+      });
+      
+      const activeSection = document.querySelector('.payment-details.' + metodoPagamento);
+      if (activeSection) {
+        activeSection.style.display = 'block';
+      }
+    });
+  });
+  
+  // ====================================
+  // MÁSCARAS DE INPUT
+  // ====================================
+  
+  // Máscara de cartão: 0000 0000 0000 0000
+  const cardNumber = document.getElementById('cardNumber');
+  if (cardNumber) {
+    cardNumber.addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      
+      if (value.length <= 16) {
+        value = value.replace(/(\d{4})(?=\d)/g, '$1 ');
+      }
+      
+      e.target.value = value.trim();
+      
+      // Detectar bandeira
+      if (value.length >= 4) {
+        detectarBandeira(value.replace(/\s/g, ''));
+      }
+    });
+  }
+  
+  // Máscara de validade: MM/AA
+  const cardExpiry = document.getElementById('cardExpiry');
+  if (cardExpiry) {
+    cardExpiry.addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      
+      if (value.length <= 4) {
+        value = value.replace(/(\d{2})(\d)/, '$1/$2');
+      }
+      
+      e.target.value = value;
+    });
+  }
+  
+  // CVV: apenas números
+  const cardCVV = document.getElementById('cardCVV');
+  if (cardCVV) {
+    cardCVV.addEventListener('input', function(e) {
+      e.target.value = e.target.value.replace(/\D/g, '').substring(0, 4);
+    });
+  }
+  
+  // Máscara de telefone: (11) 99999-9999
+  const donorPhone = document.getElementById('donorPhone');
+  if (donorPhone) {
+    donorPhone.addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      
+      if (value.length <= 11) {
+        value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
+        value = value.replace(/(\d)(\d{4})$/, '$1-$2');
+      }
+      
+      e.target.value = value;
+    });
+  }
+  
+  // Máscara de CPF: 000.000.000-00
+  const donorCPF = document.getElementById('donorCPF');
+  if (donorCPF) {
+    donorCPF.addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      
+      if (value.length <= 11) {
+        value = value.replace(/(\d{3})(\d)/, '$1.$2');
+        value = value.replace(/(\d{3})(\d)/, '$1.$2');
+        value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+      }
+      
+      e.target.value = value;
+    });
+  }
+  
+  // ====================================
+  // COPIAR CÓDIGO PIX
+  // ====================================
+  
+  window.copyPixCode = function() {
+    const pixCodeInput = document.getElementById('pixCode');
+    if (pixCodeInput) {
+      pixCodeInput.select();
+      document.execCommand('copy');
+      
+      // Feedback visual
+      const copyBtn = document.querySelector('.copy-btn');
+      const originalText = copyBtn.innerHTML;
+      
+      copyBtn.innerHTML = '<span class="material-symbols-rounded">check</span> Copiado!';
+      copyBtn.style.background = '#4caf50';
+      
+      setTimeout(() => {
+        copyBtn.innerHTML = originalText;
+        copyBtn.style.background = '';
+      }, 2000);
+    }
+  };
+  
+  // ====================================
+  // DETECTAR BANDEIRA DO CARTÃO
+  // ====================================
+  
+  function detectarBandeira(numero) {
+    let bandeira = '';
+    let cor = '';
+    
+    if (/^4/.test(numero)) {
+      bandeira = 'Visa';
+      cor = '#1A1F71';
+    } else if (/^5[1-5]/.test(numero)) {
+      bandeira = 'Mastercard';
+      cor = '#EB001B';
+    } else if (/^3[47]/.test(numero)) {
+      bandeira = 'American Express';
+      cor = '#006FCF';
+    } else if (/^6(?:011|5)/.test(numero)) {
+      bandeira = 'Discover';
+      cor = '#FF6000';
+    } else if (/^35/.test(numero)) {
+      bandeira = 'JCB';
+      cor = '#0E4C96';
+    } else if (/^50|^63|^67/.test(numero)) {
+      bandeira = 'Elo';
+      cor = '#FFCB05';
+    }
+    
+    // Mostrar bandeira
+    const cardNumberEl = document.getElementById('cardNumber');
+    if (cardNumberEl && bandeira) {
+      let bandeiraEl = cardNumberEl.parentElement.querySelector('.bandeira-detectada');
+      
+      if (!bandeiraEl) {
+        bandeiraEl = document.createElement('div');
+        bandeiraEl.className = 'bandeira-detectada';
+        bandeiraEl.style.fontSize = '0.875rem';
+        bandeiraEl.style.fontWeight = '600';
+        bandeiraEl.style.marginTop = '0.5rem';
+        cardNumberEl.parentElement.appendChild(bandeiraEl);
+      }
+      
+      bandeiraEl.style.color = cor;
+      bandeiraEl.innerHTML = `✓ ${bandeira}`;
+    }
+  }
+  
+  // ====================================
+  // VALIDAÇÕES
+  // ====================================
+  
+  function validarValor() {
+    if (valorSelecionado <= 0) {
+      mostrarErro('valor', 'Por favor, selecione um valor de doação');
+      return false;
+    }
+    
+    if (valorSelecionado < 10) {
+      mostrarErro('valor', 'Valor mínimo: R$ 10,00');
+      return false;
+    }
+    
+    return true;
+  }
+  
+  function validarDadosPessoais() {
+    let valido = true;
+    
+    // Nome
+    const nome = document.getElementById('donorName');
+    if (!nome.value.trim() || nome.value.trim().length < 3) {
+      mostrarErro(nome, 'Por favor, informe seu nome completo');
+      valido = false;
+    } else {
+      removerErro(nome);
+    }
+    
+    // Email
+    const email = document.getElementById('donorEmail');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.value.trim() || !emailRegex.test(email.value)) {
+      mostrarErro(email, 'Por favor, informe um email válido');
+      valido = false;
+    } else {
+      removerErro(email);
+    }
+    
+    // Telefone
+    const telefone = document.getElementById('donorPhone');
+    const telefoneNumeros = telefone.value.replace(/\D/g, '');
+    if (telefoneNumeros.length < 10) {
+      mostrarErro(telefone, 'Por favor, informe um telefone válido');
+      valido = false;
+    } else {
+      removerErro(telefone);
+    }
+    
+    // CPF (opcional, mas se preenchido deve ser válido)
+    const cpf = document.getElementById('donorCPF');
+    if (cpf.value) {
+      const cpfNumeros = cpf.value.replace(/\D/g, '');
+      if (cpfNumeros.length !== 11) {
+        mostrarErro(cpf, 'CPF inválido');
+        valido = false;
+      } else {
+        removerErro(cpf);
+      }
+    }
+    
+    return valido;
+  }
+  
+  function validarCartao() {
+    let valido = true;
+    
+    // Número do cartão
+    const numero = document.getElementById('cardNumber');
+    const numeroLimpo = numero.value.replace(/\D/g, '');
+    
+    if (numeroLimpo.length < 13) {
+      mostrarErro(numero, 'Número do cartão inválido');
+      valido = false;
+    } else if (!validarLuhn(numeroLimpo)) {
+      mostrarErro(numero, 'Número do cartão inválido');
+      valido = false;
+    } else {
+      removerErro(numero);
+    }
+    
+    // Nome no cartão
+    const nome = document.getElementById('cardName');
+    if (!nome.value.trim() || nome.value.trim().length < 3) {
+      mostrarErro(nome, 'Informe o nome como está no cartão');
+      valido = false;
+    } else {
+      removerErro(nome);
+    }
+    
+    // Validade
+    const validade = document.getElementById('cardExpiry');
+    const validadeValue = validade.value;
+    
+    if (validadeValue.length !== 5) {
+      mostrarErro(validade, 'Informe a validade (MM/AA)');
+      valido = false;
+    } else {
+      const [mes, ano] = validadeValue.split('/');
+      const mesNum = parseInt(mes);
+      const anoNum = parseInt('20' + ano);
+      
+      if (mesNum < 1 || mesNum > 12) {
+        mostrarErro(validade, 'Mês inválido');
+        valido = false;
+      } else {
+        const hoje = new Date();
+        const anoAtual = hoje.getFullYear();
+        const mesAtual = hoje.getMonth() + 1;
+        
+        if (anoNum < anoAtual || (anoNum === anoAtual && mesNum < mesAtual)) {
+          mostrarErro(validade, 'Cartão vencido');
+          valido = false;
+        } else {
+          removerErro(validade);
+        }
+      }
+    }
+    
+    // CVV
+    const cvv = document.getElementById('cardCVV');
+    if (cvv.value.length < 3) {
+      mostrarErro(cvv, 'CVV inválido');
+      valido = false;
+    } else {
+      removerErro(cvv);
+    }
+    
+    return valido;
+  }
+  
+  // Algoritmo de Luhn (validação de cartão)
+  function validarLuhn(numero) {
+    let soma = 0;
+    let alternar = false;
+    
+    for (let i = numero.length - 1; i >= 0; i--) {
+      let n = parseInt(numero.charAt(i));
+      
+      if (alternar) {
+        n *= 2;
+        if (n > 9) n -= 9;
+      }
+      
+      soma += n;
+      alternar = !alternar;
+    }
+    
+    return (soma % 10 === 0);
+  }
+  
+  function mostrarErro(input, mensagem) {
+    if (typeof input === 'string') {
+      alert('⚠️ ' + mensagem);
+      return;
+    }
+    
+    input.style.borderColor = '#f44336';
+    input.style.background = '#ffebee';
+    
+    const erroAnterior = input.parentElement.querySelector('.erro-validacao');
+    if (erroAnterior) erroAnterior.remove();
+    
+    const erro = document.createElement('div');
+    erro.className = 'erro-validacao';
+    erro.style.color = '#f44336';
+    erro.style.fontSize = '0.875rem';
+    erro.style.marginTop = '0.5rem';
+    erro.innerHTML = `⚠️ ${mensagem}`;
+    
+    input.parentElement.appendChild(erro);
+  }
+  
+  function removerErro(input) {
+    input.style.borderColor = '';
+    input.style.background = '';
+    
+    const erro = input.parentElement.querySelector('.erro-validacao');
+    if (erro) erro.remove();
+  }
+  
+  function limparErros() {
+    document.querySelectorAll('.erro-validacao').forEach(e => e.remove());
+    document.querySelectorAll('input').forEach(i => {
+      i.style.borderColor = '';
+      i.style.background = '';
+    });
+  }
+  
+  // ====================================
+  // ATUALIZAR RESUMO
+  // ====================================
+  
+  function atualizarResumo() {
+    const resumoValor = document.querySelector('.summary-value');
+    const resumoTotal = document.querySelector('.summary-total');
+    const resumoRecorrente = document.querySelector('.summary-recurring');
+    
+    if (resumoValor) {
+      resumoValor.textContent = 'R$ ' + valorSelecionado.toFixed(2).replace('.', ',');
+    }
+    
+    if (resumoTotal) {
+      resumoTotal.textContent = 'R$ ' + valorSelecionado.toFixed(2).replace('.', ',');
+    }
+    
+    if (resumoRecorrente) {
+      resumoRecorrente.style.display = isRecorrente ? 'block' : 'none';
+    }
+  }
+  
+  // ====================================
+  // FINALIZAR DOAÇÃO
+  // ====================================
+  
+  const finalizeBtn = document.getElementById('finalizeBtn');
+  
+  if (finalizeBtn) {
+    finalizeBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      limparErros();
+      
+      // Validar valor
+      if (!validarValor()) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+      
+      // Validar dados pessoais
+      if (!validarDadosPessoais()) {
+        document.getElementById('donorName').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      
+      // Validar forma de pagamento
+      if (metodoPagamento === 'credit') {
+        if (!validarCartao()) {
+          document.getElementById('cardNumber').scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
+      }
+      
+      // Verificar termos
+      const termos = document.querySelector('input[type="checkbox"][required]');
+      if (termos && !termos.checked) {
+        alert('⚠️ Por favor, aceite os termos de doação');
+        termos.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      
+      // Processar pagamento
+      processarPagamento();
+    });
+  }
+  
+  function processarPagamento() {
+    const botao = document.getElementById('finalizeBtn');
+    const textoOriginal = botao.innerHTML;
+    
+    botao.disabled = true;
+    botao.innerHTML = '<span class="material-symbols-rounded" style="animation: spin 1s linear infinite;">autorenew</span> Processando...';
+    
+    // Adicionar animação
+    const style = document.createElement('style');
+    style.textContent = '@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }';
+    document.head.appendChild(style);
+    
+    const dados = {
+      valor: valorSelecionado,
+      recorrente: isRecorrente,
+      metodo: metodoPagamento,
+      doador: {
+        nome: document.getElementById('donorName').value,
+        email: document.getElementById('donorEmail').value,
+        telefone: document.getElementById('donorPhone').value.replace(/\D/g, ''),
+        cpf: document.getElementById('donorCPF')?.value.replace(/\D/g, '') || null
+      }
+    };
+    
+    if (metodoPagamento === 'credit') {
+      dados.cartao = {
+        numero: document.getElementById('cardNumber').value.replace(/\D/g, ''),
+        nome: document.getElementById('cardName').value,
+        validade: document.getElementById('cardExpiry').value,
+        cvv: document.getElementById('cardCVV').value,
+        parcelas: document.getElementById('cardInstallments')?.value || 1
+      };
+    }
+    
+    console.log('Processando doação:', dados);
+    
+    // AQUI: Integração com gateway de pagamento
+    // fetch('/api/doacoes', { method: 'POST', body: JSON.stringify(dados) })
+    
+    setTimeout(() => {
+      botao.disabled = false;
+      botao.innerHTML = textoOriginal;
+      
+      mostrarSucesso();
+    }, 2500);
+  }
+  
+  function mostrarSucesso() {
+    const modal = document.createElement('div');
+    modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:10000;display:flex;align-items:center;justify-content:center;';
+    
+    const conteudo = document.createElement('div');
+    conteudo.style.cssText = 'background:white;padding:3rem;border-radius:16px;text-align:center;max-width:400px;animation:slideIn 0.3s ease-out;';
+    
+    conteudo.innerHTML = `
+      <div style="font-size:4rem;margin-bottom:1rem;">✅</div>
+      <h2 style="color:#4caf50;margin-bottom:0.5rem;font-size:1.75rem;">Doação Realizada!</h2>
+      <p style="color:#666;margin-bottom:1.5rem;line-height:1.6;">
+        ${isRecorrente ? 'Sua doação mensal foi configurada com sucesso!' : 'Obrigado pela sua generosidade!'}
+        <br><br>
+        Você receberá um comprovante por email.
+      </p>
+      <div style="background:#f5f5f5;padding:1rem;border-radius:8px;margin-bottom:1.5rem;">
+        <div style="font-size:0.875rem;color:#666;">Valor doado</div>
+        <div style="font-size:2rem;font-weight:700;color:#4caf50;">R$ ${valorSelecionado.toFixed(2).replace('.', ',')}</div>
+        ${isRecorrente ? '<div style="font-size:0.875rem;color:#666;margin-top:0.25rem;">Mensal</div>' : ''}
+      </div>
+      <button onclick="window.location.href='index.html'" style="background:#4caf50;color:white;border:none;padding:1rem 2rem;border-radius:8px;cursor:pointer;font-weight:600;width:100%;font-size:1rem;">
+        Voltar para o Início
+      </button>
+    `;
+    
+    const styleAnim = document.createElement('style');
+    styleAnim.textContent = '@keyframes slideIn { from { opacity:0; transform:translateY(-20px) scale(0.95); } to { opacity:1; transform:translateY(0) scale(1); } }';
+    document.head.appendChild(styleAnim);
+    
+    modal.appendChild(conteudo);
+    document.body.appendChild(modal);
+    
+    modal.onclick = function(e) {
+      if (e.target === modal) {
+        modal.remove();
+      }
+    };
+  }
+  
+});
+</script>
+
+
+
+</body>
+</html>

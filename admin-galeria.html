@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciar Galeria - Casa do Caminho</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/design-tokens.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Public+Sans:wght@400;500;600&display=swap">
+</head>
+<body class="admin-body">
+  
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SIDEBAR NAVEGAÇÃO
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <aside class="admin-sidebar">
+    <div class="admin-sidebar-header">
+      <span class="material-symbols-rounded">church</span>
+      <div>
+        <strong>Casa do Caminho</strong>
+        <span>Painel Admin</span>
+      </div>
+    </div>
+    
+    <nav class="admin-nav">
+      <a href="admin-dashboard.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">dashboard</span>
+        <span>Dashboard</span>
+      </a>
+      <a href="admin-eventos.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">event</span>
+        <span>Eventos</span>
+      </a>
+      <a href="admin-projetos.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">volunteer_activism</span>
+        <span>Projetos</span>
+      </a>
+      <a href="admin-voluntarios.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">groups</span>
+        <span>Voluntários</span>
+      </a>
+      <a href="admin-doacoes.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">favorite</span>
+        <span>Doações</span>
+      </a>
+      <a href="admin-depoimentos.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">chat</span>
+        <span>Depoimentos</span>
+      </a>
+      <a href="admin-galeria.html" class="admin-nav-item active">
+        <span class="material-symbols-rounded">photo_library</span>
+        <span>Galeria</span>
+      </a>
+    </nav>
+    
+    <div class="admin-sidebar-footer">
+      <a href="index.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">public</span>
+        <span>Ver Site</span>
+      </a>
+      <a href="admin-login.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">logout</span>
+        <span>Sair</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       CONTEÚDO PRINCIPAL
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <main class="admin-main">
+    
+    <!-- Header -->
+    <header class="admin-header">
+      <div>
+        <h1 class="admin-page-title">Gerenciar Galeria</h1>
+        <p class="admin-page-subtitle">Faça upload e organize as fotos dos eventos e projetos</p>
+      </div>
+      <div class="admin-header-actions">
+        <button class="admin-btn admin-btn-primary" onclick="abrirUpload()">
+          <span class="material-symbols-rounded">upload</span>
+          Upload de Fotos
+        </button>
+      </div>
+    </header>
+
+    <!-- Stats Rápidas -->
+    <div class="admin-stats-grid">
+      <div class="admin-stat-card stat-primary">
+        <div class="admin-stat-header">
+          <span class="material-symbols-rounded">photo_library</span>
+        </div>
+        <div class="admin-stat-body">
+          <h3>248</h3>
+          <p>Total de Fotos</p>
+        </div>
+      </div>
+
+      <div class="admin-stat-card stat-success">
+        <div class="admin-stat-header">
+          <span class="material-symbols-rounded">folder</span>
+        </div>
+        <div class="admin-stat-body">
+          <h3>12</h3>
+          <p>Álbuns</p>
+        </div>
+      </div>
+
+      <div class="admin-stat-card stat-warning">
+        <div class="admin-stat-header">
+          <span class="material-symbols-rounded">cloud_upload</span>
+        </div>
+        <div class="admin-stat-body">
+          <h3>18</h3>
+          <p>Uploads este mês</p>
+        </div>
+      </div>
+
+      <div class="admin-stat-card stat-info">
+        <div class="admin-stat-header">
+          <span class="material-symbols-rounded">storage</span>
+        </div>
+        <div class="admin-stat-body">
+          <h3>1.2 GB</h3>
+          <p>Espaço Utilizado</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filtros -->
+    <div class="admin-filters">
+      <div class="admin-search">
+        <span class="material-symbols-rounded">search</span>
+        <input type="text" placeholder="Buscar fotos..." id="search-fotos">
+      </div>
+      <select class="admin-select">
+        <option value="">Todos os álbuns</option>
+        <option value="sopa">Sopa Solidária</option>
+        <option value="bazar">Bazar 2026</option>
+        <option value="natal">Natal 2025</option>
+        <option value="eventos">Eventos</option>
+      </select>
+      <select class="admin-select">
+        <option value="">Ordenar: Mais recentes</option>
+        <option value="antigos">Mais antigos</option>
+        <option value="nome">Nome (A-Z)</option>
+      </select>
+    </div>
+
+    <!-- Grid de Fotos -->
+    <div class="admin-card">
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; padding: 1rem;">
+        
+        <!-- FOTO 1 -->
+        <div data-id="1" style="position: relative; aspect-ratio: 1; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; cursor: pointer; overflow: hidden;" onclick="verFoto(1)">
+          <span>📷</span>
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 1rem 0.5rem 0.5rem; color: white;">
+            <div style="font-size: 0.75rem; font-weight: 600;">Sopa Solidária 2026</div>
+            <div style="font-size: 0.625rem; opacity: 0.8;">15/03/2026</div>
+          </div>
+          <div style="position: absolute; top: 0.5rem; right: 0.5rem; display: flex; gap: 0.25rem; z-index: 10;">
+            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); editarFoto(1)" title="Editar">
+              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #ff9800;">edit</span>
+            </button>
+            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); excluirFoto(1)" title="Excluir">
+              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #f44336;">delete</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- FOTO 2 -->
+        <div data-id="2" style="position: relative; aspect-ratio: 1; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; cursor: pointer; overflow: hidden;" onclick="verFoto(2)">
+          <span>📷</span>
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 1rem 0.5rem 0.5rem; color: white;">
+            <div style="font-size: 0.75rem; font-weight: 600;">Bazar Beneficente</div>
+            <div style="font-size: 0.625rem; opacity: 0.8;">20/03/2026</div>
+          </div>
+          <div style="position: absolute; top: 0.5rem; right: 0.5rem; display: flex; gap: 0.25rem; z-index: 10;">
+            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); editarFoto(2)" title="Editar">
+              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #ff9800;">edit</span>
+            </button>
+            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); excluirFoto(2)" title="Excluir">
+              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #f44336;">delete</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- FOTO 3 -->
+        <div data-id="3" style="position: relative; aspect-ratio: 1; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; cursor: pointer; overflow: hidden;" onclick="verFoto(3)">
+          <span>📷</span>
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 1rem 0.5rem 0.5rem; color: white;">
+            <div style="font-size: 0.75rem; font-weight: 600;">Creche - Dia das Crianças</div>
+            <div style="font-size: 0.625rem; opacity: 0.8;">12/10/2025</div>
+          </div>
+          <div style="position: absolute; top: 0.5rem; right: 0.5rem; display: flex; gap: 0.25rem; z-index: 10;">
+            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); editarFoto(3)" title="Editar">
+              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #ff9800;">edit</span>
+            </button>
+            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); excluirFoto(3)" title="Excluir">
+              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #f44336;">delete</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- FOTO 4 -->
+        <div data-id="4" style="position: relative; aspect-ratio: 1; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; cursor: pointer; overflow: hidden;" onclick="verFoto(4)">
+          <span>📷</span>
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 1rem 0.5rem 0.5rem; color: white;">
+            <div style="font-size: 0.75rem; font-weight: 600;">Natal Solidário 2025</div>
+            <div style="font-size: 0.625rem; opacity: 0.8;">25/12/2025</div>
+          </div>
+          <div style="position: absolute; top: 0.5rem; right: 0.5rem; display: flex; gap: 0.25rem; z-index: 10;">
+            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); editarFoto(4)" title="Editar">
+              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #ff9800;">edit</span>
+            </button>
+            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); excluirFoto(4)" title="Excluir">
+              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #f44336;">delete</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- FOTO 5 -->
+        <div data-id="5" style="position: relative; aspect-ratio: 1; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; cursor: pointer; overflow: hidden;" onclick="verFoto(5)">
+          <span>📷</span>
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 1rem 0.5rem 0.5rem; color: white;">
+            <div style="font-size: 0.75rem; font-weight: 600;">Entrega Cestas Básicas</div>
+            <div style="font-size: 0.625rem; opacity: 0.8;">05/04/2026</div>
+          </div>
+          <div style="position: absolute; top: 0.5rem; right: 0.5rem; display: flex; gap: 0.25rem; z-index: 10;">
+            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); editarFoto(5)" title="Editar">
+              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #ff9800;">edit</span>
+            </button>
+            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); excluirFoto(5)" title="Excluir">
+              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #f44336;">delete</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- FOTO 6 -->
+        <div data-id="6" style="position: relative; aspect-ratio: 1; background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; cursor: pointer; overflow: hidden;" onclick="verFoto(6)">
+          <span>📷</span>
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 1rem 0.5rem 0.5rem; color: white;">
+            <div style="font-size: 0.75rem; font-weight: 600;">Palestra Espírita</div>
+            <div style="font-size: 0.625rem; opacity: 0.8;">30/03/2026</div>
+          </div>
+          <div style="position: absolute; top: 0.5rem; right: 0.5rem; display: flex; gap: 0.25rem; z-index: 10;">
+            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); editarFoto(6)" title="Editar">
+              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #ff9800;">edit</span>
+            </button>
+            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); excluirFoto(6)" title="Excluir">
+              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #f44336;">delete</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- FOTO 7 -->
+        <div data-id="7" style="position: relative; aspect-ratio: 1; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; cursor: pointer; overflow: hidden;" onclick="verFoto(7)">
+          <span>📷</span>
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 1rem 0.5rem 0.5rem; color: white;">
+            <div style="font-size: 0.75rem; font-weight: 600;">Voluntários em Ação</div>
+            <div style="font-size: 0.625rem; opacity: 0.8;">01/04/2026</div>
+          </div>
+          <div style="position: absolute; top: 0.5rem; right: 0.5rem; display: flex; gap: 0.25rem; z-index: 10;">
+            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); editarFoto(7)" title="Editar">
+              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #ff9800;">edit</span>
+            </button>
+            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); excluirFoto(7)" title="Excluir">
+              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #f44336;">delete</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- FOTO 8 -->
+        <div data-id="8" style="position: relative; aspect-ratio: 1; background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; cursor: pointer; overflow: hidden;" onclick="verFoto(8)">
+          <span>📷</span>
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 1rem 0.5rem 0.5rem; color: white;">
+            <div style="font-size: 0.75rem; font-weight: 600;">Pão Fraterno</div>
+            <div style="font-size: 0.625rem; opacity: 0.8;">02/04/2026</div>
+          </div>
+          <div style="position: absolute; top: 0.5rem; right: 0.5rem; display: flex; gap: 0.25rem; z-index: 10;">
+            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); editarFoto(8)" title="Editar">
+              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #ff9800;">edit</span>
+            </button>
+            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); excluirFoto(8)" title="Excluir">
+              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #f44336;">delete</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       MODAL: EDITAR FOTO
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="admin-modal" id="modalEditarFoto">
+    <div class="admin-modal-overlay" onclick="fecharModalEditar()"></div>
+    <div class="admin-modal-container">
+      
+      <div class="admin-modal-header">
+        <h2>Editar Foto</h2>
+        <button class="admin-modal-close" onclick="fecharModalEditar()">
+          <span class="material-symbols-rounded">close</span>
+        </button>
+      </div>
+
+      <div class="admin-modal-body">
+        <form id="formEditarFoto" onsubmit="salvarEdicaoFoto(event)">
+          
+          <div class="admin-form-group">
+            <label class="admin-form-label">
+              <span class="material-symbols-rounded">title</span>
+              Título da Foto *
+            </label>
+            <input type="text" class="admin-form-input" id="fotoTitulo" required placeholder="Ex: Sopa Solidária 2026">
+          </div>
+
+          <div class="admin-form-group">
+            <label class="admin-form-label">
+              <span class="material-symbols-rounded">description</span>
+              Descrição
+            </label>
+            <textarea class="admin-form-input" id="fotoDescricao" rows="3" placeholder="Descrição da foto..."></textarea>
+          </div>
+
+          <div class="admin-form-row">
+            <div class="admin-form-group">
+              <label class="admin-form-label">
+                <span class="material-symbols-rounded">folder</span>
+                Álbum/Categoria *
+              </label>
+              <select class="admin-form-input" id="fotoAlbum" required>
+                <option value="">Selecione...</option>
+                <option value="sopa">Sopa Solidária</option>
+                <option value="bazar">Bazar Beneficente</option>
+                <option value="cesta">Cesta Básica</option>
+                <option value="creche">Creche Comunitária</option>
+                <option value="pao">Pão Fraterno</option>
+                <option value="eventos">Eventos Espirituais</option>
+                <option value="natal">Natal</option>
+                <option value="pascoa">Páscoa</option>
+                <option value="outros">Outros</option>
+              </select>
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-form-label">
+                <span class="material-symbols-rounded">calendar_today</span>
+                Data da Foto
+              </label>
+              <input type="date" class="admin-form-input" id="fotoData">
+            </div>
+          </div>
+
+          <div class="admin-form-group">
+            <label class="admin-form-label">
+              <span class="material-symbols-rounded">image</span>
+              Trocar Imagem (opcional)
+            </label>
+            <input type="file" class="admin-form-input" id="fotoImagem" accept="image/*">
+            <small style="display: block; margin-top: 0.5rem; color: var(--on-surface-variant);">
+              Deixe em branco para manter a imagem atual. Formatos aceitos: JPG, PNG, WebP (máx. 5MB)
+            </small>
+          </div>
+
+          <div class="admin-form-group">
+            <label class="admin-form-label">
+              <span class="material-symbols-rounded">person</span>
+              Fotógrafo/Créditos
+            </label>
+            <input type="text" class="admin-form-input" id="fotoCreditos" placeholder="Nome do fotógrafo (opcional)">
+          </div>
+
+          <div class="admin-modal-footer">
+            <button type="button" class="admin-btn admin-btn-outline" onclick="fecharModalEditar()">
+              Cancelar
+            </button>
+            <button type="submit" class="admin-btn admin-btn-primary">
+              <span class="material-symbols-rounded">save</span>
+              Salvar Alterações
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       MODAL: UPLOAD DE FOTOS
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="admin-modal" id="modalUpload">
+    <div class="admin-modal-overlay" onclick="fecharModalUpload()"></div>
+    <div class="admin-modal-container">
+      
+      <div class="admin-modal-header">
+        <h2>Upload de Fotos</h2>
+        <button class="admin-modal-close" onclick="fecharModalUpload()">
+          <span class="material-symbols-rounded">close</span>
+        </button>
+      </div>
+
+      <div class="admin-modal-body">
+        <form id="formUpload" onsubmit="fazerUpload(event)">
+          
+          <div class="admin-form-group">
+            <label class="admin-form-label">
+              <span class="material-symbols-rounded">upload_file</span>
+              Selecionar Fotos *
+            </label>
+            <input type="file" class="admin-form-input" id="uploadFotos" accept="image/*" multiple required>
+            <small style="display: block; margin-top: 0.5rem; color: var(--on-surface-variant);">
+              Selecione uma ou várias fotos. Formatos: JPG, PNG, WebP (máx. 5MB cada)
+            </small>
+          </div>
+
+          <div class="admin-form-group">
+            <label class="admin-form-label">
+              <span class="material-symbols-rounded">folder</span>
+              Álbum/Categoria *
+            </label>
+            <select class="admin-form-input" id="uploadAlbum" required>
+              <option value="">Selecione...</option>
+              <option value="sopa">Sopa Solidária</option>
+              <option value="bazar">Bazar Beneficente</option>
+              <option value="cesta">Cesta Básica</option>
+              <option value="creche">Creche Comunitária</option>
+              <option value="pao">Pão Fraterno</option>
+              <option value="eventos">Eventos Espirituais</option>
+              <option value="natal">Natal</option>
+              <option value="pascoa">Páscoa</option>
+              <option value="outros">Outros</option>
+            </select>
+          </div>
+
+          <div class="admin-modal-footer">
+            <button type="button" class="admin-btn admin-btn-outline" onclick="fecharModalUpload()">
+              Cancelar
+            </button>
+            <button type="submit" class="admin-btn admin-btn-primary">
+              <span class="material-symbols-rounded">upload</span>
+              Fazer Upload
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       JAVASCRIPT
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <script>
+    // ====================================
+    // VARIÁVEL GLOBAL
+    // ====================================
+    let fotoEditandoId = null;
+
+    // ====================================
+    // MODAL UPLOAD
+    // ====================================
+    function abrirUpload() {
+      document.getElementById('modalUpload').classList.add('active');
+    }
+
+    function fecharModalUpload() {
+      document.getElementById('modalUpload').classList.remove('active');
+    }
+
+    function fazerUpload(e) {
+      e.preventDefault();
+      
+      const fotos = document.getElementById('uploadFotos').files;
+      const album = document.getElementById('uploadAlbum').value;
+      
+      console.log('Upload de', fotos.length, 'fotos para álbum:', album);
+      
+      // AQUI: POST /api/galeria (FormData com múltiplos arquivos)
+      // Usar FormData e enviar com fetch/axios
+      
+      alert(`✅ Upload iniciado!\n\n${fotos.length} foto(s) para o álbum "${album}"\n\n(No backend: POST /api/galeria com multipart/form-data)`);
+      fecharModalUpload();
+    }
+
+    // ====================================
+    // MODAL EDITAR
+    // ====================================
+    function fecharModalEditar() {
+      document.getElementById('modalEditarFoto').classList.remove('active');
+      fotoEditandoId = null;
+    }
+
+    // ====================================
+    // CRUD - READ (Ver foto)
+    // ====================================
+    function verFoto(id) {
+      console.log('Visualizando foto ID:', id);
+      // AQUI: Abrir lightbox ou modal com imagem em tamanho real
+      alert('🖼️ Visualizar foto #' + id + '\n\n(Abrir modal com imagem em alta resolução)');
+    }
+
+    // ====================================
+    // CRUD - UPDATE (Editar) ✅ NOVO
+    // ====================================
+    function editarFoto(id) {
+      console.log('Editando foto ID:', id);
+      fotoEditandoId = id;
+      
+      // AQUI: GET /api/galeria/:id para carregar dados
+      document.getElementById('modalEditarFoto').classList.add('active');
+      
+      // Simulação de dados carregados (no backend real, vem da API)
+      document.getElementById('fotoTitulo').value = 'Sopa Solidária 2026';
+      document.getElementById('fotoDescricao').value = 'Distribuição de refeições no sábado';
+      document.getElementById('fotoAlbum').value = 'sopa';
+      document.getElementById('fotoData').value = '2026-03-15';
+      document.getElementById('fotoCreditos').value = 'João Silva';
+    }
+
+    function salvarEdicaoFoto(e) {
+      e.preventDefault();
+      
+      const dados = {
+        titulo: document.getElementById('fotoTitulo').value,
+        descricao: document.getElementById('fotoDescricao').value,
+        album: document.getElementById('fotoAlbum').value,
+        data: document.getElementById('fotoData').value,
+        creditos: document.getElementById('fotoCreditos').value
+      };
+
+      const novaImagem = document.getElementById('fotoImagem').files[0];
+      
+      console.log('Atualizando foto ID:', fotoEditandoId, dados);
+      
+      if (novaImagem) {
+        console.log('Nova imagem:', novaImagem.name);
+        // AQUI: PUT /api/galeria/:id com FormData (incluindo nova imagem)
+      } else {
+        // AQUI: PUT /api/galeria/:id apenas com dados JSON (sem trocar imagem)
+      }
+      
+      alert('✅ Foto atualizada com sucesso!\n\n(No backend: PUT /api/galeria/' + fotoEditandoId + ')');
+      fecharModalEditar();
+    }
+
+    // ====================================
+    // CRUD - DELETE
+    // ====================================
+    function excluirFoto(id) {
+      if (confirm('⚠️ Tem certeza que deseja excluir esta foto?\n\nEsta ação não pode ser desfeita.')) {
+        console.log('Excluindo foto ID:', id);
+        
+        // AQUI: DELETE /api/galeria/:id
+        
+        const elemento = document.querySelector(`div[data-id="${id}"]`);
+        if (elemento) {
+          elemento.style.opacity = '0.3';
+          elemento.style.transition = 'opacity 0.3s';
+          
+          setTimeout(() => {
+            elemento.remove();
+            alert('✅ Foto excluída com sucesso!\n\n(No backend: DELETE /api/galeria/' + id + ')');
+          }, 300);
+        }
+      }
+    }
+
+    // ====================================
+    // NOTAS PARA BACKEND
+    // ====================================
+    /*
+    
+    API REST:
+    
+    GET    /api/galeria           → Listar todas as fotos
+    GET    /api/galeria/:id       → Buscar uma foto
+    POST   /api/galeria           → Upload de fotos (multipart/form-data)
+    PUT    /api/galeria/:id       → Atualizar foto (dados + opcionalmente nova imagem)
+    DELETE /api/galeria/:id       → Excluir foto
+    
+    BANCO DE DADOS - Tabela galeria:
+    - id (INTEGER, PRIMARY KEY, AUTO_INCREMENT)
+    - titulo (VARCHAR(255), NOT NULL)
+    - descricao (TEXT)
+    - album (VARCHAR(100))
+    - data_foto (DATE)
+    - creditos (VARCHAR(255))
+    - arquivo_nome (VARCHAR(255), NOT NULL)
+    - arquivo_url (VARCHAR(500), NOT NULL)
+    - arquivo_tamanho (INTEGER) // em bytes
+    - created_at (TIMESTAMP)
+    - updated_at (TIMESTAMP)
+    
+    UPLOAD DE ARQUIVOS:
+    - Usar Multer (Node.js) ou similar
+    - Salvar em: /uploads/galeria/ ou Cloud (AWS S3, Cloudinary)
+    - Gerar thumbnail automático (Sharp, Jimp)
+    - Validar tipo (image/jpeg, image/png, image/webp)
+    - Validar tamanho máximo (5MB)
+    - Renomear arquivo (timestamp + UUID)
+    
+    */
+  </script>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       MENU HAMBURGER ADMIN MOBILE
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    if (window.innerWidth <= 768) {
+      
+      const adminSidebar = document.querySelector('.admin-sidebar');
+      const body = document.body;
+      
+      const adminToggle = document.createElement('button');
+      adminToggle.className = 'admin-menu-toggle';
+      adminToggle.setAttribute('aria-label', 'Abrir menu');
+      adminToggle.innerHTML = '<span class="material-symbols-rounded">menu</span>';
+      
+      const adminOverlay = document.createElement('div');
+      adminOverlay.className = 'admin-overlay';
+      
+      body.appendChild(adminToggle);
+      body.appendChild(adminOverlay);
+      
+      adminToggle.addEventListener('click', function() {
+        const isActive = adminSidebar.classList.contains('active');
+        
+        if (isActive) {
+          adminSidebar.classList.remove('active');
+          adminOverlay.classList.remove('active');
+          adminToggle.innerHTML = '<span class="material-symbols-rounded">menu</span>';
+          body.style.overflow = '';
+        } else {
+          adminSidebar.classList.add('active');
+          adminOverlay.classList.add('active');
+          adminToggle.innerHTML = '<span class="material-symbols-rounded">close</span>';
+          body.style.overflow = 'hidden';
+        }
+      });
+      
+      adminOverlay.addEventListener('click', function() {
+        adminSidebar.classList.remove('active');
+        adminOverlay.classList.remove('active');
+        adminToggle.innerHTML = '<span class="material-symbols-rounded">menu</span>';
+        body.style.overflow = '';
+      });
+      
+      const sidebarLinks = adminSidebar.querySelectorAll('a');
+      sidebarLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          adminSidebar.classList.remove('active');
+          adminOverlay.classList.remove('active');
+          adminToggle.innerHTML = '<span class="material-symbols-rounded">menu</span>';
+          body.style.overflow = '';
+        });
+      });
+    }
+    
+  });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Admin - Casa do Caminho</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/design-tokens.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Public+Sans:wght@400;500;600&display=swap">
+</head>
+<body>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       TELA DE LOGIN
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="admin-login-section">
+    <div class="admin-login-container">
+      
+      <!-- Logo e Voltar -->
+      <div class="admin-login-header">
+        <a href="index.html" class="back-to-site">
+          <span class="material-symbols-rounded">arrow_back</span>
+          Voltar ao site
+        </a>
+      </div>
+
+      <!-- Card de Login -->
+      <div class="admin-login-card">
+        <div class="admin-login-logo">
+          <span class="material-symbols-rounded">church</span>
+          <h1>Casa do Caminho</h1>
+          <p>Painel Administrativo</p>
+        </div>
+
+        <form class="admin-login-form" id="loginForm">
+          <div class="form-group">
+            <label for="email" class="form-label">
+              <span class="material-symbols-rounded">mail</span>
+              E-mail
+            </label>
+            <input 
+              type="email" 
+              id="email" 
+              class="form-input" 
+              placeholder="admin@casadocaminho.org"
+              required
+              autocomplete="username"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="password" class="form-label">
+              <span class="material-symbols-rounded">lock</span>
+              Senha
+            </label>
+            <div class="password-input-group">
+              <input 
+                type="password" 
+                id="password" 
+                class="form-input" 
+                placeholder="••••••••"
+                required
+                autocomplete="current-password"
+              >
+              <button type="button" class="toggle-password" onclick="togglePassword()">
+                <span class="material-symbols-rounded" id="toggleIcon">visibility</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-options">
+            <label class="checkbox-label">
+              <input type="checkbox" id="rememberMe">
+              <span>Lembrar-me</span>
+            </label>
+            <a href="#" class="forgot-password">Esqueceu a senha?</a>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full btn-lg">
+            <span class="material-symbols-rounded">login</span>
+            Entrar no Painel
+          </button>
+        </form>
+
+        <!-- Demo Credentials -->
+        <div class="demo-credentials">
+          <p><strong>🔐 Demo:</strong> Use qualquer e-mail e senha para testar</p>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="admin-login-footer">
+        <p>Casa do Caminho © 2026 - Todos os direitos reservados</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       JAVASCRIPT
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <script>
+    // Toggle password visibility
+    function togglePassword() {
+      const passwordInput = document.getElementById('password');
+      const toggleIcon = document.getElementById('toggleIcon');
+      
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleIcon.textContent = 'visibility_off';
+      } else {
+        passwordInput.type = 'password';
+        toggleIcon.textContent = 'visibility';
+      }
+    }
+
+    // Handle login (demo - vai para dashboard)
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      
+      // Validação simples
+      if (email && password) {
+        // Simula login bem-sucedido
+        alert('✅ Login realizado com sucesso!\n\nRedirecionando para o painel...');
+        
+        // Redireciona para dashboard
+        setTimeout(() => {
+          window.location.href = 'admin-dashboard.html';
+        }, 1000);
+      }
+    });
+  </script>
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     MENU HAMBURGER ADMIN MOBILE
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  // Apenas criar menu mobile se for mobile
+  if (window.innerWidth <= 768) {
+    
+    const adminSidebar = document.querySelector('.admin-sidebar');
+    const body = document.body;
+    
+    // Criar botão toggle
+    const adminToggle = document.createElement('button');
+    adminToggle.className = 'admin-menu-toggle';
+    adminToggle.setAttribute('aria-label', 'Abrir menu');
+    adminToggle.innerHTML = '<span class="material-symbols-rounded">menu</span>';
+    
+    // Criar overlay
+    const adminOverlay = document.createElement('div');
+    adminOverlay.className = 'admin-overlay';
+    
+    // Adicionar ao DOM
+    body.appendChild(adminToggle);
+    body.appendChild(adminOverlay);
+    
+    // Toggle sidebar
+    adminToggle.addEventListener('click', function() {
+      const isActive = adminSidebar.classList.contains('active');
+      
+      if (isActive) {
+        // Fechar
+        adminSidebar.classList.remove('active');
+        adminOverlay.classList.remove('active');
+        adminToggle.innerHTML = '<span class="material-symbols-rounded">menu</span>';
+        body.style.overflow = '';
+      } else {
+        // Abrir
+        adminSidebar.classList.add('active');
+        adminOverlay.classList.add('active');
+        adminToggle.innerHTML = '<span class="material-symbols-rounded">close</span>';
+        body.style.overflow = 'hidden';
+      }
+    });
+    
+    // Fechar ao clicar no overlay
+    adminOverlay.addEventListener('click', function() {
+      adminSidebar.classList.remove('active');
+      adminOverlay.classList.remove('active');
+      adminToggle.innerHTML = '<span class="material-symbols-rounded">menu</span>';
+      body.style.overflow = '';
+    });
+    
+    // Fechar ao clicar em um link
+    const sidebarLinks = adminSidebar.querySelectorAll('a');
+    sidebarLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        adminSidebar.classList.remove('active');
+        adminOverlay.classList.remove('active');
+        adminToggle.innerHTML = '<span class="material-symbols-rounded">menu</span>';
+        body.style.overflow = '';
+      });
+    });
+  }
+  
+});
+</script>
+
+</body>
+</html>

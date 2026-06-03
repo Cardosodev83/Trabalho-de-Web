@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciar Eventos - Casa do Caminho</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/design-tokens.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Public+Sans:wght@400;500;600&display=swap">
+</head>
+<body class="admin-body">
+  
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SIDEBAR NAVEGAÇÃO
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <aside class="admin-sidebar">
+    <div class="admin-sidebar-header">
+      <span class="material-symbols-rounded">church</span>
+      <div>
+        <strong>Casa do Caminho</strong>
+        <span>Painel Admin</span>
+      </div>
+    </div>
+    
+    <nav class="admin-nav">
+      <a href="admin-dashboard.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">dashboard</span>
+        <span>Dashboard</span>
+      </a>
+      <a href="admin-eventos.html" class="admin-nav-item active">
+        <span class="material-symbols-rounded">event</span>
+        <span>Eventos</span>
+      </a>
+      <a href="admin-projetos.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">volunteer_activism</span>
+        <span>Projetos</span>
+      </a>
+      <a href="admin-voluntarios.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">groups</span>
+        <span>Voluntários</span>
+      </a>
+      <a href="admin-doacoes.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">favorite</span>
+        <span>Doações</span>
+      </a>
+      <a href="admin-depoimentos.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">chat</span>
+        <span>Depoimentos</span>
+      </a>
+      <a href="admin-galeria.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">photo_library</span>
+        <span>Galeria</span>
+    </nav>
+    
+    <div class="admin-sidebar-footer">
+      <a href="index.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">public</span>
+        <span>Ver Site</span>
+      </a>
+      <a href="admin-login.html" class="admin-nav-item">
+        <span class="material-symbols-rounded">logout</span>
+        <span>Sair</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       CONTEÚDO PRINCIPAL
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <main class="admin-main">
+    
+    <!-- Header -->
+    <header class="admin-header">
+      <div>
+        <h1 class="admin-page-title">Gerenciar Eventos</h1>
+        <p class="admin-page-subtitle">Crie, edite e gerencie todos os eventos da Casa do Caminho</p>
+      </div>
+      <div class="admin-header-actions">
+        <button class="admin-btn admin-btn-primary" onclick="abrirModalEvento()">
+          <span class="material-symbols-rounded">add</span>
+          Novo Evento
+        </button>
+      </div>
+    </header>
+
+    <!-- Filtros -->
+    <div class="admin-filters">
+      <div class="admin-search">
+        <span class="material-symbols-rounded">search</span>
+        <input type="text" placeholder="Buscar eventos..." id="search-eventos">
+      </div>
+      <select class="admin-select">
+        <option value="">Todos os tipos</option>
+        <option value="religioso">Religioso</option>
+        <option value="social">Social</option>
+      </select>
+      <select class="admin-select">
+        <option value="">Todos os status</option>
+        <option value="proximo">Próximos</option>
+        <option value="passado">Passados</option>
+      </select>
+    </div>
+
+    <!-- Tabela de Eventos -->
+    <div class="admin-card">
+      <div class="admin-table-container">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Evento</th>
+              <th>Data</th>
+              <th>Horário</th>
+              <th>Tipo</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <!-- Evento 1 -->
+            <tr>
+              <td>
+                <div class="admin-table-cell-main">
+                  <span class="material-symbols-rounded admin-table-icon">auto_stories</span>
+                  <div>
+                    <strong>Estudo da Doutrina Espírita</strong>
+                    <small>Estudo sobre O Livro dos Espíritos</small>
+                  </div>
+                </div>
+              </td>
+              <td>15/04/2026</td>
+              <td>19:30</td>
+              <td><span class="admin-badge admin-badge-info">Religioso</span></td>
+              <td><span class="admin-badge admin-badge-success">Próximo</span></td>
+              <td>
+                <div class="admin-table-actions">
+                  <button class="admin-btn-icon" onclick="editarEvento(1)" title="Editar">
+                    <span class="material-symbols-rounded">edit</span>
+                  </button>
+                  <button class="admin-btn-icon" onclick="excluirEvento(1)" title="Excluir">
+                    <span class="material-symbols-rounded">delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Evento 2 -->
+            <tr>
+              <td>
+                <div class="admin-table-cell-main">
+                  <span class="material-symbols-rounded admin-table-icon">shopping_bag</span>
+                  <div>
+                    <strong>Bazar Beneficente</strong>
+                    <small>Venda de roupas e objetos doados</small>
+                  </div>
+                </div>
+              </td>
+              <td>20/04/2026</td>
+              <td>09:00</td>
+              <td><span class="admin-badge admin-badge-warning">Social</span></td>
+              <td><span class="admin-badge admin-badge-success">Próximo</span></td>
+              <td>
+                <div class="admin-table-actions">
+                  <button class="admin-btn-icon" onclick="editarEvento(2)" title="Editar">
+                    <span class="material-symbols-rounded">edit</span>
+                  </button>
+                  <button class="admin-btn-icon" onclick="excluirEvento(2)" title="Excluir">
+                    <span class="material-symbols-rounded">delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Evento 3 -->
+            <tr>
+              <td>
+                <div class="admin-table-cell-main">
+                  <span class="material-symbols-rounded admin-table-icon">campaign</span>
+                  <div>
+                    <strong>Palestra: Amor e Caridade</strong>
+                    <small>Com o palestrante convidado Dr. Silva</small>
+                  </div>
+                </div>
+              </td>
+              <td>25/04/2026</td>
+              <td>20:00</td>
+              <td><span class="admin-badge admin-badge-info">Religioso</span></td>
+              <td><span class="admin-badge admin-badge-success">Próximo</span></td>
+              <td>
+                <div class="admin-table-actions">
+                  <button class="admin-btn-icon" onclick="editarEvento(3)" title="Editar">
+                    <span class="material-symbols-rounded">edit</span>
+                  </button>
+                  <button class="admin-btn-icon" onclick="excluirEvento(3)" title="Excluir">
+                    <span class="material-symbols-rounded">delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Evento 4 -->
+            <tr>
+              <td>
+                <div class="admin-table-cell-main">
+                  <span class="material-symbols-rounded admin-table-icon">soup_kitchen</span>
+                  <div>
+                    <strong>Sopa Solidária - Entrega</strong>
+                    <small>Distribuição de 150 refeições</small>
+                  </div>
+                </div>
+              </td>
+              <td>28/03/2026</td>
+              <td>18:00</td>
+              <td><span class="admin-badge admin-badge-warning">Social</span></td>
+              <td><span class="admin-badge admin-badge-secondary">Realizado</span></td>
+              <td>
+                <div class="admin-table-actions">
+                  <button class="admin-btn-icon" onclick="editarEvento(4)" title="Editar">
+                    <span class="material-symbols-rounded">edit</span>
+                  </button>
+                  <button class="admin-btn-icon" onclick="excluirEvento(4)" title="Excluir">
+                    <span class="material-symbols-rounded">delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Evento 5 -->
+            <tr>
+              <td>
+                <div class="admin-table-cell-main">
+                  <span class="material-symbols-rounded admin-table-icon">nature_people</span>
+                  <div>
+                    <strong>Retiro Espiritual</strong>
+                    <small>Final de semana de meditação e reflexão</small>
+                  </div>
+                </div>
+              </td>
+              <td>10/05/2026</td>
+              <td>08:00</td>
+              <td><span class="admin-badge admin-badge-info">Religioso</span></td>
+              <td><span class="admin-badge admin-badge-success">Próximo</span></td>
+              <td>
+                <div class="admin-table-actions">
+                  <button class="admin-btn-icon" onclick="editarEvento(5)" title="Editar">
+                    <span class="material-symbols-rounded">edit</span>
+                  </button>
+                  <button class="admin-btn-icon" onclick="excluirEvento(5)" title="Excluir">
+                    <span class="material-symbols-rounded">delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       MODAL: CRIAR/EDITAR EVENTO
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="admin-modal" id="modalEvento">
+    <div class="admin-modal-overlay" onclick="fecharModalEvento()"></div>
+    <div class="admin-modal-container">
+      
+      <div class="admin-modal-header">
+        <h2 id="modal-titulo">Novo Evento</h2>
+        <button class="admin-modal-close" onclick="fecharModalEvento()">
+          <span class="material-symbols-rounded">close</span>
+        </button>
+      </div>
+
+      <div class="admin-modal-body">
+        <form id="formEvento" onsubmit="salvarEvento(event)">
+          
+          <div class="admin-form-group">
+            <label class="admin-form-label">
+              <span class="material-symbols-rounded">title</span>
+              Título do Evento *
+            </label>
+            <input type="text" class="admin-form-input" id="eventoTitulo" required placeholder="Ex: Estudo Bíblico">
+          </div>
+
+          <div class="admin-form-group">
+            <label class="admin-form-label">
+              <span class="material-symbols-rounded">description</span>
+              Descrição
+            </label>
+            <textarea class="admin-form-input" id="eventoDescricao" rows="3" placeholder="Descreva o evento..."></textarea>
+          </div>
+
+          <div class="admin-form-row">
+            <div class="admin-form-group">
+              <label class="admin-form-label">
+                <span class="material-symbols-rounded">calendar_today</span>
+                Data *
+              </label>
+              <input type="date" class="admin-form-input" id="eventoData" required>
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-form-label">
+                <span class="material-symbols-rounded">schedule</span>
+                Horário *
+              </label>
+              <input type="time" class="admin-form-input" id="eventoHorario" required>
+            </div>
+          </div>
+
+          <div class="admin-form-row">
+            <div class="admin-form-group">
+              <label class="admin-form-label">
+                <span class="material-symbols-rounded">category</span>
+                Tipo *
+              </label>
+              <select class="admin-form-input" id="eventoTipo" required>
+                <option value="">Selecione...</option>
+                <option value="religioso">Religioso</option>
+                <option value="social">Social</option>
+                <option value="ambos">Ambos</option>
+              </select>
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-form-label">
+                <span class="material-symbols-rounded">place</span>
+                Local
+              </label>
+              <input type="text" class="admin-form-input" id="eventoLocal" placeholder="Ex: Salão Principal">
+            </div>
+          </div>
+
+          <div class="admin-form-group">
+            <label class="admin-form-label">
+              <span class="material-symbols-rounded">groups</span>
+              Vagas (opcional)
+            </label>
+            <input type="number" class="admin-form-input" id="eventoVagas" min="0" placeholder="0 = ilimitado">
+          </div>
+
+          <div class="admin-modal-footer">
+            <button type="button" class="admin-btn admin-btn-outline" onclick="fecharModalEvento()">
+              Cancelar
+            </button>
+            <button type="submit" class="admin-btn admin-btn-primary">
+              <span class="material-symbols-rounded">save</span>
+              Salvar Evento
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       JAVASCRIPT
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <script>
+    // ====================================
+    // MODAL
+    // ====================================
+    function abrirModalEvento() {
+      document.getElementById('modalEvento').classList.add('active');
+      document.getElementById('modal-titulo').textContent = 'Novo Evento';
+      document.getElementById('formEvento').reset();
+    }
+
+    function fecharModalEvento() {
+      document.getElementById('modalEvento').classList.remove('active');
+    }
+
+    // ====================================
+    // CRUD
+    // ====================================
+    function salvarEvento(e) {
+      e.preventDefault();
+      
+      const dados = {
+        titulo: document.getElementById('eventoTitulo').value,
+        descricao: document.getElementById('eventoDescricao').value,
+        data: document.getElementById('eventoData').value,
+        horario: document.getElementById('eventoHorario').value,
+        tipo: document.getElementById('eventoTipo').value,
+        local: document.getElementById('eventoLocal').value,
+        vagas: document.getElementById('eventoVagas').value
+      };
+
+      console.log('Salvando evento:', dados);
+      // AQUI: Integrar com backend (POST /api/eventos)
+      
+      alert('✅ Evento salvo com sucesso!');
+      fecharModalEvento();
+    }
+
+    function editarEvento(id) {
+      console.log('Editando evento:', id);
+      abrirModalEvento();
+      document.getElementById('modal-titulo').textContent = 'Editar Evento';
+      // AQUI: Carregar dados do backend (GET /api/eventos/:id)
+    }
+
+    function excluirEvento(id) {
+      if (confirm('Deseja realmente excluir este evento?')) {
+        console.log('Excluindo evento:', id);
+        // AQUI: Deletar no backend (DELETE /api/eventos/:id)
+        alert('✅ Evento excluído!');
+      }
+    }
+
+    // ====================================
+    // BUSCA
+    // ====================================
+    document.getElementById('search-eventos')?.addEventListener('input', function(e) {
+      const termo = e.target.value.toLowerCase();
+      const linhas = document.querySelectorAll('.admin-table tbody tr');
+      
+      linhas.forEach(linha => {
+        const texto = linha.textContent.toLowerCase();
+        linha.style.display = texto.includes(termo) ? '' : 'none';
+      });
+    });
+  </script>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       JAVASCRIPT VANILLA
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     MENU HAMBURGER ADMIN MOBILE
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  // Apenas criar menu mobile se for mobile
+  if (window.innerWidth <= 768) {
+    
+    const adminSidebar = document.querySelector('.admin-sidebar');
+    const body = document.body;
+    
+    // Criar botão toggle
+    const adminToggle = document.createElement('button');
+    adminToggle.className = 'admin-menu-toggle';
+    adminToggle.setAttribute('aria-label', 'Abrir menu');
+    adminToggle.innerHTML = '<span class="material-symbols-rounded">menu</span>';
+    
+    // Criar overlay
+    const adminOverlay = document.createElement('div');
+    adminOverlay.className = 'admin-overlay';
+    
+    // Adicionar ao DOM
+    body.appendChild(adminToggle);
+    body.appendChild(adminOverlay);
+    
+    // Toggle sidebar
+    adminToggle.addEventListener('click', function() {
+      const isActive = adminSidebar.classList.contains('active');
+      
+      if (isActive) {
+        // Fechar
+        adminSidebar.classList.remove('active');
+        adminOverlay.classList.remove('active');
+        adminToggle.innerHTML = '<span class="material-symbols-rounded">menu</span>';
+        body.style.overflow = '';
+      } else {
+        // Abrir
+        adminSidebar.classList.add('active');
+        adminOverlay.classList.add('active');
+        adminToggle.innerHTML = '<span class="material-symbols-rounded">close</span>';
+        body.style.overflow = 'hidden';
+      }
+    });
+    
+    // Fechar ao clicar no overlay
+    adminOverlay.addEventListener('click', function() {
+      adminSidebar.classList.remove('active');
+      adminOverlay.classList.remove('active');
+      adminToggle.innerHTML = '<span class="material-symbols-rounded">menu</span>';
+      body.style.overflow = '';
+    });
+    
+    // Fechar ao clicar em um link
+    const sidebarLinks = adminSidebar.querySelectorAll('a');
+    sidebarLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        adminSidebar.classList.remove('active');
+        adminOverlay.classList.remove('active');
+        adminToggle.innerHTML = '<span class="material-symbols-rounded">menu</span>';
+        body.style.overflow = '';
+      });
+    });
+  }
+  
+});
+</script>
+
+</body>
+</html>

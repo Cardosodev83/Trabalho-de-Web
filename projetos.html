@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+  
+  <meta charset="UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="description" content="Casa do Caminho - Nossos Projetos Sociais">
+  
+  <title>Casa do Caminho - Projetos</title>
+  
+  
+  <!-- GOOGLE FONTS  -->
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  
+  <!-- MATERIAL SYMBOLS -->
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  
+  
+  <!-- CSS - Arquivos de estilo (ORDEM IMPORTA!) -->
+  
+  <link rel="stylesheet" href="css/reset.css">
+  <!-- 1º - Zera estilos padrão do navegador -->
+  
+  <link rel="stylesheet" href="css/design-tokens.css">
+  <!-- 2º - Define variáveis (cores, tamanhos) -->
+  
+  <link rel="stylesheet" href="css/style.css">
+  <!-- 3º - Aplica estilos visuais -->
+  
+</head>
+
+
+<body>
+
+  
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       NAVEGAÇÃO
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="material-symbols-rounded">church</span>
+        <span>Casa do Caminho</span>
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menu de navegação">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+      
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Início</a></li>
+        <li><a href="espiritual.html" class="nav-link">Espiritual</a></li>
+        <li><a href="projetos.html" class="nav-link active">Social</a></li>
+        <li><a href="eventos.html" class="nav-link">Eventos</a></li>
+        <li><a href="contato.html" class="nav-link">Contato</a></li>
+        <li><a href="institucional.html" class="nav-link">Institucional</a></li>
+
+      </ul>
+      
+      <a href="doar-agora.html" class="btn btn-primary">
+        <span class="material-symbols-rounded">favorite</span>
+        Doar Agora
+      </a>
+    </div>
+  </nav>
+  
+  <!-- HERO SECTION (Seção principal da home)
+       
+ -->
+  
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        
+        <!-- Título principal -->
+        <h1 class="hero-title">
+          
+          Onde o <span class="text-highlight">acolhimento</span> 
+          transforma vidas
+        </h1>
+        
+        
+        <!-- Descrição -->
+        <p class="hero-description">
+          
+          Unindo espiritualidade e ação social para criar um futuro 
+          mais justo e fraterno em nossa comunidade.
+        </p>
+        
+        
+        <!-- Botões de ação -->
+        <div class="hero-actions">
+          <a href="#projeto" class="btn btn-primary btn-lg">
+            
+            Conhecer Projetos
+            <span class="material-symbols-rounded">arrow_forward</span>
+          </a>
+          
+          <a href=ser-voluntario.html class="btn btn-tertiary btn-lg">
+            Ser Voluntário
+          </a>
+        </div>
+        
+        
+        <!-- Estatísticas (números de impacto) -->
+        <div class="hero-stats">
+          
+          <div class="stat">
+            <span class="hero-stat-number counter " data-target="1200">0+</span>
+            
+            <span class="hero-stat-label">Refeições/mês</span>
+          </div>
+          
+          <div class="stat">
+            <span class="hero-stat-number counter " data-target="6">0</span>
+            <span class="hero-stat-label">Projetos Ativos</span>
+          </div>
+          
+          <div class="stat">
+            <span class="hero-stat-number counter " data-target="120">0</span>
+            <span class="hero-stat-label">Voluntários</span>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+
+  
+  <!-- 
+       SEÇÃO DE PROJETOS
+       
+       Grid com 6 cards de projetos (3 colunas em desktop,
+       1 coluna em mobile)
+        -->
+  
+  <section class="projects-section" id="projeto">
+    <div class="container">
+      
+      <!-- Grid de cards (layout em grade automático) -->
+      <div class="projects-grid">
+        
+        
+        <!-- 
+             CARD 1 - Sopa Solidária (DESTAQUE)
+             
+             Este card tem badge "Destaque" e mais detalhes
+              -->
+        
+        <article class="project-card">
+          <!-- article = Conteúdo independente/completo -->
+          
+          <!-- Imagem do projeto -->
+          <div class="project-image">
+            <img src="https://t3.ftcdn.net/jpg/03/14/36/26/240_F_314362650_R5nJPIJP2IwYxrMLhWKfxB7JrNd0ji91.jpg" alt="Sopa Solidária">
+            
+            <span class="project-badge">Destaque</span>
+            <!-- Badge laranja no canto superior direito -->
+          </div>
+          
+          <!-- Conteúdo do card (texto + botão) -->
+          <div class="project-content">
+            
+            <h3 class="project-title">Sopa Solidária</h3>
+            
+            <p class="project-description">
+              Servimos mais de 50 refeições quentes e distribuímos legumes  semanalmente para familias carentes.
+            </p>
+            <!-- Descrição do projeto -->
+            
+            <!-- Meta informações (horário + voluntários) -->
+            <div class="project-meta">
+              
+              <span class="meta-item">
+                <!-- Horário -->
+                <span class="material-symbols-rounded">schedule</span>
+                Quinta, 12h
+              </span>
+              
+              <span class="meta-item">
+                <!-- Número de voluntários -->
+                <span class="material-symbols-rounded">people</span>
+                25 voluntários
+              </span>
+              
+            </div>
+            
+            <a href="sopa-solidaria.html" class="btn btn-secondary">Saiba Mais</a>
+            <!-- Botão verde (btn-secondary) -->
+          </div>
+        </article>
+        
+        
+        <!-- ─────────────────────────────────────────────
+             CARD 2 - Bazar Beneficente
+             ───────────────────────────────────────────── -->
+        
+        <article class="project-card">
+          <div class="project-image">
+            <img src="https://t3.ftcdn.net/jpg/02/48/62/24/240_F_248622442_Z5O6VvZNKo5XyE4VFS5vSwZKDFdrJ1pi.jpg" alt="Bazar Beneficente">
+            <!-- Imagem de roupas/bazar -->
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Bazar Beneficente</h3>
+            <p class="project-description">
+              Roupas, calçados e utensílios a preços acessíveis para a comunidade.
+            </p>
+            <div class="project-meta">
+              <span class="meta-item">
+                <span class="material-symbols-rounded">schedule</span>
+                Sexta, 14h
+              </span>
+              <span class="meta-item">
+                <span class="material-symbols-rounded">people</span>
+                15 voluntários
+              </span>
+            </div>
+            <a href="bazar-beneficiente.html" class="btn btn-tertiary">Ver Detalhes</a>
+            <!-- Botão com borda azul (btn-tertiary) -->
+          </div>
+        </article>
+        
+        
+        <!-- 
+             CARD 3 - Cesta Básica
+              -->
+        
+        <article class="project-card">
+          <div class="project-image">
+            <img src="https://t3.ftcdn.net/jpg/18/63/89/66/240_F_1863896664_yDK4Lh2l36u2avpYibMh88JLIj48bSoy.jpg" alt="Cesta Básica">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Cesta Básica</h3>
+            <p class="project-description">
+              Distribuição mensal para 80 famílias cadastradas em nossa comunidade.
+            </p>
+            <div class="project-meta">
+              <span class="meta-item">
+                <span class="material-symbols-rounded">schedule</span>
+                1ª Segunda do mês
+              </span>
+              <span class="meta-item">
+                <span class="material-symbols-rounded">people</span>
+                20 voluntários
+              </span>
+            </div>
+            <a href="cesta-basica.html" class="btn btn-tertiary">Ver Detalhes</a>
+          </div>
+        </article>
+        
+        
+        <!-- 
+             CARD 4 - Creche Comunitária
+              -->
+        
+        <article class="project-card">
+          <div class="project-image">
+            <img src="https://t4.ftcdn.net/jpg/04/42/33/63/240_F_442336399_EGEEc7YKuNnnclU368Q2uWeEB9en2XvT.jpg" alt="Creche">
+            <!-- Imagem de crianças/educação infantil -->
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Creche Comunitária</h3>
+            <p class="project-description">
+              Cuidado e educação infantil para 40 crianças de famílias trabalhadoras.
+            </p>
+            <div class="project-meta">
+              <span class="meta-item">
+                <span class="material-symbols-rounded">schedule</span>
+                Segunda a Sexta, 7h-16h
+              </span>
+              <span class="meta-item">
+                <span class="material-symbols-rounded">people</span>
+                8 educadores
+              </span>
+            </div>
+            <a href="creche-comunitaria.html" class="btn btn-tertiary">Ver Detalhes</a>
+          </div>
+        </article>
+        
+        
+        <!-- 
+             CARD 5 - Pão Fraterno
+              -->
+        
+        <article class="project-card">
+          <div class="project-image">
+            <img src="https://t4.ftcdn.net/jpg/09/22/15/59/240_F_922155983_OqTCYQEjFWrQqBLh1miUe4CTShS9wvbt.jpg" alt="Pão Fraterno">
+            <!-- Imagem de pães artesanais -->
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Pão Fraterno</h3>
+            <p class="project-description">
+              Distribuição de sopa quente, pão, dignidade e esperança 
+          para moradores em situação de rua
+            </p>
+            <div class="project-meta">
+              <span class="meta-item">
+                <span class="material-symbols-rounded">schedule</span>
+                Sexta, 12h as 20h
+              </span>
+              <span class="meta-item">
+                <span class="material-symbols-rounded">people</span>
+                40 voluntários
+              </span>
+            </div>
+            <a href="pao-fraterno.html" class="btn btn-tertiary">Ver Detalhes</a>
+          </div>
+        </article>
+        
+        
+        <!-- 
+             CARD 6 - Montagem de Enxovais
+              -->
+        
+        <article class="project-card">
+          <div class="project-image">
+            <img src="https://t4.ftcdn.net/jpg/00/46/35/53/240_F_46355304_HuerwsBU6SxQJrS5nHqdWtXh0AysAhRH.jpg" alt="Montagem de Enxovais">
+            <!-- Imagem de roupinhas de bebê -->
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Montagem de Enxovais</h3>
+            <p class="project-description">
+              Preparação e distribuição de enxovais para bebês de famílias em vulnerabilidade social.
+            </p>
+            <div class="project-meta">
+              <span class="meta-item">
+                <span class="material-symbols-rounded">schedule</span>
+                Quartas, 14h
+              </span>
+              <span class="meta-item">
+                <span class="material-symbols-rounded">people</span>
+                10 voluntárias
+              </span>
+            </div>
+            <a href="enxoval.html" class="btn btn-tertiary">Ver Detalhes</a>
+          </div>
+        </article>
+        
+      </div>
+      <!-- Fim do projects-grid -->
+    </div>
+  </section>
+
+  
+  <!-- 
+       FOOTER (Rodapé)
+        -->
+  
+  <footer class="footer">
+    
+    <div class="footer-container">
+      
+      
+      <!-- 
+           COLUNA 1: Logo + Slogan (2fr = 2 frações)
+            -->
+      
+      <div class="footer-column">
+        <!-- Logo do footer -->
+        <div class="footer-logo">
+          <span class="material-symbols-rounded">church</span>
+          <span>Casa do Caminho</span>
+        </div>
+        
+        <!-- Slogan/Tagline -->
+        <p class="footer-tagline">
+          Um santuário para todos, independente do caminho.
+        </p>
+      </div>
+      
+      
+      <!-- 
+           COLUNA 2: Links Rápidos (1fr = 1 fração)
+            -->
+      
+      <div class="footer-column">
+        <h3 class="footer-title">Links Rápidos</h3>
+        <!-- h3 = Título da coluna -->
+        
+        <ul class="footer-links">
+          <li><a href="espiritual.html">Pilar Espiritual</a></li>
+          <li><a href="projetos.html">Ação Social</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      
+      
+      <!-- 
+           COLUNA 3: Informações de Contato (1fr)
+            -->
+      
+      <div class="footer-column">
+        <h3 class="footer-title">Contato</h3>
+        
+        <ul class="footer-contact">
+          <!-- Lista de contatos com ícones -->
+          
+          <!-- Endereço -->
+          <li>
+            <span class="material-symbols-rounded">location_on</span>
+            <!-- Ícone de pin/localização -->
+            Rua Costa do Sol, 450 - Vila Costa do Sol, São Carlos - SP
+          </li>
+          
+          <!-- Telefone -->
+          <li>
+            <span class="material-symbols-rounded">phone</span>
+            (16) 3361-9822
+          </li>
+          
+          <!-- Email -->
+          <li>
+            <span class="material-symbols-rounded">mail</span>
+            casadocaminhosc@gmail.com
+          </li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    
+    
+    <!-- 
+         BARRA INFERIOR: Copyright + Links Legais
+          -->
+    
+    <div class="footer-bottom">
+      <!-- Flexbox: copyright à esquerda, links à direita -->
+      
+      <p>&copy; 2026 Casa do Caminho. Todos os direitos reservados.</p>
+      
+      <div class="footer-legal">
+        <!-- Links legais (lado a lado) -->
+        <a href="institucional.html">Política de Privacidade</a>
+        <a href="institucional.html">Termos de Serviço</a>
+      </div>
+    </div>
+    
+  </footer>
+
+ <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       JAVASCRIPT VANILLA
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <script>
+    // ═══════════════════════════════════════════
+    // SMOOTH SCROLL
+    // ═══════════════════════════════════════════
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // ═══════════════════════════════════════════
+    // CONTADOR ANIMADO
+    // ═══════════════════════════════════════════
+    function animateCounter(element) {
+      const target = parseInt(element.getAttribute('data-target'));
+      const duration = 2000;
+      const increment = target / (duration / 16);
+      let current = 0;
+
+      const updateCounter = () => {
+        current += increment;
+        if (current < target) {
+          element.textContent = Math.floor(current).toLocaleString('pt-BR');
+          requestAnimationFrame(updateCounter);
+        } else {
+          element.textContent = target.toLocaleString('pt-BR') + '+';
+        }
+      };
+
+      updateCounter();
+    }
+
+    // ═══════════════════════════════════════════
+    // INTERSECTION OBSERVER
+    // ═══════════════════════════════════════════
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          
+          if (entry.target.classList.contains('counter')) {
+            animateCounter(entry.target);
+          }
+          
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    document.querySelectorAll('.counter').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     MENU HAMBURGER MOBILE
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  // Selecionar elementos
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  const body = document.body;
+  
+  // Criar overlay se não existir
+  let overlay = document.querySelector('.nav-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.className = 'nav-overlay';
+    body.appendChild(overlay);
+  }
+  
+  // Abrir/fechar menu
+  if (menuToggle) {
+    menuToggle.addEventListener('click', function() {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      overlay.classList.toggle('active');
+      body.classList.toggle('menu-open');
+    });
+  }
+  
+  // Fechar ao clicar no overlay
+  overlay.addEventListener('click', function() {
+    menuToggle.classList.remove('active');
+    navLinks.classList.remove('active');
+    overlay.classList.remove('active');
+    body.classList.remove('menu-open');
+  });
+  
+  // Fechar ao clicar em um link
+  const links = navLinks.querySelectorAll('a');
+  links.forEach(link => {
+    link.addEventListener('click', function() {
+      menuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+      overlay.classList.remove('active');
+      body.classList.remove('menu-open');
+    });
+  });
+  
+});
+</script>
+
+
+</body>
+</html>
