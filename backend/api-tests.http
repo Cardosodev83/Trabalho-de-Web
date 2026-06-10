@@ -109,3 +109,105 @@ GET http://localhost:3000/api/doacoes
 
 ### Relatório de doações
 GET http://localhost:3000/api/doacoes/relatorio
+
+
+###############################################
+# CRIAR 6 PROJETOS DA CASA DO CAMINHO
+###############################################
+
+### 1. Sopa Solidária
+POST http://localhost:3000/api/projetos
+Content-Type: application/json
+
+{
+  "nome": "Sopa Solidária",
+  "descricao": "Distribuição de 200 refeições quentes semanais para pessoas em situação de vulnerabilidade social. Funcionamento às terças e quintas-feiras, das 18h às 20h.",
+  "meta_financeira": 5000.00,
+  "beneficiarios_atendidos": 200,
+  "imagem_url": "sopa_solidaria.jpg",
+  "status": "ativo"
+}
+
+###
+
+### 2. Bazar Beneficente
+POST http://localhost:3000/api/projetos
+Content-Type: application/json
+
+{
+  "nome": "Bazar Beneficente",
+  "descricao": "Venda de roupas, calçados e utensílios domésticos a preços sociais. Funciona aos sábados, das 9h às 17h.",
+  "meta_financeira": 3000.00,
+  "beneficiarios_atendidos": 150,
+  "imagem_url": "bazar.jpg",
+  "status": "ativo"
+}
+
+###
+
+### 3. Cesta Básica
+POST http://localhost:3000/api/projetos
+Content-Type: application/json
+
+{
+  "nome": "Cesta Básica",
+  "descricao": "Distribuição mensal de cestas básicas completas para famílias cadastradas em situação de vulnerabilidade.",
+  "meta_financeira": 8000.00,
+  "beneficiarios_atendidos": 100,
+  "imagem_url": "cesta_basica.jpg",
+  "status": "ativo"
+}
+
+###
+
+### 4. Creche Comunitária
+POST http://localhost:3000/api/projetos
+Content-Type: application/json
+
+{
+  "nome": "Creche Comunitária",
+  "descricao": "Educação infantil gratuita para crianças de 2 a 5 anos, com alimentação completa. Horário integral: 7h às 18h.",
+  "meta_financeira": 15000.00,
+  "beneficiarios_atendidos": 60,
+  "imagem_url": "creche.jpg",
+  "status": "ativo"
+}
+
+###
+
+### 5. Enxoval Solidário
+POST http://localhost:3000/api/projetos
+Content-Type: application/json
+
+{
+  "nome": "Enxoval Solidário",
+  "descricao": "Kits completos para gestantes carentes, contendo roupas de bebê, fraldas e produtos de higiene.",
+  "meta_financeira": 4000.00,
+  "beneficiarios_atendidos": 50,
+  "imagem_url": "enxoval.jpg",
+  "status": "ativo"
+}
+
+###
+
+### 6. Pão Fraterno
+POST http://localhost:3000/api/projetos
+Content-Type: application/json
+
+{
+  "nome": "Pão Fraterno",
+  "descricao": "Distribuição diária de sopas e pães para moradores de rua. Atendimento todos os dias às 19h.",
+  "meta_financeira": 6000.00,
+  "beneficiarios_atendidos": 180,
+  "imagem_url": "pao_fraterno.jpg",
+  "status": "ativo"
+}
+
+###
+
+### Listar todos os projetos criados
+GET http://localhost:3000/api/projetos
+
+###
+
+DELETE http://localhost:3000/api/projetos/1

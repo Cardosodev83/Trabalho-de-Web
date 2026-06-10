@@ -36,6 +36,11 @@
   
   <link rel="stylesheet" href="css/style.css">
   <!-- 3º - Aplica estilos visuais -->
+
+  <!-- API e Scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/projetos.js" defer></script>
+
   
 </head>
 
@@ -140,219 +145,17 @@
 
 
   
-  <!-- 
-       SEÇÃO DE PROJETOS
-       
-       Grid com 6 cards de projetos (3 colunas em desktop,
-       1 coluna em mobile)
-        -->
-  
   <section class="projects-section" id="projeto">
-    <div class="container">
-      
-      <!-- Grid de cards (layout em grade automático) -->
-      <div class="projects-grid">
-        
-        
-        <!-- 
-             CARD 1 - Sopa Solidária (DESTAQUE)
-             
-             Este card tem badge "Destaque" e mais detalhes
-              -->
-        
-        <article class="project-card">
-          <!-- article = Conteúdo independente/completo -->
-          
-          <!-- Imagem do projeto -->
-          <div class="project-image">
-            <img src="https://t3.ftcdn.net/jpg/03/14/36/26/240_F_314362650_R5nJPIJP2IwYxrMLhWKfxB7JrNd0ji91.jpg" alt="Sopa Solidária">
-            
-            <span class="project-badge">Destaque</span>
-            <!-- Badge laranja no canto superior direito -->
-          </div>
-          
-          <!-- Conteúdo do card (texto + botão) -->
-          <div class="project-content">
-            
-            <h3 class="project-title">Sopa Solidária</h3>
-            
-            <p class="project-description">
-              Servimos mais de 50 refeições quentes e distribuímos legumes  semanalmente para familias carentes.
-            </p>
-            <!-- Descrição do projeto -->
-            
-            <!-- Meta informações (horário + voluntários) -->
-            <div class="project-meta">
-              
-              <span class="meta-item">
-                <!-- Horário -->
-                <span class="material-symbols-rounded">schedule</span>
-                Quinta, 12h
-              </span>
-              
-              <span class="meta-item">
-                <!-- Número de voluntários -->
-                <span class="material-symbols-rounded">people</span>
-                25 voluntários
-              </span>
-              
-            </div>
-            
-            <a href="sopa-solidaria.html" class="btn btn-secondary">Saiba Mais</a>
-            <!-- Botão verde (btn-secondary) -->
-          </div>
-        </article>
-        
-        
-        <!-- ─────────────────────────────────────────────
-             CARD 2 - Bazar Beneficente
-             ───────────────────────────────────────────── -->
-        
-        <article class="project-card">
-          <div class="project-image">
-            <img src="https://t3.ftcdn.net/jpg/02/48/62/24/240_F_248622442_Z5O6VvZNKo5XyE4VFS5vSwZKDFdrJ1pi.jpg" alt="Bazar Beneficente">
-            <!-- Imagem de roupas/bazar -->
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Bazar Beneficente</h3>
-            <p class="project-description">
-              Roupas, calçados e utensílios a preços acessíveis para a comunidade.
-            </p>
-            <div class="project-meta">
-              <span class="meta-item">
-                <span class="material-symbols-rounded">schedule</span>
-                Sexta, 14h
-              </span>
-              <span class="meta-item">
-                <span class="material-symbols-rounded">people</span>
-                15 voluntários
-              </span>
-            </div>
-            <a href="bazar-beneficiente.html" class="btn btn-tertiary">Ver Detalhes</a>
-            <!-- Botão com borda azul (btn-tertiary) -->
-          </div>
-        </article>
-        
-        
-        <!-- 
-             CARD 3 - Cesta Básica
-              -->
-        
-        <article class="project-card">
-          <div class="project-image">
-            <img src="https://t3.ftcdn.net/jpg/18/63/89/66/240_F_1863896664_yDK4Lh2l36u2avpYibMh88JLIj48bSoy.jpg" alt="Cesta Básica">
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Cesta Básica</h3>
-            <p class="project-description">
-              Distribuição mensal para 80 famílias cadastradas em nossa comunidade.
-            </p>
-            <div class="project-meta">
-              <span class="meta-item">
-                <span class="material-symbols-rounded">schedule</span>
-                1ª Segunda do mês
-              </span>
-              <span class="meta-item">
-                <span class="material-symbols-rounded">people</span>
-                20 voluntários
-              </span>
-            </div>
-            <a href="cesta-basica.html" class="btn btn-tertiary">Ver Detalhes</a>
-          </div>
-        </article>
-        
-        
-        <!-- 
-             CARD 4 - Creche Comunitária
-              -->
-        
-        <article class="project-card">
-          <div class="project-image">
-            <img src="https://t4.ftcdn.net/jpg/04/42/33/63/240_F_442336399_EGEEc7YKuNnnclU368Q2uWeEB9en2XvT.jpg" alt="Creche">
-            <!-- Imagem de crianças/educação infantil -->
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Creche Comunitária</h3>
-            <p class="project-description">
-              Cuidado e educação infantil para 40 crianças de famílias trabalhadoras.
-            </p>
-            <div class="project-meta">
-              <span class="meta-item">
-                <span class="material-symbols-rounded">schedule</span>
-                Segunda a Sexta, 7h-16h
-              </span>
-              <span class="meta-item">
-                <span class="material-symbols-rounded">people</span>
-                8 educadores
-              </span>
-            </div>
-            <a href="creche-comunitaria.html" class="btn btn-tertiary">Ver Detalhes</a>
-          </div>
-        </article>
-        
-        
-        <!-- 
-             CARD 5 - Pão Fraterno
-              -->
-        
-        <article class="project-card">
-          <div class="project-image">
-            <img src="https://t4.ftcdn.net/jpg/09/22/15/59/240_F_922155983_OqTCYQEjFWrQqBLh1miUe4CTShS9wvbt.jpg" alt="Pão Fraterno">
-            <!-- Imagem de pães artesanais -->
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Pão Fraterno</h3>
-            <p class="project-description">
-              Distribuição de sopa quente, pão, dignidade e esperança 
-          para moradores em situação de rua
-            </p>
-            <div class="project-meta">
-              <span class="meta-item">
-                <span class="material-symbols-rounded">schedule</span>
-                Sexta, 12h as 20h
-              </span>
-              <span class="meta-item">
-                <span class="material-symbols-rounded">people</span>
-                40 voluntários
-              </span>
-            </div>
-            <a href="pao-fraterno.html" class="btn btn-tertiary">Ver Detalhes</a>
-          </div>
-        </article>
-        
-        
-        <!-- 
-             CARD 6 - Montagem de Enxovais
-              -->
-        
-        <article class="project-card">
-          <div class="project-image">
-            <img src="https://t4.ftcdn.net/jpg/00/46/35/53/240_F_46355304_HuerwsBU6SxQJrS5nHqdWtXh0AysAhRH.jpg" alt="Montagem de Enxovais">
-            <!-- Imagem de roupinhas de bebê -->
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Montagem de Enxovais</h3>
-            <p class="project-description">
-              Preparação e distribuição de enxovais para bebês de famílias em vulnerabilidade social.
-            </p>
-            <div class="project-meta">
-              <span class="meta-item">
-                <span class="material-symbols-rounded">schedule</span>
-                Quartas, 14h
-              </span>
-              <span class="meta-item">
-                <span class="material-symbols-rounded">people</span>
-                10 voluntárias
-              </span>
-            </div>
-            <a href="enxoval.html" class="btn btn-tertiary">Ver Detalhes</a>
-          </div>
-        </article>
-        
-      </div>
-      <!-- Fim do projects-grid -->
+  <div class="container">
+    
+    <!-- Grid de cards dinâmico -->
+    <div class="projects-grid" id="projetos-container">
+      <!-- Os projetos serão carregados aqui pelo JavaScript -->
     </div>
-  </section>
+    
+  </div>
+</section>
+
 
   
   <!-- 
