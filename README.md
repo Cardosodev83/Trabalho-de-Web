@@ -1,219 +1,287 @@
-# Trabalho-de-Web
-Trabalho de Web da dupla Mariana Cardoso da Silva e Gabriel Phelippe Prado
+# 🏠 Casa do Caminho - Sistema de Gestão
 
-# 🏠 Casa do Caminho - Plataforma Web
-
-> Sistema web para gestão de ações sociais, doações e voluntariado de uma organização espírita assistencial.
-
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
-
-[![Responsive](https://img.shields.io/badge/Responsive-Mobile%20First-success?style=for-the-badge)](https://web.dev/responsive-web-design-basics/)
-
----
-
-## 🎯 Sobre o Projeto
-
-Este projeto foi desenvolvido como trabalho acadêmico da disciplina de **Desenvolvimento Web** e consiste em uma plataforma completa para a **Casa do Caminho**, um centro espírita que realiza ações sociais e assistenciais.
-
-O sistema tem como objetivo **aumentar a visibilidade dos projetos sociais**, **facilitar doações online** e **otimizar a gestão administrativa** através de um painel intuitivo que não requer conhecimentos técnicos.
-
-
-## Cliente
-
-**Casa do Caminho**  
-Centro Espírita e Assistência Social
-
-### Missão
-Promover o bem-estar social através da caridade, educação e assistência às famílias em situação de vulnerabilidade, fundamentados nos princípios espíritas.
-
-### Áreas de Atuação
-- 🍲 **Sopa Solidária** - 200 refeições semanais
-- 🛍️ **Bazar Beneficente** - Roupas e utensílios a preços sociais
-- 📦 **Cesta Básica** - Distribuição mensal para famílias carentes
-- 👶 **Creche Comunitária** - Educação infantil gratuita
-- 🍼 **Enxoval Solidário** - Kits para gestantes carentes
-- 🍞 **Pão Fraterno** - Distribuição de sopas para moradores de rua
-
----
-
-## 🎯 Objetivos
-
-### Objetivos do Site
-1. Apresentar os projetos sociais de forma atrativa e transparente
-2. Facilitar doações online com escolha de destino
-3. Captar e gerenciar voluntários
-4. Divulgar eventos e atividades
-5. Permitir atualização de conteúdo sem conhecimento técnico
-
-### Objetivos de Aprendizado
-- Desenvolver aplicação web responsiva e acessível
-- Aplicar princípios de design (CRAP, teoria das cores, tipografia)
-- Implementar JavaScript vanilla para interatividade
-- Preparar arquitetura para integração com back-end
-- Trabalhar com cliente real e levantamento de requisitos
-
----
-
-## Tecnologias
-
-### Front-End (Fase 1 - Atual)
-| Tecnologia | Uso |
-|------------|-----|
-| **HTML5** | Estrutura semântica das páginas |
-| **CSS3** | Estilização e responsividade |
-| **JavaScript (Vanilla)** | Interatividade e validações |
-| **CSS Grid & Flexbox** | Layouts responsivos |
-| **CSS Custom Properties** | Design tokens e variáveis |
-
----
-
-## 📁 Estrutura do Projeto
-
-```
- casa-do-caminho/
-│
-├── index.html # Página inicial
-│
-├── pages/ # Páginas do site
-│ ├── institucional.html # Sobre a organização
-│ ├── contato.html # Formulário de contato
-│ ├── espiritual.html # Área religiosa
-│ ├── eventos.html # Lista de eventos
-│ │
-│ ├── projetos/ # Projetos sociais
-│ │ ├── projetos.html # Visão geral
-│ │ ├── sopa_solidaria.html
-│ │ ├── bazar_beneficiente.html
-│ │ ├── pao_fraterno.html
-│ │ ├── creche.html
-│ │ ├── enxoval.html
-│ │ ├── cesta_basica.html
-│ │ # Doações e voluntariado
-│ │ ├── doar_agora.html # Formulário de doação
-│ │ ├── pagamento.html # Finalização de doação
-│ │ └── ser_voluntario.html # Cadastro de voluntários
-│ │
-│ └── admin/ # Painel administrativo
-│ ├── admin_login.html
-│ ├── admin_dashboard.html
-│ ├── admin_projetos.html
-│ ├── admin_eventos.html
-│ ├── admin_doacoes.html
-│ ├── admin_voluntarios.html
-│ ├── admin_galeria.html
-│ └── admin_depoimentos.html
-│
-├── css/ # Estilos
-│ ├── reset.css # Normalização de estilos
-│ ├── design_tokens.css # Variáveis ​​CSS (núcleos, fontes, etc)
-│ └── style.css # Estilos principais (5000+ linhas)
-│
-└── README.md # Este arquivo
-```
+Sistema completo de gestão para instituição sem fins lucrativos, desenvolvido com foco em transparência, impacto social e facilidade de uso.
 
 
 
----
+## 🚀 Tecnologias
+
+### Backend
+- **Node.js** - Runtime JavaScript
+- **Express** - Framework web
+- **Sequelize ORM** - Mapeamento objeto-relacional
+- **PostgreSQL** - Banco de dados relacional
+- **Nodemon** - Desenvolvimento com auto-restart
+
+### Frontend
+- **HTML5/CSS3** - Estrutura e estilos
+- **JavaScript (Vanilla)** - Interatividade
+- **Design Responsivo** - Mobile-first
+- **Material Icons** - Ícones do Google
 
 ## ✨ Funcionalidades
 
-### 🏠 Área Pública
+### 📊 Dashboard Administrativo
+- Estatísticas em tempo real
+- Gráfico de doações dos últimos 6 meses
+- Projetos em destaque com progresso visual
+- Timeline de atividades recentes
+- Auto-atualização a cada 30 segundos
 
-#### Páginas Institucionais
-- ✅ **Home** - Hero section, cards de áreas, projetos em destaque, números de impacto
-- ✅ **Sobre Nós** - Missão, visão, valores, história da organização
-- ✅ **Contato** - Formulário de contato, mapa, informações
-- ✅ **Área Espiritual** - Estudos, palestras, horários de funcionamento
+### 💰 Gestão de Doações
+- CRUD completo
+- Formulário público de doação
+- Seleção de projetos específicos
+- Valores sugeridos (R$ 50, R$ 100, R$ 200, R$ 500)
+- Doações recorrentes (única ou mensal)
+- Integração com meios de pagamento:
+  - PIX (QR Code dinâmico)
+  - Cartão de Crédito
+  - Boleto Bancário
+- Página de resumo e confirmação
 
-#### Projetos Sociais
-- ✅ **Visão Geral** - Grid com os 6 projetos
-- ✅ **Páginas Individuais** - Descrição, como funciona, galeria, números, CTA doar
+### 📁 Gestão de Projetos
+- CRUD completo
+- Upload de imagens
+- Metas financeiras
+- Acompanhamento de progresso
+- Listagem pública com filtros
+- Cards com informações detalhadas
 
-#### Engajamento
-- ✅ **Doações** - Formulário em 2 etapas (escolha de destino + pagamento)
-- ✅ **Voluntariado** - Cadastro com áreas de interesse e disponibilidade
-- ✅ **Eventos** - Lista de próximos eventos com detalhes
+### 🤝 Gestão de Voluntários
+- CRUD completo
+- Formulário público de inscrição
+- Áreas de interesse (múltipla escolha)
+- Disponibilidade por dia da semana
+- Status: Pendente, Ativo, Inativo
+- Dashboard com estatísticas
 
-### 🔐 Área Administrativa
+### 📅 Gestão de Eventos
+- CRUD completo
+- Data e horário do evento
+- Local e tipo (Arrecadação, Social, Ambos)
+- Controle de vagas limitadas
+- Listagem pública
+- Calendário visual
 
-#### Dashboard
-- ✅ Métricas principais (doações, voluntários, eventos)
-- ✅ Gráficos de performance
-- ✅ Últimas atividades
+### 💬 Gestão de Depoimentos
+- CRUD completo
+- Sistema de aprovação/rejeição
+- Exibição pública apenas aprovados
+- Moderação de conteúdo
 
-#### Módulos de Gestão
-- ✅ **Projetos** - CRUD completo (Create, Read, Update, Delete)
-- ✅ **Eventos** - Adicionar, editar, remover eventos
-- ✅ **Doações** - Relatório financeiro, filtros, exportação
-- ✅ **Voluntários** - Lista, aprovar/rejeitar cadastros
-- ✅ **Galeria** - Upload e organização de fotos
-- ✅ **Depoimentos** - Moderar antes de publicar
-- ✅ **Configurações** - Editar textos institucionais
+### 📷 Galeria de Fotos
+- CRUD completo
+- Upload de imagens
+- Título e descrição
+- Grid responsivo
+- Modal de visualização
+- Carregamento otimizado
 
-### ⚙️ Funcionalidades Técnicas
+## 🗂️ Estrutura do Projeto
 
-#### JavaScript
-- ✅ Menu hambúrguer responsivo (mobile)
-- ✅ Validação de formulários em tempo real
-- ✅ Máscaras de input (CPF, telefone, CEP)
-- ✅ Smooth scroll para navegação interna
-- ✅ Carrossel/slider de imagens
-- ✅ Modais e pop-ups
-- ✅ Filtros dinâmicos
+```
+Casa do Caminho/
+├── backend/
+│   ├── config/
+│   │   └── database.js          # Configuração do banco
+│   ├── controllers/
+│   │   ├── doacaoController.js
+│   │   ├── projetoController.js
+│   │   ├── voluntarioController.js
+│   │   ├── eventoController.js
+│   │   ├── depoimentoController.js
+│   │   └── galeriaController.js
+│   ├── models/
+│   │   ├── index.js
+│   │   ├── doacao.js
+│   │   ├── projeto.js
+│   │   ├── voluntarios.js
+│   │   ├── evento.js
+│   │   ├── depoimento.js
+│   │   └── galeria.js
+│   ├── routes/
+│   │   ├── doacaoRoutes.js
+│   │   ├── projetoRoutes.js
+│   │   ├── voluntarioRoutes.js
+│   │   ├── eventoRoutes.js
+│   │   ├── depoimentoRoutes.js
+│   │   └── galeriaRoutes.js
+│   ├── migrations/
+│   │   ├── create-projeto.js
+│   │   ├── create-doacao.js
+│   │   ├── create-voluntario.js
+│   │   ├── create-evento.js
+│   │   ├── create-depoimento.js
+│   │   └── create-galeria.js
+│   ├── .env                     # Variáveis de ambiente
+│   ├── package.json
+│   └── server.js                # Servidor Express
+│
+├── css/
+│   ├── reset.css               # Reset CSS
+│   ├── design-tokens.css       # Variáveis CSS
+│   └── style.css               # Estilos principais
+│
+├── js/
+│   ├── admin-dashboard.js      # Dashboard
+│   ├── admin-projetos.js       # Admin Projetos
+│   ├── admin-doacoes.js        # Admin Doações
+│   ├── admin-voluntarios.js    # Admin Voluntários
+│   ├── admin-eventos.js        # Admin Eventos
+│   ├── admin-depoimentos.js    # Admin Depoimentos
+│   ├── admin-galeria.js        # Admin Galeria
+│   ├── projetos.js             # Listagem pública
+│   ├── eventos.js              # Listagem pública
+│   ├── voluntario.js           # Formulário público
+│   ├── doar.js                 # Formulário doação
+│   ├── pagamento.js            # Fluxo pagamento
+│   └── api.js                  # Utilitários API
+│
+├── assets/
+│   └── images/                 # Imagens do site
+│
+├── index.html                  # Página inicial
+├── projetos.html
+├── eventos.html
+├── doar-agora.html
+├── pagamento.html
+├── ser-voluntario.html
+├── admin-dashboard.html
+├── admin-projetos.html
+├── admin-doacoes.html
+├── admin-voluntarios.html
+├── admin-eventos.html
+├── admin-depoimentos.html
+├── admin-galeria.html
+├── .gitignore
+└── README.md
+```
 
-#### Responsividade
-- ✅ Mobile-first approach
-- ✅ Breakpoints: 768px (tablet), 1024px (desktop)
-- ✅ Imagens otimizadas
-- ✅ Tipografia escalável
+## 🔧 Como Executar
 
-#### Acessibilidade
-- ✅ HTML semântico (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`)
-- ✅ Alt text em todas as imagens
-- ✅ Labels em todos os campos de formulário
-- ✅ Navegação por teclado (Tab, Enter, Esc)
-- ✅ Contraste de cores adequado (WCAG AA - 4.5:1)
-- ✅ Foco visível em elementos interativos
+### Pré-requisitos
+- Node.js (v14 ou superior)
+- PostgreSQL (v12 ou superior)
+- npm ou yarn
+
+### 1. Configurar Backend
+
+```bash
+# Entrar na pasta backend
+cd backend
+
+# Instalar dependências
+npm install
+
+# Configurar variáveis de ambiente
+# Copie .env.example para .env e configure:
+# DATABASE_URL=postgres://usuario:senha@localhost:5432/casa_do_caminho
+# PORT=3000
+
+# Executar migrations
+npx sequelize-cli db:migrate
+
+# Iniciar servidor
+npm run dev
+```
+
+O servidor estará rodando em `http://localhost:3000`
+
+### 2. Acessar Frontend
+
+Abra o navegador e acesse:
+
+- **Site público**: `http://localhost:3000/index.html`
+- **Painel admin**: `http://localhost:3000/admin-dashboard.html`
+
+## 📚 API Endpoints
+
+### Projetos
+- `GET /api/projetos` - Listar todos
+- `GET /api/projetos/:id` - Buscar por ID
+- `POST /api/projetos` - Criar novo
+- `PUT /api/projetos/:id` - Atualizar
+- `DELETE /api/projetos/:id` - Deletar
+
+### Doações
+- `GET /api/doacoes` - Listar todas
+- `GET /api/doacoes/:id` - Buscar por ID
+- `POST /api/doacoes` - Criar nova
+- `PUT /api/doacoes/:id` - Atualizar
+- `DELETE /api/doacoes/:id` - Deletar
+
+### Voluntários
+- `GET /api/voluntarios` - Listar todos
+- `GET /api/voluntarios/stats` - Estatísticas
+- `GET /api/voluntarios/:id` - Buscar por ID
+- `POST /api/voluntarios` - Criar novo
+- `PUT /api/voluntarios/:id` - Atualizar
+- `DELETE /api/voluntarios/:id` - Deletar
+
+### Eventos
+- `GET /api/eventos` - Listar todos
+- `GET /api/eventos/:id` - Buscar por ID
+- `POST /api/eventos` - Criar novo
+- `PUT /api/eventos/:id` - Atualizar
+- `DELETE /api/eventos/:id` - Deletar
+
+### Depoimentos
+- `GET /api/depoimentos` - Listar todos
+- `GET /api/depoimentos/:id` - Buscar por ID
+- `POST /api/depoimentos` - Criar novo
+- `PUT /api/depoimentos/:id` - Atualizar (aprovar/rejeitar)
+- `DELETE /api/depoimentos/:id` - Deletar
+
+### Galeria
+- `GET /api/galeria` - Listar todas as fotos
+- `GET /api/galeria/:id` - Buscar por ID
+- `POST /api/galeria` - Upload de foto
+- `PUT /api/galeria/:id` - Atualizar
+- `DELETE /api/galeria/:id` - Deletar
+
+## 🎨 Design System
+
+### Cores
+- **Primary**: `#ff6b35` (Laranja vibrante)
+- **Secondary**: `#4a90e2` (Azul)
+- **Success**: `#28a745` (Verde)
+- **Warning**: `#ffc107` (Amarelo)
+- **Danger**: `#dc3545` (Vermelho)
+
+### Tipografia
+- **Fonte Principal**: Poppins (Google Fonts)
+- **Títulos**: 600-700 weight
+- **Corpo**: 400-500 weight
+
+## 🧪 Testes
+
+```bash
+# Executar testes (quando implementados)
+npm test
+```
+
+## 🚀 Deploy
+
+### Backend (Heroku)
+```bash
+heroku create casa-do-caminho-api
+git push heroku main
+heroku run npx sequelize-cli db:migrate
+```
+
+### Frontend (Vercel/Netlify)
+```bash
+vercel deploy
+# ou
+netlify deploy
+```
+
+## 📝 Licença
+
+Este projeto foi desenvolvido para fins educacionais.
+
 
 ---
 
-## 🚀 Instalação e Uso
-
-### Pré-requisitos
-- Navegador web moderno (Chrome, Firefox, Edge, Safari)
-- Editor de código (recomendado: VS Code)
-- Extensão Live Server (opcional, para desenvolvimento)
-
-### Executar o Projeto
-
-- Clone o repositório
-  ```git clone https://github.com/cardosodev83/casa-do-caminho.git```
-
-- Entre no diretório
-  ```cd casa-do-caminho```
-
-- Abra index.html em seu navegador
-  - Duplo clique no arquivo ou:
-    ```
-    open index.html        # macOS
-    start index.html       # Windows
-    xdg-open index.html    # Linux
-    ```
-
-### Navegação
-
-Páginas Principais:
-  - Lar:index.html
-  - Projetos:projetos.html
-  - Doações:doar_agora.html
-  - Administrador:admin_login.html
-
-Credenciais de Teste (maquete):
-  - Email: admin@casadocaminho.org
-  - Senha: admin123
-
-
-Desenvolvido por: Mariana Cardoso da Silva e Gabriel Phelippe Prado
-Disciplina: Desenvolvimento Web - 2026.1
+**Desenvolvido com ❤️ para impactar vidas através da tecnologia**
