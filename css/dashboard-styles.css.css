@@ -1,0 +1,438 @@
+/* ===================================================================
+   DASHBOARD - Estilos Específicos
+   ================================================================ */
+
+/* Cards de Estatísticas */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.stat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.stat-icon {
+    font-size: 2rem;
+    opacity: 0.8;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: #666;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0.5rem 0;
+}
+
+.stat-subtitle {
+    font-size: 0.75rem;
+    color: #999;
+}
+
+.stat-trend {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.stat-trend.up {
+    background: #d4edda;
+    color: #155724;
+}
+
+.stat-trend.down {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Dashboard Grid Layout */
+.dashboard-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .dashboard-content {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+/* Seção Principal */
+.dashboard-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Sidebar de Atividades */
+.dashboard-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Cards de Seção */
+.section-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.section-link {
+    color: var(--primary-color, #ff6b35);
+    font-size: 0.875rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+
+.section-link:hover {
+    opacity: 0.8;
+}
+
+/* Atividades Recentes */
+.atividades-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.atividade-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+.atividade-item:hover {
+    background: #f0f0f0;
+}
+
+.atividade-icone {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.atividade-conteudo {
+    flex: 1;
+}
+
+.atividade-conteudo h4 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 0.25rem 0;
+}
+
+.atividade-conteudo p {
+    font-size: 0.75rem;
+    color: #666;
+    margin: 0 0 0.25rem 0;
+}
+
+.atividade-conteudo small {
+    font-size: 0.7rem;
+    color: #999;
+}
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-aprovado {
+    background: #d4edda;
+    color: #155724;
+}
+
+.badge-pendente {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.badge-ativo {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.badge-agendado {
+    background: #e7e7ff;
+    color: #4040b2;
+}
+
+.badge-novo {
+    background: #f0f0f0;
+    color: #666;
+}
+
+/* Projetos em Destaque */
+.projetos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.projeto-card {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.projeto-card:hover {
+    transform: translateY(-2px);
+}
+
+.projeto-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.projeto-header h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    flex: 1;
+}
+
+.projeto-descricao {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.projeto-meta {
+    margin-top: 1rem;
+}
+
+.meta-valores {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.meta-valores .arrecadado {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--primary-color, #ff6b35);
+}
+
+.meta-valores .meta {
+    font-size: 0.875rem;
+    color: #999;
+}
+
+/* Barra de Progresso */
+.progress-bar {
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color, #ff6b35), var(--secondary-color, #ff8c61));
+    transition: width 0.3s ease;
+    border-radius: 4px;
+}
+
+.progresso-texto {
+    font-size: 0.75rem;
+    color: #666;
+    margin: 0;
+}
+
+/* Gráfico de Doações */
+.grafico-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 200px;
+    padding: 1rem 0;
+    gap: 0.5rem;
+}
+
+.grafico-barra {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.barra-container {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.barra {
+    width: 80%;
+    background: linear-gradient(180deg, var(--primary-color, #ff6b35), var(--secondary-color, #ff8c61));
+    border-radius: 4px 4px 0 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.barra:hover {
+    opacity: 0.8;
+    transform: scaleY(1.05);
+}
+
+.barra-label {
+    font-size: 0.75rem;
+    color: #666;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.barra-valor {
+    font-size: 0.7rem;
+    color: #999;
+}
+
+/* Estado Vazio */
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #999;
+    font-size: 0.875rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .projetos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .dashboard-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-value {
+        font-size: 1.5rem;
+    }
+    
+    .grafico-container {
+        height: 150px;
+    }
+    
+    .barra-container {
+        height: 100px;
+    }
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stat-card,
+.section-card,
+.projeto-card,
+.atividade-item {
+    animation: fadeIn 0.3s ease;
+}
+
+/* Loading State */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.loading::after {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--primary-color, #ff6b35);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

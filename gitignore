@@ -1,0 +1,45 @@
+# Node modules
+backend/node_modules/
+node_modules/
+
+# Environment variables
+backend/.env
+.env
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Uploads
+backend/uploads/
+uploads/
+
+# Database
+*.sqlite
+*.sqlite3
+
+# Build
+dist/
+build/
+
+# Temporary files
+*.tmp
+temp/

@@ -18,7 +18,7 @@
     rel="stylesheet"
   />
 
-  <!-- Scripts API e pagamento -->
+  <!-- Scripts -->
   <script src="js/api.js"></script>
   <script src="js/pagamento.js" defer></script>
 </head>
@@ -52,120 +52,151 @@
     </div>
   </nav>
 
-  <!-- Resumo da Doação -->
-  <section class="container" style="margin-top: 3rem; margin-bottom: 2rem;">
-    <div id="resumo-doacao" style="max-width: 600px; margin: 0 auto;">
-      <div style="text-align: center; padding: 2rem; color: #666;">
-        <span class="material-symbols-rounded" style="font-size: 3rem;">hourglass_empty</span>
-        <p>Carregando dados da doação...</p>
+  <!-- Container Principal -->
+  <div class="container" style="margin-top: 100px; margin-bottom: 4rem;">
+    
+    <!-- Resumo da Doação -->
+    <section style="max-width: 800px; margin: 0 auto 3rem;">
+      <div id="resumo-doacao" class="payment-summary-card">
+        <!-- Será preenchido pelo JavaScript -->
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Seleção de Métodos de Pagamento -->
-  <section class="container" style="margin-bottom: 2rem;">
-    <div class="payment-container" style="max-width: 800px; margin: 0 auto;">
-      <h2 style="text-align: center; margin-bottom: 2rem; color: #2c5aa0;">
+    <!-- Métodos de Pagamento -->
+    <section style="max-width: 800px; margin: 0 auto;">
+      <h2 style="text-align: center; margin-bottom: 2rem; font-family: var(--font-display); font-size: var(--text-h2); color: var(--primary);">
         Escolha a forma de pagamento
       </h2>
 
       <div class="metodos-grid">
         <button type="button" class="metodo-pagamento-btn active" data-metodo="pix">
           <span class="material-symbols-rounded">pix</span>
-          PIX
+          <span>PIX</span>
         </button>
         <button type="button" class="metodo-pagamento-btn" data-metodo="cartao">
           <span class="material-symbols-rounded">credit_card</span>
-          Cartão de Crédito
+          <span>Cartão de Crédito</span>
         </button>
         <button type="button" class="metodo-pagamento-btn" data-metodo="boleto">
           <span class="material-symbols-rounded">description</span>
-          Boleto Bancário
+          <span>Boleto Bancário</span>
         </button>
       </div>
-    </div>
-  </section>
 
-  <!-- Formulário PIX -->
-  <div id="form-pix" class="form-pagamento active" style="max-width: 800px; margin: 0 auto;">
-    <div class="payment-form-card">
-      <h3>Pagamento via PIX</h3>
-      <p>Clique no botão abaixo para gerar o QR Code</p>
-      <button id="btn-pagar-pix" class="btn btn-primary btn-large">
-        <span class="material-symbols-rounded">qr_code_2</span>
-        Gerar QR Code PIX
-      </button>
-      <div id="qrcode-container" style="display: none; margin-top: 2rem; text-align: center;">
-        <div id="qrcode-image" style="background: #f5f5f5; padding: 2rem; border-radius: 8px; margin-bottom: 1rem;">
-          <!-- QR Code será inserido aqui -->
+      <!-- Formulário PIX -->
+      <div id="form-pix" class="form-pagamento active">
+        <div class="payment-form-card">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <span class="material-symbols-rounded" style="font-size: 2rem; color: var(--primary);">pix</span>
+            <div>
+              <h3 style="margin: 0; font-family: var(--font-display); font-size: var(--text-h4); color: var(--on-surface);">Pagamento via PIX</h3>
+              <p style="margin: 0; color: var(--on-surface-variant); font-size: 0.875rem;">Rápido, seguro e aprovação instantânea</p>
+            </div>
+          </div>
+          
+          <p style="color: var(--on-surface-variant); margin-bottom: 1.5rem;">
+            Clique no botão abaixo para gerar o QR Code e realizar o pagamento pelo app do seu banco.
+          </p>
+          
+          <button id="btn-pagar-pix" class="btn btn-primary btn-large btn-full">
+            <span class="material-symbols-rounded">qr_code_2</span>
+            Gerar QR Code PIX
+          </button>
+          
+          <div id="qrcode-container" style="display: none; margin-top: 2rem; text-align: center;">
+            <div id="qrcode-image" style="background: #f5f5f5; padding: 2rem; border-radius: 8px; margin-bottom: 1rem;">
+              <div style="width: 200px; height: 200px; margin: 0 auto; background: white; border: 2px solid #ddd; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                <span style="font-size: 4rem;">📱</span>
+              </div>
+            </div>
+            <p style="color: #666; margin-bottom: 1rem; font-size: 0.875rem;">
+              Escaneie o QR Code com o app do seu banco<br>
+              <strong>Código PIX:</strong> <code style="background: #f5f5f5; padding: 0.25rem 0.5rem; border-radius: 4px;">00020126...9999</code>
+            </p>
+            <button id="btn-copiar-pix" class="btn btn-secondary">
+              <span class="material-symbols-rounded">content_copy</span>
+              Copiar código PIX
+            </button>
+          </div>
         </div>
-        <p style="color: #666; margin-bottom: 1rem;">Escaneie o QR Code com o app do seu banco</p>
-        <button id="btn-copiar-pix" class="btn btn-secondary">
-          <span class="material-symbols-rounded">content_copy</span>
-          Copiar código PIX
-        </button>
       </div>
-    </div>
-  </div>
 
-  <!-- Formulário Cartão -->
-  <form id="form-cartao" class="form-pagamento" style="max-width: 800px; margin: 2rem auto; display: none;">
-    <div class="payment-form-card">
-      <h3>Dados do Cartão</h3>
-      <div class="form-group">
-        <label>Número do Cartão</label>
-        <input type="text" id="numero-cartao" class="form-control" placeholder="0000 0000 0000 0000" maxlength="19" required />
-      </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-        <div class="form-group">
-          <label>Validade</label>
-          <input type="text" id="validade-cartao" class="form-control" placeholder="MM/AA" maxlength="5" required />
+      <!-- Formulário Cartão -->
+      <form id="form-cartao" class="form-pagamento" style="display: none;">
+        <div class="payment-form-card">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <span class="material-symbols-rounded" style="font-size: 2rem; color: var(--primary);">credit_card</span>
+            <h3 style="margin: 0; font-family: var(--font-display); font-size: var(--text-h4); color: var(--on-surface);">Dados do Cartão</h3>
+          </div>
+          
+          <div class="form-group">
+            <label>Número do Cartão</label>
+            <input type="text" id="numero-cartao" class="form-control" placeholder="0000 0000 0000 0000" maxlength="19" required />
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label>Validade</label>
+              <input type="text" id="validade-cartao" class="form-control" placeholder="MM/AA" maxlength="5" required />
+            </div>
+            <div class="form-group">
+              <label>CVV</label>
+              <input type="text" id="cvv-cartao" class="form-control" placeholder="000" maxlength="4" required />
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>Nome no Cartão</label>
+            <input type="text" id="nome-cartao" class="form-control" placeholder="Como está no cartão" required />
+          </div>
+          
+          <div class="form-group">
+            <label>CPF do Titular</label>
+            <input type="text" id="cpf-cartao" class="form-control" placeholder="000.000.000-00" maxlength="14" required />
+          </div>
+          
+          <button type="submit" class="btn btn-primary btn-large btn-full">
+            <span class="material-symbols-rounded">check_circle</span>
+            Confirmar Pagamento
+          </button>
         </div>
-        <div class="form-group">
-          <label>CVV</label>
-          <input type="text" id="cvv-cartao" class="form-control" placeholder="000" maxlength="4" required />
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Nome no Cartão</label>
-        <input type="text" id="nome-cartao" class="form-control" placeholder="Como está no cartão" required />
-      </div>
-      <div class="form-group">
-        <label>CPF do Titular</label>
-        <input type="text" id="cpf-cartao" class="form-control" placeholder="000.000.000-00" maxlength="14" required />
-      </div>
-      <button type="submit" class="btn btn-primary btn-large btn-full">
-        <span class="material-symbols-rounded">check_circle</span>
-        Confirmar Pagamento
-      </button>
-    </div>
-  </form>
+      </form>
 
-  <!-- Formulário Boleto -->
-  <div id="form-boleto" class="form-pagamento" style="max-width: 800px; margin: 2rem auto; display: none;">
-    <div class="payment-form-card">
-      <h3>Pagamento via Boleto</h3>
-      <p>O boleto será enviado para seu email e poderá ser pago em qualquer banco</p>
-      <div class="alert-info" style="background: #e3f2fd; border-left: 4px solid #2196f3; padding: 1rem; margin: 1.5rem 0; border-radius: 4px;">
-        <p style="margin: 0; color: #1976d2;">
-          <strong>Atenção:</strong> O boleto tem vencimento em 3 dias úteis.
-        </p>
-      </div>
-      <button id="btn-gerar-boleto" class="btn btn-primary btn-large">
-        <span class="material-symbols-rounded">receipt_long</span>
-        Gerar Boleto
-      </button>
-      <div id="boleto-gerado" style="display: none; margin-top: 2rem;">
-        <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem;">
-          <p style="font-size: 0.875rem; color: #666; margin-bottom: 0.5rem;">Código de barras:</p>
-          <p id="codigo-barras" style="font-family: monospace; font-size: 0.875rem; word-break: break-all;"></p>
+      <!-- Formulário Boleto -->
+      <div id="form-boleto" class="form-pagamento" style="display: none;">
+        <div class="payment-form-card">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <span class="material-symbols-rounded" style="font-size: 2rem; color: var(--primary);">description</span>
+            <div>
+              <h3 style="margin: 0; font-family: var(--font-display); font-size: var(--text-h4); color: var(--on-surface);">Pagamento via Boleto</h3>
+              <p style="margin: 0; color: var(--on-surface-variant); font-size: 0.875rem;">Pode ser pago em qualquer banco</p>
+            </div>
+          </div>
+          
+          <div class="alert-info" style="background: #e3f2fd; border-left: 4px solid #2196f3; padding: 1rem; margin: 1.5rem 0; border-radius: 4px;">
+            <p style="margin: 0; color: #1976d2; font-size: 0.875rem;">
+              <strong>Atenção:</strong> O boleto tem vencimento em 3 dias úteis e será enviado para seu email.
+            </p>
+          </div>
+          
+          <button id="btn-gerar-boleto" class="btn btn-primary btn-large btn-full">
+            <span class="material-symbols-rounded">receipt_long</span>
+            Gerar Boleto
+          </button>
+          
+          <div id="boleto-gerado" style="display: none; margin-top: 2rem;">
+            <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem;">
+              <p style="font-size: 0.875rem; color: #666; margin-bottom: 0.5rem;">Código de barras:</p>
+              <p id="codigo-barras" style="font-family: monospace; font-size: 0.75rem; word-break: break-all; color: #333;"></p>
+            </div>
+            <button id="btn-baixar-boleto" class="btn btn-secondary btn-full">
+              <span class="material-symbols-rounded">download</span>
+              Baixar Boleto PDF
+            </button>
+          </div>
         </div>
-        <button id="btn-baixar-boleto" class="btn btn-secondary">
-          <span class="material-symbols-rounded">download</span>
-          Baixar Boleto PDF
-        </button>
       </div>
-    </div>
+    </section>
   </div>
 
   <!-- Footer -->
@@ -176,12 +207,12 @@
           <span class="material-symbols-rounded">church</span>
           <span>Casa do Caminho</span>
         </div>
-        <p>Transformando vidas através do amor e da solidariedade</p>
+        <p class="footer-tagline">Transformando vidas através do amor e da solidariedade</p>
       </div>
 
       <div class="footer-section">
-        <h4>Links Rápidos</h4>
-        <ul>
+        <h4 class="footer-title">Links Rápidos</h4>
+        <ul class="footer-links">
           <li><a href="index.html">Início</a></li>
           <li><a href="espiritual.html">Pilar Espiritual</a></li>
           <li><a href="projetos.html">Pilar Social</a></li>
@@ -190,10 +221,12 @@
       </div>
 
       <div class="footer-section">
-        <h4>Contato</h4>
-        <p><span class="material-symbols-rounded">location_on</span> Rua Costa do Sol, 150 - Vila Costa</p>
-        <p><span class="material-symbols-rounded">phone</span> (11) 98765-4321</p>
-        <p><span class="material-symbols-rounded">email</span> contato@casadocaminho.org</p>
+        <h4 class="footer-title">Contato</h4>
+        <ul class="footer-contact">
+          <li><span class="material-symbols-rounded">location_on</span> Rua Costa do Sol, 150 - Vila Costa</li>
+          <li><span class="material-symbols-rounded">phone</span> (11) 98765-4321</li>
+          <li><span class="material-symbols-rounded">email</span> contato@casadocaminho.org</li>
+        </ul>
       </div>
     </div>
     <div class="footer-bottom">

@@ -148,20 +148,32 @@ async function handleSubmit(e) {
 
     if (resultado.success) {
       // Sucesso!
-      mostrarSucesso('Doação realizada com sucesso! Obrigado pela sua generosidade! ❤️');
+      mostrarSucesso('Doação registrada! Redirecionando para pagamento... ❤️');
 
-      // Salvar dados da doação no localStorage para página de confirmação
-      localStorage.setItem('ultima_doacao', JSON.stringify({
+      // ✅ CORRIGIDO: Salvar dados com a chave 'dadosDoacao' para página de pagamento
+      const dadosParaPagamento = {
         valor: doacao.valor,
-        projeto: projetoSelecionado,
         nome: doacao.doador_nome,
-        tipo: doacao.tipo
-      }));
+        email: doacao.doador_email,
+        cpf: doacao.doador_cpf,
+        tipo: doacao.tipo,
+        projeto: projetoSelecionado || 'geral',
+        projetoNome: selectProjeto.options[selectProjeto.selectedIndex].text,
+        doacaoId: resultado.data?.id // ID retornado pela API
+      };
 
-      // Aguardar 2 segundos e redirecionar
+      // Se for doação recorrente, adicionar frequência
+      if (doacao.tipo === 'recorrente') {
+        dadosParaPagamento.frequencia = formData.get('frequencia') || 'mensal';
+      }
+
+      // Salvar no localStorage
+      localStorage.setItem('dadosDoacao', JSON.stringify(dadosParaPagamento));
+
+      // Aguardar 1.5 segundos e redirecionar
       setTimeout(() => {
         window.location.href = 'pagamento.html';
-      }, 2000);
+      }, 1500);
     } else {
       mostrarErro(resultado.message || 'Erro ao processar doação. Tente novamente.');
       btnSubmit.disabled = false;

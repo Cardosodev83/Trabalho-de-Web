@@ -13,12 +13,20 @@ function carregarDadosDoacao() {
   const dados = localStorage.getItem('dadosDoacao');
   
   if (!dados) {
-    alert('Nenhuma doação encontrada. Redirecionando...');
-    window.location.href = 'doar-agora.html';
-    return;
+    // Se não tiver dados, usar valores de demonstração
+    console.log('Nenhuma doação encontrada no localStorage. Usando dados de demonstração.');
+    dadosDoacao = {
+      valor: 100,
+      nome: 'Doador',
+      email: 'doador@email.com',
+      tipo: 'unica',
+      projeto: 'geral',
+      projetoNome: 'Doação Geral - Casa do Caminho'
+    };
+  } else {
+    dadosDoacao = JSON.parse(dados);
   }
-
-  dadosDoacao = JSON.parse(dados);
+  
   exibirResumoDoacao();
 }
 
@@ -31,34 +39,46 @@ function exibirResumoDoacao() {
     : '';
 
   container.innerHTML = `
-    <div class="resumo-card">
-      <h2 style="margin-bottom: 1.5rem; color: #2c5aa0;">Resumo da Doação</h2>
+    <div style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+      <h2 style="margin-bottom: 1.5rem; color: var(--primary); font-family: var(--font-display); font-size: var(--text-h3); text-align: center;">
+        <span class="material-symbols-rounded" style="vertical-align: middle; margin-right: 0.5rem;">receipt_long</span>
+        Resumo da Doação
+      </h2>
       
-      <div class="resumo-item">
-        <span class="resumo-label">Tipo:</span>
-        <span class="resumo-valor">\${tipoTexto} \${frequenciaTexto}</span>
-      </div>
-
-      <div class="resumo-item">
-        <span class="resumo-label">Valor:</span>
-        <span class="resumo-valor destaque">R$ \${formatarValor(dadosDoacao.valor)}</span>
-      </div>
-
-      \${dadosDoacao.projeto ? `
-        <div class="resumo-item">
-          <span class="resumo-label">Projeto:</span>
-          <span class="resumo-valor">\${dadosDoacao.projeto}</span>
+      <div style="display: grid; gap: 1rem;">
+        <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid #e0e0e0;">
+          <span style="font-weight: 600; color: #666;">Tipo:</span>
+          <span style="color: #333;">${tipoTexto} ${frequenciaTexto}</span>
         </div>
-      ` : ''}
 
-      <div class="resumo-item">
-        <span class="resumo-label">Doador:</span>
-        <span class="resumo-valor">\${dadosDoacao.nome}</span>
+        <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid #e0e0e0;">
+          <span style="font-weight: 600; color: #666;">Valor:</span>
+          <span style="font-size: 1.5rem; font-weight: 700; color: var(--tertiary);">R$ ${formatarValor(dadosDoacao.valor)}</span>
+        </div>
+
+        ${dadosDoacao.projetoNome && dadosDoacao.projetoNome !== 'Doação Geral - Casa do Caminho' ? `
+          <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid #e0e0e0;">
+            <span style="font-weight: 600; color: #666;">Projeto:</span>
+            <span style="color: #333;">${dadosDoacao.projetoNome}</span>
+          </div>
+        ` : ''}
+
+        <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid #e0e0e0;">
+          <span style="font-weight: 600; color: #666;">Doador:</span>
+          <span style="color: #333;">${dadosDoacao.nome}</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; padding: 0.75rem 0;">
+          <span style="font-weight: 600; color: #666;">Email:</span>
+          <span style="color: #333;">${dadosDoacao.email}</span>
+        </div>
       </div>
-
-      <div class="resumo-item">
-        <span class="resumo-label">Email:</span>
-        <span class="resumo-valor">\${dadosDoacao.email}</span>
+      
+      <div style="margin-top: 1.5rem; padding: 1rem; background: #e8f5e9; border-radius: 8px; text-align: center;">
+        <p style="margin: 0; color: #2e7d32; font-size: 0.875rem;">
+          <span class="material-symbols-rounded" style="vertical-align: middle; margin-right: 0.5rem; font-size: 1rem;">verified</span>
+          <strong>Transação 100% segura e protegida</strong>
+        </p>
       </div>
     </div>
   `;
@@ -122,7 +142,7 @@ function selecionarMetodoPagamento(metodo) {
     form.classList.remove('active');
   });
 
-  const formAtivo = document.getElementById(`form-\${metodo}`);
+  const formAtivo = document.getElementById(`form-${metodo}`);
   if (formAtivo) {
     formAtivo.style.display = 'block';
     formAtivo.classList.add('active');
@@ -137,23 +157,14 @@ function gerarQRCodePix() {
   // Simular chamada à API
   setTimeout(() => {
     const qrcodeContainer = document.getElementById('qrcode-container');
-    const qrcodeImage = document.getElementById('qrcode-image');
-    
-    // Simular QR Code (em produção, viria da API)
-    qrcodeImage.innerHTML = `
-      <div style="width: 200px; height: 200px; margin: 0 auto; background: white; border: 2px solid #ddd; display: flex; align-items: center; justify-content: center;">
-        <span style="font-size: 3rem;">📱</span>
-      </div>
-      <p style="margin-top: 1rem; color: #666; font-size: 0.875rem;">
-        Código PIX: <strong>00020126...9999</strong>
-      </p>
-    `;
-    
     qrcodeContainer.style.display = 'block';
     btn.style.display = 'none';
 
     // Em produção, registrar a doação
     console.log('Doação PIX iniciada:', dadosDoacao);
+    
+    // Mostrar mensagem de sucesso
+    mostrarMensagem('QR Code gerado com sucesso! Escaneie para pagar.', 'sucesso');
   }, 1500);
 }
 
@@ -193,9 +204,13 @@ function processarPagamentoCartao(e) {
   setTimeout(() => {
     console.log('Pagamento processado:', { ...dadosDoacao, ...dadosCartao });
     
-    // Salvar ID da doação e redirecionar
-    localStorage.setItem('doacaoId', 'DOA-' + Date.now());
-    window.location.href = 'confirmacao.html';
+    // Mostrar mensagem de sucesso
+    mostrarMensagem('Pagamento aprovado! Obrigado pela sua doação! ❤️', 'sucesso');
+    
+    // Redirecionar após 2 segundos
+    setTimeout(() => {
+      window.location.href = 'index.html';
+    }, 2000);
   }, 2000);
 }
 
@@ -210,6 +225,8 @@ function gerarBoleto() {
     document.getElementById('codigo-barras').textContent = codigoBarras;
     document.getElementById('boleto-gerado').style.display = 'block';
     btn.style.display = 'none';
+
+    mostrarMensagem('Boleto gerado com sucesso! Enviado para seu email.', 'sucesso');
 
     // Botão de download
     const btnBaixar = document.getElementById('btn-baixar-boleto');
@@ -263,3 +280,72 @@ function aplicarMascaras() {
     });
   }
 }
+
+function mostrarMensagem(texto, tipo) {
+  // Remover mensagens anteriores
+  const msgAnterior = document.querySelector('.alert-mensagem');
+  if (msgAnterior) msgAnterior.remove();
+
+  const cor = tipo === 'sucesso' ? '#d1fae5' : '#fee2e2';
+  const corTexto = tipo === 'sucesso' ? '#065f46' : '#991b1b';
+  const corBorda = tipo === 'sucesso' ? '#6ee7b7' : '#fca5a5';
+  const icone = tipo === 'sucesso' ? 'check_circle' : 'error';
+
+  const div = document.createElement('div');
+  div.className = 'alert-mensagem';
+  div.style.cssText = `
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 9999;
+    background: ${cor};
+    color: ${corTexto};
+    border: 2px solid ${corBorda};
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    animation: slideInRight 0.3s ease;
+  `;
+  
+  div.innerHTML = `
+    <span class="material-symbols-rounded" style="font-size: 1.5rem;">${icone}</span>
+    <p style="margin: 0; font-weight: 600;">${texto}</p>
+  `;
+  
+  document.body.appendChild(div);
+  
+  setTimeout(() => {
+    div.style.animation = 'slideOutRight 0.3s ease';
+    setTimeout(() => div.remove(), 300);
+  }, 5000);
+}
+
+// CSS das animações
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideOutRight {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+  }
+`;
+document.head.appendChild(style);

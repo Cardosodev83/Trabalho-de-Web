@@ -9,6 +9,167 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Public+Sans:wght@400;500;600&display=swap">
+
+  <script src="js/admin-galeria.js" defer></script>
+
+  <style>
+    /* Estilos específicos para galeria */
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .galeria-item {
+      position: relative;
+      aspect-ratio: 1;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .galeria-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .galeria-imagem {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .galeria-imagem img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .galeria-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .galeria-item:hover .galeria-overlay {
+      opacity: 1;
+    }
+
+    .galeria-acoes {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .btn-icon {
+      width: 40px;
+      height: 40px;
+      background: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-icon:hover {
+      transform: scale(1.1);
+    }
+
+    .btn-icon.btn-danger:hover {
+      background: #f44336;
+      color: white;
+    }
+
+    .badge-destaque {
+      position: absolute;
+      top: 0.5rem;
+      left: 0.5rem;
+      background: #f39c12;
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      z-index: 2;
+    }
+
+    .badge-inativo {
+      position: absolute;
+      top: 0.5rem;
+      left: 0.5rem;
+      background: #999;
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      z-index: 2;
+    }
+
+    .galeria-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      padding: 1.5rem 0.75rem 0.75rem;
+      color: white;
+    }
+
+    .galeria-info h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .galeria-meta {
+      font-size: 0.75rem;
+      opacity: 0.9;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .galeria-vazia {
+      grid-column: 1/-1;
+      text-align: center;
+      padding: 4rem 2rem;
+      color: #999;
+    }
+
+    .galeria-vazia .material-symbols-rounded {
+      font-size: 4rem;
+      display: block;
+      margin-bottom: 1rem;
+      opacity: 0.3;
+    }
+
+    #preview-imagem {
+      margin-top: 1rem;
+      max-width: 100%;
+      max-height: 300px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    #preview-imagem img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
 </head>
 <body class="admin-body">
   
@@ -76,12 +237,12 @@
     <header class="admin-header">
       <div>
         <h1 class="admin-page-title">Gerenciar Galeria</h1>
-        <p class="admin-page-subtitle">Faça upload e organize as fotos dos eventos e projetos</p>
+        <p class="admin-page-subtitle">Organize as fotos dos eventos e projetos</p>
       </div>
       <div class="admin-header-actions">
-        <button class="admin-btn admin-btn-primary" onclick="abrirUpload()">
-          <span class="material-symbols-rounded">upload</span>
-          Upload de Fotos
+        <button class="admin-btn admin-btn-primary" id="btn-criar-imagem">
+          <span class="material-symbols-rounded">add_photo_alternate</span>
+          Adicionar Imagem
         </button>
       </div>
     </header>
@@ -93,38 +254,38 @@
           <span class="material-symbols-rounded">photo_library</span>
         </div>
         <div class="admin-stat-body">
-          <h3>248</h3>
-          <p>Total de Fotos</p>
+          <h3 id="total-imagens">0</h3>
+          <p>Total de Imagens</p>
         </div>
       </div>
 
       <div class="admin-stat-card stat-success">
         <div class="admin-stat-header">
-          <span class="material-symbols-rounded">folder</span>
+          <span class="material-symbols-rounded">check_circle</span>
         </div>
         <div class="admin-stat-body">
-          <h3>12</h3>
-          <p>Álbuns</p>
+          <h3 id="imagens-ativas">0</h3>
+          <p>Imagens Ativas</p>
         </div>
       </div>
 
       <div class="admin-stat-card stat-warning">
         <div class="admin-stat-header">
-          <span class="material-symbols-rounded">cloud_upload</span>
+          <span class="material-symbols-rounded">star</span>
         </div>
         <div class="admin-stat-body">
-          <h3>18</h3>
-          <p>Uploads este mês</p>
+          <h3 id="imagens-destaque">0</h3>
+          <p>Em Destaque</p>
         </div>
       </div>
 
       <div class="admin-stat-card stat-info">
         <div class="admin-stat-header">
-          <span class="material-symbols-rounded">storage</span>
+          <span class="material-symbols-rounded">folder</span>
         </div>
         <div class="admin-stat-body">
-          <h3>1.2 GB</h3>
-          <p>Espaço Utilizado</p>
+          <h3>5</h3>
+          <p>Categorias</p>
         </div>
       </div>
     </div>
@@ -133,190 +294,59 @@
     <div class="admin-filters">
       <div class="admin-search">
         <span class="material-symbols-rounded">search</span>
-        <input type="text" placeholder="Buscar fotos..." id="search-fotos">
+        <input type="text" placeholder="Buscar imagens..." id="busca-galeria">
       </div>
-      <select class="admin-select">
-        <option value="">Todos os álbuns</option>
-        <option value="sopa">Sopa Solidária</option>
-        <option value="bazar">Bazar 2026</option>
-        <option value="natal">Natal 2025</option>
+      <select class="admin-select" id="filtro-categoria">
+        <option value="">Todas as categorias</option>
+        <option value="projetos">Projetos</option>
         <option value="eventos">Eventos</option>
-      </select>
-      <select class="admin-select">
-        <option value="">Ordenar: Mais recentes</option>
-        <option value="antigos">Mais antigos</option>
-        <option value="nome">Nome (A-Z)</option>
+        <option value="voluntarios">Voluntários</option>
+        <option value="instalacoes">Instalações</option>
+        <option value="geral">Geral</option>
       </select>
     </div>
 
-    <!-- Grid de Fotos -->
+    <!-- Grid de Imagens -->
     <div class="admin-card">
-      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; padding: 1rem;">
-        
-        <!-- FOTO 1 -->
-        <div data-id="1" style="position: relative; aspect-ratio: 1; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; cursor: pointer; overflow: hidden;" onclick="verFoto(1)">
-          <span>📷</span>
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 1rem 0.5rem 0.5rem; color: white;">
-            <div style="font-size: 0.75rem; font-weight: 600;">Sopa Solidária 2026</div>
-            <div style="font-size: 0.625rem; opacity: 0.8;">15/03/2026</div>
-          </div>
-          <div style="position: absolute; top: 0.5rem; right: 0.5rem; display: flex; gap: 0.25rem; z-index: 10;">
-            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); editarFoto(1)" title="Editar">
-              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #ff9800;">edit</span>
-            </button>
-            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); excluirFoto(1)" title="Excluir">
-              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #f44336;">delete</span>
-            </button>
-          </div>
+      <div class="galeria-grid" id="galeria-grid">
+        <!-- As imagens serão carregadas aqui dinamicamente via JavaScript -->
+        <div class="galeria-vazia">
+          <span class="material-symbols-rounded">photo_library</span>
+          <h3>Carregando imagens...</h3>
         </div>
-
-        <!-- FOTO 2 -->
-        <div data-id="2" style="position: relative; aspect-ratio: 1; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; cursor: pointer; overflow: hidden;" onclick="verFoto(2)">
-          <span>📷</span>
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 1rem 0.5rem 0.5rem; color: white;">
-            <div style="font-size: 0.75rem; font-weight: 600;">Bazar Beneficente</div>
-            <div style="font-size: 0.625rem; opacity: 0.8;">20/03/2026</div>
-          </div>
-          <div style="position: absolute; top: 0.5rem; right: 0.5rem; display: flex; gap: 0.25rem; z-index: 10;">
-            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); editarFoto(2)" title="Editar">
-              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #ff9800;">edit</span>
-            </button>
-            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); excluirFoto(2)" title="Excluir">
-              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #f44336;">delete</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- FOTO 3 -->
-        <div data-id="3" style="position: relative; aspect-ratio: 1; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; cursor: pointer; overflow: hidden;" onclick="verFoto(3)">
-          <span>📷</span>
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 1rem 0.5rem 0.5rem; color: white;">
-            <div style="font-size: 0.75rem; font-weight: 600;">Creche - Dia das Crianças</div>
-            <div style="font-size: 0.625rem; opacity: 0.8;">12/10/2025</div>
-          </div>
-          <div style="position: absolute; top: 0.5rem; right: 0.5rem; display: flex; gap: 0.25rem; z-index: 10;">
-            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); editarFoto(3)" title="Editar">
-              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #ff9800;">edit</span>
-            </button>
-            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); excluirFoto(3)" title="Excluir">
-              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #f44336;">delete</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- FOTO 4 -->
-        <div data-id="4" style="position: relative; aspect-ratio: 1; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; cursor: pointer; overflow: hidden;" onclick="verFoto(4)">
-          <span>📷</span>
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 1rem 0.5rem 0.5rem; color: white;">
-            <div style="font-size: 0.75rem; font-weight: 600;">Natal Solidário 2025</div>
-            <div style="font-size: 0.625rem; opacity: 0.8;">25/12/2025</div>
-          </div>
-          <div style="position: absolute; top: 0.5rem; right: 0.5rem; display: flex; gap: 0.25rem; z-index: 10;">
-            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); editarFoto(4)" title="Editar">
-              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #ff9800;">edit</span>
-            </button>
-            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); excluirFoto(4)" title="Excluir">
-              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #f44336;">delete</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- FOTO 5 -->
-        <div data-id="5" style="position: relative; aspect-ratio: 1; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; cursor: pointer; overflow: hidden;" onclick="verFoto(5)">
-          <span>📷</span>
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 1rem 0.5rem 0.5rem; color: white;">
-            <div style="font-size: 0.75rem; font-weight: 600;">Entrega Cestas Básicas</div>
-            <div style="font-size: 0.625rem; opacity: 0.8;">05/04/2026</div>
-          </div>
-          <div style="position: absolute; top: 0.5rem; right: 0.5rem; display: flex; gap: 0.25rem; z-index: 10;">
-            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); editarFoto(5)" title="Editar">
-              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #ff9800;">edit</span>
-            </button>
-            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); excluirFoto(5)" title="Excluir">
-              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #f44336;">delete</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- FOTO 6 -->
-        <div data-id="6" style="position: relative; aspect-ratio: 1; background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; cursor: pointer; overflow: hidden;" onclick="verFoto(6)">
-          <span>📷</span>
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 1rem 0.5rem 0.5rem; color: white;">
-            <div style="font-size: 0.75rem; font-weight: 600;">Palestra Espírita</div>
-            <div style="font-size: 0.625rem; opacity: 0.8;">30/03/2026</div>
-          </div>
-          <div style="position: absolute; top: 0.5rem; right: 0.5rem; display: flex; gap: 0.25rem; z-index: 10;">
-            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); editarFoto(6)" title="Editar">
-              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #ff9800;">edit</span>
-            </button>
-            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); excluirFoto(6)" title="Excluir">
-              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #f44336;">delete</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- FOTO 7 -->
-        <div data-id="7" style="position: relative; aspect-ratio: 1; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; cursor: pointer; overflow: hidden;" onclick="verFoto(7)">
-          <span>📷</span>
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 1rem 0.5rem 0.5rem; color: white;">
-            <div style="font-size: 0.75rem; font-weight: 600;">Voluntários em Ação</div>
-            <div style="font-size: 0.625rem; opacity: 0.8;">01/04/2026</div>
-          </div>
-          <div style="position: absolute; top: 0.5rem; right: 0.5rem; display: flex; gap: 0.25rem; z-index: 10;">
-            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); editarFoto(7)" title="Editar">
-              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #ff9800;">edit</span>
-            </button>
-            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); excluirFoto(7)" title="Excluir">
-              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #f44336;">delete</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- FOTO 8 -->
-        <div data-id="8" style="position: relative; aspect-ratio: 1; background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; cursor: pointer; overflow: hidden;" onclick="verFoto(8)">
-          <span>📷</span>
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 1rem 0.5rem 0.5rem; color: white;">
-            <div style="font-size: 0.75rem; font-weight: 600;">Pão Fraterno</div>
-            <div style="font-size: 0.625rem; opacity: 0.8;">02/04/2026</div>
-          </div>
-          <div style="position: absolute; top: 0.5rem; right: 0.5rem; display: flex; gap: 0.25rem; z-index: 10;">
-            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); editarFoto(8)" title="Editar">
-              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #ff9800;">edit</span>
-            </button>
-            <button style="width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="event.stopPropagation(); excluirFoto(8)" title="Excluir">
-              <span class="material-symbols-rounded" style="font-size: 1.125rem; color: #f44336;">delete</span>
-            </button>
-          </div>
-        </div>
-
       </div>
     </div>
 
   </main>
 
   <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-       MODAL: EDITAR FOTO
+       MODAL: ADICIONAR/EDITAR IMAGEM
        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-  <div class="admin-modal" id="modalEditarFoto">
-    <div class="admin-modal-overlay" onclick="fecharModalEditar()"></div>
+  <div class="admin-modal" id="modal-galeria">
+    <div class="admin-modal-overlay" onclick="fecharModal()"></div>
     <div class="admin-modal-container">
       
       <div class="admin-modal-header">
-        <h2>Editar Foto</h2>
-        <button class="admin-modal-close" onclick="fecharModalEditar()">
+        <h2 id="modal-titulo">Adicionar Imagem</h2>
+        <button class="admin-modal-close" id="fechar-modal">
           <span class="material-symbols-rounded">close</span>
         </button>
       </div>
 
       <div class="admin-modal-body">
-        <form id="formEditarFoto" onsubmit="salvarEdicaoFoto(event)">
+        <form id="form-galeria">
           
           <div class="admin-form-group">
             <label class="admin-form-label">
               <span class="material-symbols-rounded">title</span>
-              Título da Foto *
+              Título *
             </label>
-            <input type="text" class="admin-form-input" id="fotoTitulo" required placeholder="Ex: Sopa Solidária 2026">
+            <input type="text" 
+                   class="admin-form-input" 
+                   id="titulo" 
+                   name="titulo"
+                   required 
+                   placeholder="Ex: Distribuição de Cestas Básicas">
           </div>
 
           <div class="admin-form-group">
@@ -324,64 +354,101 @@
               <span class="material-symbols-rounded">description</span>
               Descrição
             </label>
-            <textarea class="admin-form-input" id="fotoDescricao" rows="3" placeholder="Descrição da foto..."></textarea>
+            <textarea class="admin-form-input" 
+                      id="descricao" 
+                      name="descricao"
+                      rows="3" 
+                      placeholder="Descrição da imagem..."></textarea>
           </div>
+
+          <div class="admin-form-group">
+            <label class="admin-form-label">
+              <span class="material-symbols-rounded">link</span>
+              URL da Imagem *
+            </label>
+            <input type="url" 
+                   class="admin-form-input" 
+                   id="imagem_url" 
+                   name="imagem_url"
+                   required 
+                   placeholder="https://exemplo.com/imagem.jpg">
+            <small style="display: block; margin-top: 0.5rem; color: var(--on-surface-variant);">
+              Cole a URL completa da imagem (ex: https://source.unsplash.com/800x600/?charity)
+            </small>
+          </div>
+
+          <!-- Preview da imagem -->
+          <div id="preview-imagem"></div>
 
           <div class="admin-form-row">
             <div class="admin-form-group">
               <label class="admin-form-label">
                 <span class="material-symbols-rounded">folder</span>
-                Álbum/Categoria *
+                Categoria *
               </label>
-              <select class="admin-form-input" id="fotoAlbum" required>
+              <select class="admin-form-input" id="categoria" name="categoria" required>
                 <option value="">Selecione...</option>
-                <option value="sopa">Sopa Solidária</option>
-                <option value="bazar">Bazar Beneficente</option>
-                <option value="cesta">Cesta Básica</option>
-                <option value="creche">Creche Comunitária</option>
-                <option value="pao">Pão Fraterno</option>
-                <option value="eventos">Eventos Espirituais</option>
-                <option value="natal">Natal</option>
-                <option value="pascoa">Páscoa</option>
-                <option value="outros">Outros</option>
+                <option value="projetos">Projetos</option>
+                <option value="eventos">Eventos</option>
+                <option value="voluntarios">Voluntários</option>
+                <option value="instalacoes">Instalações</option>
+                <option value="geral">Geral</option>
               </select>
             </div>
 
             <div class="admin-form-group">
               <label class="admin-form-label">
-                <span class="material-symbols-rounded">calendar_today</span>
-                Data da Foto
+                <span class="material-symbols-rounded">sort</span>
+                Ordem
               </label>
-              <input type="date" class="admin-form-input" id="fotoData">
+              <input type="number" 
+                     class="admin-form-input" 
+                     id="ordem" 
+                     name="ordem"
+                     value="0" 
+                     min="0">
             </div>
           </div>
 
           <div class="admin-form-group">
             <label class="admin-form-label">
-              <span class="material-symbols-rounded">image</span>
-              Trocar Imagem (opcional)
+              <span class="material-symbols-rounded">person</span>
+              Autor/Fotógrafo
             </label>
-            <input type="file" class="admin-form-input" id="fotoImagem" accept="image/*">
-            <small style="display: block; margin-top: 0.5rem; color: var(--on-surface-variant);">
-              Deixe em branco para manter a imagem atual. Formatos aceitos: JPG, PNG, WebP (máx. 5MB)
-            </small>
+            <input type="text" 
+                   class="admin-form-input" 
+                   id="autor" 
+                   name="autor"
+                   placeholder="Nome do fotógrafo (opcional)">
           </div>
 
-          <div class="admin-form-group">
-            <label class="admin-form-label">
-              <span class="material-symbols-rounded">person</span>
-              Fotógrafo/Créditos
-            </label>
-            <input type="text" class="admin-form-input" id="fotoCreditos" placeholder="Nome do fotógrafo (opcional)">
+          <div class="admin-form-row">
+            <div class="admin-form-group">
+              <label class="admin-checkbox">
+                <input type="checkbox" id="destaque" name="destaque">
+                <span>Marcar como destaque ⭐</span>
+              </label>
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-form-label">
+                <span class="material-symbols-rounded">toggle_on</span>
+                Status
+              </label>
+              <select class="admin-form-input" id="status" name="status">
+                <option value="ativo">Ativo</option>
+                <option value="inativo">Inativo</option>
+              </select>
+            </div>
           </div>
 
           <div class="admin-modal-footer">
-            <button type="button" class="admin-btn admin-btn-outline" onclick="fecharModalEditar()">
+            <button type="button" class="admin-btn admin-btn-outline" onclick="fecharModal()">
               Cancelar
             </button>
             <button type="submit" class="admin-btn admin-btn-primary">
               <span class="material-symbols-rounded">save</span>
-              Salvar Alterações
+              Salvar Imagem
             </button>
           </div>
 
@@ -390,224 +457,6 @@
 
     </div>
   </div>
-
-  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-       MODAL: UPLOAD DE FOTOS
-       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-  <div class="admin-modal" id="modalUpload">
-    <div class="admin-modal-overlay" onclick="fecharModalUpload()"></div>
-    <div class="admin-modal-container">
-      
-      <div class="admin-modal-header">
-        <h2>Upload de Fotos</h2>
-        <button class="admin-modal-close" onclick="fecharModalUpload()">
-          <span class="material-symbols-rounded">close</span>
-        </button>
-      </div>
-
-      <div class="admin-modal-body">
-        <form id="formUpload" onsubmit="fazerUpload(event)">
-          
-          <div class="admin-form-group">
-            <label class="admin-form-label">
-              <span class="material-symbols-rounded">upload_file</span>
-              Selecionar Fotos *
-            </label>
-            <input type="file" class="admin-form-input" id="uploadFotos" accept="image/*" multiple required>
-            <small style="display: block; margin-top: 0.5rem; color: var(--on-surface-variant);">
-              Selecione uma ou várias fotos. Formatos: JPG, PNG, WebP (máx. 5MB cada)
-            </small>
-          </div>
-
-          <div class="admin-form-group">
-            <label class="admin-form-label">
-              <span class="material-symbols-rounded">folder</span>
-              Álbum/Categoria *
-            </label>
-            <select class="admin-form-input" id="uploadAlbum" required>
-              <option value="">Selecione...</option>
-              <option value="sopa">Sopa Solidária</option>
-              <option value="bazar">Bazar Beneficente</option>
-              <option value="cesta">Cesta Básica</option>
-              <option value="creche">Creche Comunitária</option>
-              <option value="pao">Pão Fraterno</option>
-              <option value="eventos">Eventos Espirituais</option>
-              <option value="natal">Natal</option>
-              <option value="pascoa">Páscoa</option>
-              <option value="outros">Outros</option>
-            </select>
-          </div>
-
-          <div class="admin-modal-footer">
-            <button type="button" class="admin-btn admin-btn-outline" onclick="fecharModalUpload()">
-              Cancelar
-            </button>
-            <button type="submit" class="admin-btn admin-btn-primary">
-              <span class="material-symbols-rounded">upload</span>
-              Fazer Upload
-            </button>
-          </div>
-
-        </form>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-       JAVASCRIPT
-       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-  <script>
-    // ====================================
-    // VARIÁVEL GLOBAL
-    // ====================================
-    let fotoEditandoId = null;
-
-    // ====================================
-    // MODAL UPLOAD
-    // ====================================
-    function abrirUpload() {
-      document.getElementById('modalUpload').classList.add('active');
-    }
-
-    function fecharModalUpload() {
-      document.getElementById('modalUpload').classList.remove('active');
-    }
-
-    function fazerUpload(e) {
-      e.preventDefault();
-      
-      const fotos = document.getElementById('uploadFotos').files;
-      const album = document.getElementById('uploadAlbum').value;
-      
-      console.log('Upload de', fotos.length, 'fotos para álbum:', album);
-      
-      // AQUI: POST /api/galeria (FormData com múltiplos arquivos)
-      // Usar FormData e enviar com fetch/axios
-      
-      alert(`✅ Upload iniciado!\n\n${fotos.length} foto(s) para o álbum "${album}"\n\n(No backend: POST /api/galeria com multipart/form-data)`);
-      fecharModalUpload();
-    }
-
-    // ====================================
-    // MODAL EDITAR
-    // ====================================
-    function fecharModalEditar() {
-      document.getElementById('modalEditarFoto').classList.remove('active');
-      fotoEditandoId = null;
-    }
-
-    // ====================================
-    // CRUD - READ (Ver foto)
-    // ====================================
-    function verFoto(id) {
-      console.log('Visualizando foto ID:', id);
-      // AQUI: Abrir lightbox ou modal com imagem em tamanho real
-      alert('🖼️ Visualizar foto #' + id + '\n\n(Abrir modal com imagem em alta resolução)');
-    }
-
-    // ====================================
-    // CRUD - UPDATE (Editar) ✅ NOVO
-    // ====================================
-    function editarFoto(id) {
-      console.log('Editando foto ID:', id);
-      fotoEditandoId = id;
-      
-      // AQUI: GET /api/galeria/:id para carregar dados
-      document.getElementById('modalEditarFoto').classList.add('active');
-      
-      // Simulação de dados carregados (no backend real, vem da API)
-      document.getElementById('fotoTitulo').value = 'Sopa Solidária 2026';
-      document.getElementById('fotoDescricao').value = 'Distribuição de refeições no sábado';
-      document.getElementById('fotoAlbum').value = 'sopa';
-      document.getElementById('fotoData').value = '2026-03-15';
-      document.getElementById('fotoCreditos').value = 'João Silva';
-    }
-
-    function salvarEdicaoFoto(e) {
-      e.preventDefault();
-      
-      const dados = {
-        titulo: document.getElementById('fotoTitulo').value,
-        descricao: document.getElementById('fotoDescricao').value,
-        album: document.getElementById('fotoAlbum').value,
-        data: document.getElementById('fotoData').value,
-        creditos: document.getElementById('fotoCreditos').value
-      };
-
-      const novaImagem = document.getElementById('fotoImagem').files[0];
-      
-      console.log('Atualizando foto ID:', fotoEditandoId, dados);
-      
-      if (novaImagem) {
-        console.log('Nova imagem:', novaImagem.name);
-        // AQUI: PUT /api/galeria/:id com FormData (incluindo nova imagem)
-      } else {
-        // AQUI: PUT /api/galeria/:id apenas com dados JSON (sem trocar imagem)
-      }
-      
-      alert('✅ Foto atualizada com sucesso!\n\n(No backend: PUT /api/galeria/' + fotoEditandoId + ')');
-      fecharModalEditar();
-    }
-
-    // ====================================
-    // CRUD - DELETE
-    // ====================================
-    function excluirFoto(id) {
-      if (confirm('⚠️ Tem certeza que deseja excluir esta foto?\n\nEsta ação não pode ser desfeita.')) {
-        console.log('Excluindo foto ID:', id);
-        
-        // AQUI: DELETE /api/galeria/:id
-        
-        const elemento = document.querySelector(`div[data-id="${id}"]`);
-        if (elemento) {
-          elemento.style.opacity = '0.3';
-          elemento.style.transition = 'opacity 0.3s';
-          
-          setTimeout(() => {
-            elemento.remove();
-            alert('✅ Foto excluída com sucesso!\n\n(No backend: DELETE /api/galeria/' + id + ')');
-          }, 300);
-        }
-      }
-    }
-
-    // ====================================
-    // NOTAS PARA BACKEND
-    // ====================================
-    /*
-    
-    API REST:
-    
-    GET    /api/galeria           → Listar todas as fotos
-    GET    /api/galeria/:id       → Buscar uma foto
-    POST   /api/galeria           → Upload de fotos (multipart/form-data)
-    PUT    /api/galeria/:id       → Atualizar foto (dados + opcionalmente nova imagem)
-    DELETE /api/galeria/:id       → Excluir foto
-    
-    BANCO DE DADOS - Tabela galeria:
-    - id (INTEGER, PRIMARY KEY, AUTO_INCREMENT)
-    - titulo (VARCHAR(255), NOT NULL)
-    - descricao (TEXT)
-    - album (VARCHAR(100))
-    - data_foto (DATE)
-    - creditos (VARCHAR(255))
-    - arquivo_nome (VARCHAR(255), NOT NULL)
-    - arquivo_url (VARCHAR(500), NOT NULL)
-    - arquivo_tamanho (INTEGER) // em bytes
-    - created_at (TIMESTAMP)
-    - updated_at (TIMESTAMP)
-    
-    UPLOAD DE ARQUIVOS:
-    - Usar Multer (Node.js) ou similar
-    - Salvar em: /uploads/galeria/ ou Cloud (AWS S3, Cloudinary)
-    - Gerar thumbnail automático (Sharp, Jimp)
-    - Validar tipo (image/jpeg, image/png, image/webp)
-    - Validar tamanho máximo (5MB)
-    - Renomear arquivo (timestamp + UUID)
-    
-    */
-  </script>
 
   <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
        MENU HAMBURGER ADMIN MOBILE

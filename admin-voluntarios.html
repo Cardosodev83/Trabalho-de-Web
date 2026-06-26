@@ -9,6 +9,9 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Public+Sans:wght@400;500;600&display=swap">
+
+  <script src="js/admin-voluntarios.js" defer></script>
+
 </head>
 <body class="admin-body">
   
@@ -79,9 +82,13 @@
         <p class="admin-page-subtitle">Visualize e gerencie todos os voluntários cadastrados</p>
       </div>
       <div class="admin-header-actions">
-        <button class="admin-btn admin-btn-outline">
+        <button id="btn-exportar" class="admin-btn admin-btn-outline">
           <span class="material-symbols-rounded">download</span>
           Exportar Lista
+        </button>
+        <button id="btn-criar-voluntario" class="admin-btn" style="background: var(--secondary); color: white;">
+          <span class="material-symbols-rounded">add</span>
+          Novo Voluntário
         </button>
       </div>
     </header>
@@ -94,7 +101,7 @@
           <span class="admin-stat-trend positive">+8</span>
         </div>
         <div class="admin-stat-body">
-          <h3>48</h3>
+          <h3 id="total-voluntarios">48</h3>
           <p>Total de Voluntários</p>
         </div>
       </div>
@@ -164,7 +171,7 @@
               <th>Ações</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="tabela-voluntarios-body">
             
             <!-- VOLUNTÁRIO 1 -->
             <tr data-id="1">
@@ -578,6 +585,184 @@
     
   });
   </script>
+
+
+  <!-- Modal Criar/Editar Voluntário -->
+  <div class="admin-modal" id="modal-voluntario">
+    <div class="admin-modal-overlay" id="modal-overlay"></div>
+    <div class="admin-modal-container">
+      <div class="admin-modal-header">
+        <h2 id="modal-titulo">Cadastrar Novo Voluntário</h2>
+        <button class="admin-modal-close" id="fechar-modal">
+          <span class="material-symbols-rounded">close</span>
+        </button>
+      </div>
+      
+      <div class="admin-modal-body">
+        <form id="form-voluntario">
+          
+          <div class="admin-form-group">
+            <label class="admin-form-label">
+              <span class="material-symbols-rounded">person</span>
+              Nome Completo *
+            </label>
+            <input 
+              type="text" 
+              id="nome" 
+              name="nome" 
+              class="admin-form-input" 
+              placeholder="Nome completo do voluntário"
+              required
+            >
+          </div>
+
+          <div class="admin-form-row">
+            <div class="admin-form-group">
+              <label class="admin-form-label">
+                <span class="material-symbols-rounded">email</span>
+                Email *
+              </label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                class="admin-form-input" 
+                placeholder="email@exemplo.com"
+                required
+              >
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-form-label">
+                <span class="material-symbols-rounded">phone</span>
+                Telefone *
+              </label>
+              <input 
+                type="tel" 
+                id="telefone" 
+                name="telefone" 
+                class="admin-form-input" 
+                placeholder="(00) 00000-0000"
+                required
+              >
+            </div>
+          </div>
+
+          <div class="admin-form-row">
+            <div class="admin-form-group">
+              <label class="admin-form-label">
+                <span class="material-symbols-rounded">badge</span>
+                CPF
+              </label>
+              <input 
+                type="text" 
+                id="cpf" 
+                name="cpf" 
+                class="admin-form-input" 
+                placeholder="000.000.000-00"
+              >
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-form-label">
+                <span class="material-symbols-rounded">cake</span>
+                Data de Nascimento
+              </label>
+              <input 
+                type="date" 
+                id="data_nascimento" 
+                name="data_nascimento" 
+                class="admin-form-input"
+              >
+            </div>
+          </div>
+
+          <div class="admin-form-group">
+            <label class="admin-form-label">
+              <span class="material-symbols-rounded">interests</span>
+              Áreas de Interesse
+            </label>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-top: 0.5rem;">
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="checkbox" name="areas_interesse" value="Distribuição de Alimentos">
+                <span>Distribuição de Alimentos</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="checkbox" name="areas_interesse" value="Ensino e Educação">
+                <span>Ensino e Educação</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="checkbox" name="areas_interesse" value="Arrecadação de Doações">
+                <span>Arrecadação de Doações</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="checkbox" name="areas_interesse" value="Atividades Espirituais">
+                <span>Atividades Espirituais</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="checkbox" name="areas_interesse" value="Eventos e Organização">
+                <span>Eventos e Organização</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                <input type="checkbox" name="areas_interesse" value="Comunicação e Marketing">
+                <span>Comunicação e Marketing</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="admin-form-group">
+            <label class="admin-form-label">
+              <span class="material-symbols-rounded">schedule</span>
+              Disponibilidade
+            </label>
+            <textarea 
+              id="disponibilidade" 
+              name="disponibilidade" 
+              class="admin-form-input" 
+              rows="3"
+              placeholder="Dias da semana e horários disponíveis..."
+            ></textarea>
+          </div>
+
+          <div class="admin-form-group">
+            <label class="admin-form-label">
+              <span class="material-symbols-rounded">toggle_on</span>
+              Status
+            </label>
+            <select id="status" name="status" class="admin-form-input">
+              <option value="ativo">Ativo</option>
+              <option value="inativo">Inativo</option>
+            </select>
+          </div>
+
+          <div class="admin-form-group">
+            <label class="admin-form-label">
+              <span class="material-symbols-rounded">note</span>
+              Observações
+            </label>
+            <textarea 
+              id="observacoes" 
+              name="observacoes" 
+              class="admin-form-input" 
+              rows="3"
+              placeholder="Informações adicionais sobre o voluntário..."
+            ></textarea>
+          </div>
+
+          <div class="admin-modal-footer">
+            <button type="button" onclick="fecharModal()" class="admin-btn admin-btn-outline">
+              Cancelar
+            </button>
+            <button type="submit" class="admin-btn" style="background: var(--secondary); color: white;">
+              <span class="material-symbols-rounded">check</span>
+              Salvar Voluntário
+            </button>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>

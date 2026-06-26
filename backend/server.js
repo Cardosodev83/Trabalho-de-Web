@@ -3,52 +3,74 @@ const express = require('express');
 const cors = require('cors');
 const { sequelize } = require('./models');
 
-// Importar rotas
-const projetoRoutes = require('./routes/projetoRoutes');
-const doacaoRoutes = require('./routes/doacaoRoutes');
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middlewares
-app.use(cors()); // Permite requisições do front-end
-app.use(express.json()); // Parse de JSON
-app.use(express.urlencoded({ extended: true })); // Parse de form-data
+// ========================================
+// MIDDLEWARES
+// ========================================
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Rota de teste
-app.get('/', (req, res) => {
-  res.json({
-    message: 'API Casa do Caminho está funcionando!',
-    version: '1.0.0',
-    endpoints: {
-      projetos: '/api/projetos',
-      doacoes: '/api/doacoes'
-    }
-  });
-});
 
-// Rotas da API
+app.use(express.static('../'));
+
+// ========================================
+// IMPORTAR ROTAS
+// ========================================
+const projetoRoutes = require('./routes/projetoRoutes');
+const doacaoRoutes = require('./routes/doacaoRoutes');
+const voluntarioRoutes = require('./routes/voluntarioRoutes');
+const depoimentoRoutes = require('./routes/depoimentoRoutes');
+app.use('/api/depoimentos', depoimentoRoutes);
+const eventoRoutes = require('./routes/eventoRoutes');
+app.use('/api/eventos', eventoRoutes);
+
+const galeriaRoutes = require('./routes/galeriaRoutes');
+app.use('/api/galeria', galeriaRoutes);
+
+// ========================================
+// REGISTRAR ROTAS
+// ========================================
 app.use('/api/projetos', projetoRoutes);
 app.use('/api/doacoes', doacaoRoutes);
+app.use('/api/voluntarios', voluntarioRoutes);
 
-// Rota 404
+// ========================================
+// ROTA DE TESTE
+// ========================================
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'API funcionando!' });
+});
+
+// ========================================
+// ROTA 404 - DEVE FICAR NO FINAL
+// ========================================
 app.use((req, res) => {
   res.status(404).json({
     success: false,
-    message: 'Rota não encontrada'
+    code: 'NOT_FOUND',
+    type: 'NotFoundError',
+    message: 'Route not found',
+    route: req.path
   });
 });
 
-// Testar conexão com banco e iniciar servidor
+// ========================================
+// INICIAR SERVIDOR
+// ========================================
 sequelize.authenticate()
   .then(() => {
     console.log('✅ Conexão com banco de dados estabelecida!');
     
     app.listen(PORT, () => {
       console.log(`🚀 Servidor rodando na porta ${PORT}`);
-      console.log(`📡 Acesse: http://localhost:${PORT}`);
+      console.log(`📍 Acesse: http://localhost:${PORT}`);
     });
   })
   .catch(err => {
-    console.error('❌ Erro ao conectar com o banco:', err);
+    console.error('❌ Erro ao conectar com o banco de dados:', err);
   });
+
+module.exports = app;
